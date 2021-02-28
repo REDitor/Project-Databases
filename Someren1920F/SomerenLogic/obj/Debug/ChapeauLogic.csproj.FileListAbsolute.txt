@@ -1,0 +1,9 @@
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\bin\Debug\ChapeauLogic.dll
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\bin\Debug\ChapeauLogic.pdb
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\bin\Debug\ChapeauDAL.dll
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\bin\Debug\ChapeauModel.dll
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\bin\Debug\ChapeauDAL.pdb
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\bin\Debug\ChapeauModel.pdb
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\obj\Debug\ChapeauLogic.csprojResolveAssemblyReference.cache
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\obj\Debug\ChapeauLogic.dll
+C:\Users\Thijs Otter\Desktop\INholland\Project Databases\1819 Project Architectuur\ChapeauSolution-Group3\ChapeauLogic\obj\Debug\ChapeauLogic.pdb
