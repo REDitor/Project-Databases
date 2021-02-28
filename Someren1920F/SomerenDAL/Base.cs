@@ -7,15 +7,12 @@ namespace SomerenDAL
 {
     public abstract class Base
     {
-        private SqlDataAdapter adapter;
-        private SqlConnection conn;
+        protected SqlDataAdapter adapter;
+        protected SqlConnection conn;
         public Base()
         {
-            // DO NOT FORGET TO INSERT YOUR CONNECTION STRING NAMED 'SOMEREN DATABASE' IN YOUR APP.CONFIG!!
-            /*
-                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString);
-                adapter = new SqlDataAdapter();
-             */
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SomerenDatabase"].ConnectionString);
+            adapter = new SqlDataAdapter();
         }
 
         protected SqlConnection OpenConnection()
@@ -64,7 +61,7 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-               // Print.ErrorLog(e);
+                // Print.ErrorLog(e);
                 throw;
             }
             finally
@@ -94,7 +91,7 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-               // Print.ErrorLog(e);
+                // Print.ErrorLog(e);
                 return null;
                 throw;
             }

@@ -16,3 +16,14 @@ C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\S
 C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenLogic\bin\Debug\SomerenModel.dll
 C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenLogic\bin\Debug\SomerenDAL.pdb
 C:\Users\Thijs Otter\Desktop\INholland\Project Databases\2018-2019\Someren1819\SomerenLogic\bin\Debug\SomerenModel.pdb
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\bin\Debug\SomerenLogic.dll
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\bin\Debug\SomerenLogic.pdb
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\bin\Debug\SomerenDAL.dll
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\bin\Debug\SomerenModel.dll
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\bin\Debug\SomerenDAL.pdb
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\bin\Debug\SomerenModel.pdb
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csprojAssemblyReference.cache
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.dll
+D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.pdb
