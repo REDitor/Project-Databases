@@ -84,13 +84,14 @@ namespace SomerenUI
                 List<Lecturer> lecturerList = lectService.Getlecturers();
 
                 // clear the listview before filling it again
-                lvlecturer.Clear();
+                lvlecturer.Items.Clear();
                 
                 foreach (SomerenModel.Lecturer l in lecturerList)
                 {
 
-                    ListViewItem li = new ListViewItem(new[] {l.firstName,l.lastName,l.specialisation });
-                    lvlecturer.Items.Add(li);
+                    //ListViewItem li = new ListViewItem(new[] {l.firstName,l.lastName,l.specialisation });
+                    lvlecturer.Items.Add(new ListViewItem(new string[] { l.firstName, l.lastName, l.specialisation }));
+                    //lvlecturer.Items.Add(li);
                 }
             }
         }
@@ -128,6 +129,16 @@ namespace SomerenUI
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Lecturers");
+        }
+
+        private void lvlecturer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
