@@ -53,6 +53,7 @@
             this.firstname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lastname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.specialisation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -83,7 +84,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -236,6 +237,7 @@
             // lvlecturer
             // 
             this.lvlecturer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.firstname,
             this.lastname,
             this.specialisation});
@@ -262,6 +264,10 @@
             // 
             this.specialisation.Text = "Specialisation";
             this.specialisation.Width = 202;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
             // 
             // SomerenUI
             // 
@@ -319,6 +325,7 @@
         private System.Windows.Forms.ColumnHeader firstname;
         private System.Windows.Forms.ColumnHeader lastname;
         private System.Windows.Forms.ColumnHeader specialisation;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
 

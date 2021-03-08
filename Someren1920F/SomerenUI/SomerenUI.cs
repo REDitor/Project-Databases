@@ -91,7 +91,7 @@ namespace SomerenUI
                 foreach (SomerenModel.Lecturer l in lecturerList)
                 {
 
-                    ListViewItem li = new ListViewItem(new[] {l.firstName,l.lastName,l.specialisation });
+                    ListViewItem li = new ListViewItem(new[] {l.number.ToString(),l.firstName,l.lastName,l.specialisation });
                     lvlecturer.Items.Add(li);
                 }
             }
