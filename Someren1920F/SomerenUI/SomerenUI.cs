@@ -74,6 +74,8 @@ namespace SomerenUI
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
 
+
+
                 // show lecturers
                 pnl_lecturer.Show();
                 
@@ -89,9 +91,8 @@ namespace SomerenUI
                 foreach (SomerenModel.Lecturer l in lecturerList)
                 {
 
-                    //ListViewItem li = new ListViewItem(new[] {l.firstName,l.lastName,l.specialisation });
-                    lvlecturer.Items.Add(new ListViewItem(new string[] { l.firstName, l.lastName, l.specialisation }));
-                    //lvlecturer.Items.Add(li);
+                    ListViewItem li = new ListViewItem(new[] {l.firstName,l.lastName,l.specialisation });
+                    lvlecturer.Items.Add(li);
                 }
             }
         }
