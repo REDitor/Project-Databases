@@ -22,3 +22,12 @@ D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\So
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.dll
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.pdb
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\bin\Debug\SomerenDAL.dll
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\bin\Debug\SomerenDAL.pdb
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\bin\Debug\SomerenModel.dll
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\bin\Debug\SomerenModel.pdb
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csprojAssemblyReference.cache
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.dll
+D:\InHolland\Project-Databases\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.pdb

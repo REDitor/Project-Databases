@@ -14,3 +14,9 @@ D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\So
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenModel\obj\Debug\SomerenModel.dll
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenModel\obj\Debug\SomerenModel.pdb
+D:\InHolland\Project-Databases\Someren1920F\SomerenModel\bin\Debug\SomerenModel.dll
+D:\InHolland\Project-Databases\Someren1920F\SomerenModel\bin\Debug\SomerenModel.pdb
+D:\InHolland\Project-Databases\Someren1920F\SomerenModel\obj\Debug\SomerenModel.csprojAssemblyReference.cache
+D:\InHolland\Project-Databases\Someren1920F\SomerenModel\obj\Debug\SomerenModel.csproj.CoreCompileInputs.cache
+D:\InHolland\Project-Databases\Someren1920F\SomerenModel\obj\Debug\SomerenModel.dll
+D:\InHolland\Project-Databases\Someren1920F\SomerenModel\obj\Debug\SomerenModel.pdb
