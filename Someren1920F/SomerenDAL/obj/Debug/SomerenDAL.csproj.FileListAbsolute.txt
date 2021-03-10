@@ -22,3 +22,22 @@ D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\So
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.dll
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\SomerenDAL.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\SomerenDAL.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\SomerenModel.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Data.SqlClient.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Security.AccessControl.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Security.Permissions.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Security.Principal.Windows.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\SomerenModel.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Data.SqlClient.xml
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Security.AccessControl.xml
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Security.Permissions.xml
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\bin\Debug\System.Security.Principal.Windows.xml
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csprojAssemblyReference.cache
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CoreCompileInputs.cache
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.csproj.CopyComplete
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenDAL\obj\Debug\SomerenDAL.pdb

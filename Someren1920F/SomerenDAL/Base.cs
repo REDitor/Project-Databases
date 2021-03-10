@@ -24,7 +24,7 @@ namespace SomerenDAL
             return conn;
         }
 
-        private void CloseConnection()
+        protected void CloseConnection()
         {
             conn.Close();
         }
@@ -92,6 +92,7 @@ namespace SomerenDAL
             catch (SqlException e)
             {
                 // Print.ErrorLog(e);
+                return null;
                 throw;
             }
             finally

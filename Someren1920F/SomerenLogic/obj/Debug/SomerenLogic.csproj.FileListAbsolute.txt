@@ -27,3 +27,14 @@ D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\So
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.dll
 D:\OneDrive - Hogeschool Inholland\Year 1\Term 3\Project Databases\Repository\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\bin\Debug\SomerenLogic.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\bin\Debug\SomerenLogic.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\bin\Debug\SomerenDAL.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\bin\Debug\SomerenModel.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\bin\Debug\SomerenDAL.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\bin\Debug\SomerenModel.pdb
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csprojAssemblyReference.cache
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csproj.CoreCompileInputs.cache
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.csproj.CopyComplete
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.dll
+D:\sql materials\Project-Databases-taher\Someren1920F\SomerenLogic\obj\Debug\SomerenLogic.pdb
