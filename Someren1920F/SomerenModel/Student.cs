@@ -8,6 +8,8 @@ namespace SomerenModel
 {
     public class Student
     { 
+        //testing commit repository
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Origin { get; set; }
