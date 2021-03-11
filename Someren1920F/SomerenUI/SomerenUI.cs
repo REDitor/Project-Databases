@@ -22,60 +22,112 @@ namespace SomerenUI
 
         private void SomerenUI_Load(object sender, EventArgs e)
         {
-            showPanel("pnl_Dashboard");
+            showPanel("Dashboard");
         }
 
         private void showPanel(string panelName)
         {
 
-            switch(panelName)
+            if (panelName == "Dashboard")
             {
-                case "pnl_Dashboard":
-                    
-                    pnl_Dashboard.Show();
-                    img_Dashboard.Show();
 
-                    pnl_Students.Hide();
-                    room_panel.Hide();
+                // hide all other panels
+                pnl_Students.Hide();
+                pnl_lecturer.Hide();
 
-                
-               
-                    break;
-                case "pnl_Students":
-            
+                // show dashboard
+                pnl_Dashboard.Show();
+                img_Dashboard.Show();
+            }
+            else if (panelName == "Students")
+            {
                 // hide all other panels
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
+                pnl_lecturer.Hide();
                 room_panel.Hide();
 
-                    // show students
-                pnl_Students.Show();
 
-                
+                // show students
+                 pnl_Students.Show();
+
+                // clear the listview before filling it again
+                listViewStudents.Clear();
 
                 // fill the students listview within the students panel with a list of students
                 SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
                 List<Student> studentList = studService.GetStudents();
 
-                // clear the listview before filling it again
-                listViewStudents.Clear();
+                ColumnHeader id = new ColumnHeader();
+                id.Text = "StudentID";
+
+                ColumnHeader firstName = new ColumnHeader();
+                firstName.Text = "FirstName";
+
+                ColumnHeader lastName = new ColumnHeader();
+                lastName.Text = "LastName";
+
+                ColumnHeader origin = new ColumnHeader();
+                origin.Text = "Origin";
+
+                ColumnHeader dateOfBirth = new ColumnHeader();
+                dateOfBirth.Text = "BirthDate";
+
+
+
+                listViewStudents.Columns.AddRange(new ColumnHeader[] { id, firstName, lastName, origin, dateOfBirth });
+
 
                 foreach (SomerenModel.Student s in studentList)
                 {
-
-                    ListViewItem li = new ListViewItem(s.Name);
+                    ListViewItem li = new ListViewItem(s.StudentId.ToString(), 0);
+                    li.SubItems.Add(s.FirstName);
+                    li.SubItems.Add(s.LastName);
+                    li.SubItems.Add(s.Origin);
+                    li.SubItems.Add(s.BirthDate.ToString("dd-MM-yyyy"));
                     listViewStudents.Items.Add(li);
                 }
-                    break;
 
-                case "room_panel":
-            
+                listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+            else if (panelName == "Lecturers")
+            {
+                // hide all other panels
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+
+
+
+                // show lecturers
+                pnl_lecturer.Show();
+                
+
+
+                // fill the students listview within the students panel with a list of students
+                SomerenLogic.lecturer_Service lectService = new SomerenLogic.lecturer_Service();
+                List<Lecturer> lecturerList = lectService.Getlecturers();
+
+                // clear the listview before filling it again
+                lvlecturer.Items.Clear();
+                
+                foreach (SomerenModel.Lecturer l in lecturerList)
+                {
+
+                    ListViewItem li = new ListViewItem(new[] {l.number.ToString(),l.firstName,l.lastName,l.specialisation });
+                    lvlecturer.Items.Add(li);
+                }
+                    
+
+                else if (panelName == "room_panel")
+                { 
                 //hide other panels
 
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
-
+                pnl_lecturer.Hide();
 
                 //show rooms
 
@@ -111,7 +163,7 @@ namespace SomerenUI
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("pnl_Dashboard");
+                showPanel("Dashboard");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,10 +171,6 @@ namespace SomerenUI
             Application.Exit();
         }
 
-        private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            showPanel("pnl_Dashboard");
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -136,7 +184,7 @@ namespace SomerenUI
 
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("pnl_Students");
+            showPanel("Students");
         }
 
         private void RoomsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,6 +193,21 @@ namespace SomerenUI
         }
 
         private void Label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Lecturers");
+        }
+
+        private void lvlecturer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
