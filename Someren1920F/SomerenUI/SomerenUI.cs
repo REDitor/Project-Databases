@@ -33,6 +33,7 @@ namespace SomerenUI
 
                 // hide all other panels
                 pnl_Students.Hide();
+                pnl_lecturer.Hide();
 
                 // show dashboard
                 pnl_Dashboard.Show();
@@ -43,9 +44,11 @@ namespace SomerenUI
                 // hide all other panels
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
+                pnl_lecturer.Hide();
+
 
                 // show students
-                pnl_Students.Show();
+                 pnl_Students.Show();
 
                 // clear the listview before filling it again
                 listViewStudents.Clear();
@@ -87,6 +90,34 @@ namespace SomerenUI
                 listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
+            else if (panelName == "Lecturers")
+            {
+                // hide all other panels
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+
+
+
+                // show lecturers
+                pnl_lecturer.Show();
+                
+
+
+                // fill the students listview within the students panel with a list of students
+                SomerenLogic.lecturer_Service lectService = new SomerenLogic.lecturer_Service();
+                List<Lecturer> lecturerList = lectService.Getlecturers();
+
+                // clear the listview before filling it again
+                lvlecturer.Items.Clear();
+                
+                foreach (SomerenModel.Lecturer l in lecturerList)
+                {
+
+                    ListViewItem li = new ListViewItem(new[] {l.number.ToString(),l.firstName,l.lastName,l.specialisation });
+                    lvlecturer.Items.Add(li);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,6 +148,21 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Lecturers");
+        }
+
+        private void lvlecturer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
