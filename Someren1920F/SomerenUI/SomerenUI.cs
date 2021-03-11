@@ -50,22 +50,45 @@ namespace SomerenUI
                 // show students
                  pnl_Students.Show();
 
-
-
+                // clear the listview before filling it again
+                listViewStudents.Clear();
 
                 // fill the students listview within the students panel with a list of students
                 SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
                 List<Student> studentList = studService.GetStudents();
 
-                // clear the listview before filling it again
-                listViewStudents.Clear();
+                ColumnHeader id = new ColumnHeader();
+                id.Text = "StudentID";
+
+                ColumnHeader firstName = new ColumnHeader();
+                firstName.Text = "FirstName";
+
+                ColumnHeader lastName = new ColumnHeader();
+                lastName.Text = "LastName";
+
+                ColumnHeader origin = new ColumnHeader();
+                origin.Text = "Origin";
+
+                ColumnHeader dateOfBirth = new ColumnHeader();
+                dateOfBirth.Text = "BirthDate";
+
+
+
+                listViewStudents.Columns.AddRange(new ColumnHeader[] { id, firstName, lastName, origin, dateOfBirth });
+
 
                 foreach (SomerenModel.Student s in studentList)
                 {
-
-                    ListViewItem li = new ListViewItem(s.Name);
+                    ListViewItem li = new ListViewItem(s.StudentId.ToString(), 0);
+                    li.SubItems.Add(s.FirstName);
+                    li.SubItems.Add(s.LastName);
+                    li.SubItems.Add(s.Origin);
+                    li.SubItems.Add(s.BirthDate.ToString("dd-MM-yyyy"));
                     listViewStudents.Items.Add(li);
                 }
+
+                listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             else if (panelName == "Lecturers")
             {
@@ -99,7 +122,7 @@ namespace SomerenUI
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           //
+            //
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
