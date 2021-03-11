@@ -181,6 +181,79 @@
             this.studentName,
             this.studentDOB});
             this.listViewStudents.HideSelection = false;
+            this.listViewStudents.Location = new System.Drawing.Point(21, 52);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewStudents.Name = "listViewStudents";
+            this.listViewStudents.Size = new System.Drawing.Size(1020, 377);
+            this.listViewStudents.TabIndex = 5;
+            this.listViewStudents.UseCompatibleStateImageBehavior = false;
+            // 
+            // studentID
+            // 
+            this.studentID.Text = "ID";
+            // 
+            // studentName
+            // 
+            this.studentName.Text = "Name";
+            // 
+            // studentDOB
+            // 
+            this.studentDOB.Text = "Date of Birth";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1073, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 151);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbl_Students
+            // 
+            this.lbl_Students.AutoSize = true;
+            this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Students.Location = new System.Drawing.Point(13, 12);
+            this.lbl_Students.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Students.Name = "lbl_Students";
+            this.lbl_Students.Size = new System.Drawing.Size(129, 33);
+            this.lbl_Students.TabIndex = 3;
+            this.lbl_Students.Text = "Students";
+            // 
+            // pnl_lecturer
+            // 
+            this.pnl_lecturer.Controls.Add(this.lvlecturer);
+            this.pnl_lecturer.Location = new System.Drawing.Point(15, 32);
+            this.pnl_lecturer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_lecturer.Name = "pnl_lecturer";
+            this.pnl_lecturer.Size = new System.Drawing.Size(1247, 491);
+            this.pnl_lecturer.TabIndex = 6;
+            // 
+            // lvlecturer
+            // 
+            this.lvlecturer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.firstname,
+            this.lastname,
+            this.specialisation});
+            this.lvlecturer.GridLines = true;
+            this.lvlecturer.HideSelection = false;
+            this.lvlecturer.Location = new System.Drawing.Point(4, 4);
+            this.lvlecturer.Name = "lvlecturer";
+            this.lvlecturer.Size = new System.Drawing.Size(1240, 484);
+            this.lvlecturer.TabIndex = 0;
+            this.lvlecturer.UseCompatibleStateImageBehavior = false;
+            this.lvlecturer.View = System.Windows.Forms.View.Details;
+            // 
+            // firstname
+            // 
+            this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.studentID,
+            this.studentName,
+            this.studentDOB});
+            this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(766, 307);
