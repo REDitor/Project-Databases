@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Collections.Generic;
 
 namespace SomerenDAL
 {
@@ -21,6 +22,8 @@ namespace SomerenDAL
             {
                 conn.Open();
             }
+
+            
             return conn;
         }
 
@@ -91,7 +94,6 @@ namespace SomerenDAL
             }
             catch (SqlException e)
             {
-                // Print.ErrorLog(e);
                 return null;
                 throw;
             }

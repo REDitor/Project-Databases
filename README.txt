@@ -23,6 +23,7 @@ SomerenUI --> SomerenUI.cs(code):
 EXTRA:
 	- Added 'dateOfBirth' property to dbo.student within the database using an SQL query.
 	- Updated 'studentID' for student 'Fehri Imen'
+    - Added Lines of code to lecturer panel for autoresizing the columns
 
 Report Assignment 2 (Variant B):
 ===========================================================================================================

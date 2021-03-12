@@ -27,7 +27,6 @@ namespace SomerenUI
 
         private void showPanel(string panelName)
         {
-
             if (panelName == "Dashboard")
             {
 
@@ -118,6 +117,9 @@ namespace SomerenUI
                     ListViewItem li = new ListViewItem(new[] { l.number.ToString(), l.firstName, l.lastName, l.specialisation });
                     lvlecturer.Items.Add(li);
                 }
+
+                lvlecturer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lvlecturer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
 
 
