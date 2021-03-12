@@ -1,0 +1,18 @@
+Assignment 2 (Division of variants/individual tasks):
+=====================================================
+Variant A: 
+Name: Harks, Sander
+Student Number: 650397
+Class: IT1B
+
+Variant B: 
+Name: Fehri, Imen
+Student Number: 647188
+Class: IT1B
+
+Variant C: 
+Name: Taher, Taher
+Student Number: 650244
+Class: IT1B
+
+More Information on the individual tasks performed can be found within the README.txt file inside our repository

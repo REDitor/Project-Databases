@@ -161,6 +161,9 @@ namespace SomerenUI
 
                     listViewRoom.Items.Add(Item);
                 }
+
+                listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                
             }
         }
 

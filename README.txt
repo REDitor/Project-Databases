@@ -1,4 +1,4 @@
-Report Assignment 2 (Variant A):
+Report Assignment 2 (Variant A, by Sander):
 ============================================================================================================
 SomerenDAL --> Student_DAO.cs:
 	- Changed querry string to retrieve the data needed (not using SELECT *).
@@ -25,7 +25,7 @@ EXTRA:
 	- Updated 'studentID' for student 'Fehri Imen'
     - Added Lines of code to lecturer panel for autoresizing the columns
 
-Report Assignment 2 (Variant B):
+Report Assignment 2 (Variant B, by Taher):
 ===========================================================================================================
 Write your changes here:
 //SomerenUI.cs
@@ -217,3 +217,14 @@ commented the demented code
             return dataTable;
         }
     }
+
+Report Assignment 2 (Variant C, by Imen):
+============================================================================================================================
+In this part of the project I was responsible for variant B, 
+I was creating the lecturer table in the data base, 
+by implementing some codes ( taking examples from student one ) 
+and making sure that the menu button works correctly, 
+ also by connecting  it to the data base,
+ showing the data from the database and finally some design to the table and creating the panels ...
+ My work was mixed by typing some SQL QUERIES and some C# programming structures 
+to develop a part of Someren application that displays a list of lecturer.
