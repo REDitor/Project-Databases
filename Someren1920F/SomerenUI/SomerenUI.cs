@@ -212,5 +212,10 @@ namespace SomerenUI
         {
 
         }
+
+        private void lvlecturer_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
