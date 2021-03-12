@@ -15,9 +15,6 @@ SomerenModel --> Student.cs:
 SomerenUI --> SomerenUI.cs(Form Design):
 	- Changed property 'view' to show details (for displaying columns).
 
-VARIANT B (by Taher)
-====================================================================================
-
 SomerenUI --> SomerenUI.cs(code):
 	- Added ColumnHeader Objects for each required column header.
 	- Added SubItems to tthe ListViewItems with 'li.SubItems.Add(column)'
@@ -26,7 +23,9 @@ SomerenUI --> SomerenUI.cs(code):
 EXTRA:
 	- Added 'dateOfBirth' property to dbo.student within the database using an SQL query.
 	- Updated 'studentID' for student 'Fehri Imen'
-	
+
+Report Assignment 2 (Variant B):
+===========================================================================================================
 Write your changes here:
 //SomerenUI.cs
 added panel room_panel
