@@ -26,7 +26,7 @@ namespace SomerenDAL
                     DrinkID = (int)dr["drinkID"],
                     DrinkName = (string)(dr["drinkname"]),
                     VATID = (int)dr["vatID"],
-                    DrinkPrice = (int)dr["drinkPrice"],
+                    DrinkPrice = (float)dr["drinkPrice"],
                     StockAmount = (int)dr["stockAmount"],
                     SalesCount = (int)dr["salesCount"]
                 };
