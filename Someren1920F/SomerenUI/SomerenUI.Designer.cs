@@ -49,30 +49,43 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
             this.pnl_lecturer = new System.Windows.Forms.Panel();
-            this.room_panel = new System.Windows.Forms.Panel();
-            this.listViewRoom = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lvlecturer = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pnl_Room = new System.Windows.Forms.Panel();
+            this.listViewRoom = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.firstname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lastname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.specialisation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnl_Drinks = new System.Windows.Forms.Panel();
+            this.listViewDrinks = new System.Windows.Forms.ListView();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblDrinks = new System.Windows.Forms.Label();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             this.pnl_Students.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_lecturer.SuspendLayout();
-            this.room_panel.SuspendLayout();
+            this.pnl_Room.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnl_Drinks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // img_Dashboard
@@ -92,7 +105,8 @@
             this.studentsToolStripMenuItem,
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
-            this.roomsToolStripMenuItem});
+            this.roomsToolStripMenuItem,
+            this.drinksToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -246,15 +260,59 @@
             this.pnl_lecturer.Size = new System.Drawing.Size(935, 399);
             this.pnl_lecturer.TabIndex = 6;
             // 
-            // room_panel
+            // label2
             // 
-            this.room_panel.Controls.Add(this.listViewRoom);
-            this.room_panel.Controls.Add(this.pictureBox2);
-            this.room_panel.Controls.Add(this.label1);
-            this.room_panel.Location = new System.Drawing.Point(3, 20);
-            this.room_panel.Name = "room_panel";
-            this.room_panel.Size = new System.Drawing.Size(940, 418);
-            this.room_panel.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 29);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Lecturers";
+            // 
+            // lvlecturer
+            // 
+            this.lvlecturer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lvlecturer.GridLines = true;
+            this.lvlecturer.HideSelection = false;
+            this.lvlecturer.Location = new System.Drawing.Point(3, 55);
+            this.lvlecturer.Margin = new System.Windows.Forms.Padding(2);
+            this.lvlecturer.Name = "lvlecturer";
+            this.lvlecturer.Size = new System.Drawing.Size(783, 342);
+            this.lvlecturer.TabIndex = 0;
+            this.lvlecturer.UseCompatibleStateImageBehavior = false;
+            this.lvlecturer.View = System.Windows.Forms.View.Details;
+            this.lvlecturer.SelectedIndexChanged += new System.EventHandler(this.lvlecturer_SelectedIndexChanged_1);
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "ID";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "First Name";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Last Name";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Specialisation";
+            // 
+            // pnl_Room
+            // 
+            this.pnl_Room.Controls.Add(this.listViewRoom);
+            this.pnl_Room.Controls.Add(this.pictureBox2);
+            this.pnl_Room.Controls.Add(this.label1);
+            this.pnl_Room.Location = new System.Drawing.Point(3, 20);
+            this.pnl_Room.Name = "pnl_Room";
+            this.pnl_Room.Size = new System.Drawing.Size(940, 418);
+            this.pnl_Room.TabIndex = 6;
             // 
             // listViewRoom
             // 
@@ -306,56 +364,92 @@
             this.label1.Text = "Rooms";
             this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
-            // label2
+            // drinksToolStripMenuItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 29);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Lecturers";
+            this.drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
+            this.drinksToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.drinksToolStripMenuItem.Text = "Drinks";
+            this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
             // 
-            // lvlecturer
+            // pnl_Drinks
             // 
-            this.lvlecturer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.lvlecturer.GridLines = true;
-            this.lvlecturer.HideSelection = false;
-            this.lvlecturer.Location = new System.Drawing.Point(3, 55);
-            this.lvlecturer.Margin = new System.Windows.Forms.Padding(2);
-            this.lvlecturer.Name = "lvlecturer";
-            this.lvlecturer.Size = new System.Drawing.Size(783, 342);
-            this.lvlecturer.TabIndex = 0;
-            this.lvlecturer.UseCompatibleStateImageBehavior = false;
-            this.lvlecturer.View = System.Windows.Forms.View.Details;
-            this.lvlecturer.SelectedIndexChanged += new System.EventHandler(this.lvlecturer_SelectedIndexChanged_1);
+            this.pnl_Drinks.Controls.Add(this.listViewDrinks);
+            this.pnl_Drinks.Controls.Add(this.pictureBox3);
+            this.pnl_Drinks.Controls.Add(this.lblDrinks);
+            this.pnl_Drinks.Location = new System.Drawing.Point(3, 20);
+            this.pnl_Drinks.Name = "pnl_Drinks";
+            this.pnl_Drinks.Size = new System.Drawing.Size(940, 418);
+            this.pnl_Drinks.TabIndex = 7;
             // 
-            // columnHeader4
+            // listViewDrinks
             // 
-            this.columnHeader4.Text = "ID";
+            this.listViewDrinks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13});
+            this.listViewDrinks.GridLines = true;
+            this.listViewDrinks.HideSelection = false;
+            this.listViewDrinks.Location = new System.Drawing.Point(16, 42);
+            this.listViewDrinks.Name = "listViewDrinks";
+            this.listViewDrinks.Size = new System.Drawing.Size(766, 307);
+            this.listViewDrinks.TabIndex = 5;
+            this.listViewDrinks.UseCompatibleStateImageBehavior = false;
+            this.listViewDrinks.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader5
+            // columnHeader8
             // 
-            this.columnHeader5.Text = "First Name";
+            this.columnHeader8.Text = "Drink ID";
             // 
-            // columnHeader6
+            // columnHeader9
             // 
-            this.columnHeader6.Text = "Last Name";
+            this.columnHeader9.Text = "Drink Name";
             // 
-            // columnHeader7
+            // columnHeader10
             // 
-            this.columnHeader7.Text = "Specialisation";
+            this.columnHeader10.Text = "VAT Code";
+            this.columnHeader10.Width = 73;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(796, 42);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(75, 41);
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // lblDrinks
+            // 
+            this.lblDrinks.AutoSize = true;
+            this.lblDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDrinks.Location = new System.Drawing.Point(10, 10);
+            this.lblDrinks.Name = "lblDrinks";
+            this.lblDrinks.Size = new System.Drawing.Size(81, 29);
+            this.lblDrinks.TabIndex = 3;
+            this.lblDrinks.Text = "Drinks";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Price";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "In Stock";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Sales Count";
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
-            this.Controls.Add(this.room_panel);
+            this.Controls.Add(this.pnl_Drinks);
+            this.Controls.Add(this.pnl_Room);
             this.Controls.Add(this.pnl_lecturer);
             this.Controls.Add(this.pnl_Students);
             this.Controls.Add(this.pnl_Dashboard);
@@ -376,9 +470,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_lecturer.ResumeLayout(false);
             this.pnl_lecturer.PerformLayout();
-            this.room_panel.ResumeLayout(false);
-            this.room_panel.PerformLayout();
+            this.pnl_Room.ResumeLayout(false);
+            this.pnl_Room.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnl_Drinks.ResumeLayout(false);
+            this.pnl_Drinks.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,7 +511,7 @@
         private System.Windows.Forms.ColumnHeader lastname;
         private System.Windows.Forms.ColumnHeader specialisation;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.Panel room_panel;
+        private System.Windows.Forms.Panel pnl_Room;
         private System.Windows.Forms.ListView listViewRoom;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -424,6 +521,17 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
+        private System.Windows.Forms.Panel pnl_Drinks;
+        private System.Windows.Forms.ListView listViewDrinks;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblDrinks;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
     }
 }
 

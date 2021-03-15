@@ -1,6 +1,6 @@
-﻿using SomerenLogic;
+﻿using System;
+using SomerenLogic;
 using SomerenModel;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,7 +33,8 @@ namespace SomerenUI
                 // hide all other panels
                 pnl_Students.Hide();
                 pnl_lecturer.Hide();
-                room_panel.Hide();
+                pnl_Room.Hide();
+                pnl_Drinks.Hide();
 
                 // show dashboard
                 pnl_Dashboard.Show();
@@ -45,7 +46,8 @@ namespace SomerenUI
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_lecturer.Hide();
-                room_panel.Hide();
+                pnl_Room.Hide();
+                pnl_Drinks.Hide();
 
 
                 // show students
@@ -78,7 +80,7 @@ namespace SomerenUI
                 listViewStudents.Columns.AddRange(new ColumnHeader[] { id, firstName, lastName, origin, dateOfBirth });
 
 
-                foreach (SomerenModel.Student s in studentList)
+                foreach (Student s in studentList)
                 {
                     ListViewItem li = new ListViewItem(s.StudentId.ToString(), 0);
                     li.SubItems.Add(s.FirstName);
@@ -97,7 +99,8 @@ namespace SomerenUI
                 pnl_Dashboard.Hide();
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
-                room_panel.Hide();
+                pnl_Room.Hide();
+                pnl_Drinks.Hide();
 
 
 
@@ -132,19 +135,20 @@ namespace SomerenUI
                 img_Dashboard.Hide();
                 pnl_Students.Hide();
                 pnl_lecturer.Hide();
+                pnl_Drinks.Hide();
 
                 //show rooms
 
-                room_panel.Show();
+                pnl_Room.Show();
 
 
-                SomerenLogic.Room_Service room_Service = new SomerenLogic.Room_Service();
+                Room_Service room_Service = new Room_Service();
                 List<Room> RoomList = room_Service.GetRooms();
                 //clear listview before filling it
 
                 listViewRoom.Items.Clear();
                 //fill up list view
-                foreach (SomerenModel.Room r in RoomList)
+                foreach (Room r in RoomList)
                 {
                     ListViewItem Item = new ListViewItem(r.Number.ToString());
 
@@ -163,13 +167,49 @@ namespace SomerenUI
                 }
 
                 listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                
+
+            }
+
+            else if (panelName == "Drinks")
+            {
+                //hide other panels
+
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+                pnl_lecturer.Hide();
+                pnl_Room.Hide();
+
+                //show drinks
+                pnl_Drinks.Show();
+
+                Drink_Service drinkService = new Drink_Service();
+                List<Drink> drinks = drinkService.GetDrinks();
+
+                //clear listview before filling it
+                listViewDrinks.Items.Clear();
+
+                //fill up list view
+                foreach (Drink d in drinks)
+                {
+                    ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
+                    li.SubItems.Add(d.DrinkName);
+                    li.SubItems.Add(d.VATID.ToString());
+                    li.SubItems.Add(d.DrinkPrice.ToString());
+                    li.SubItems.Add(d.StockAmount.ToString());
+                    li.SubItems.Add(d.SalesCount.ToString());
+                    //li.tag = d;
+                    listViewDrinks.Items.Add(li);
+                }
+
+                listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                showPanel("Dashboard");
+            showPanel("Dashboard");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,6 +248,11 @@ namespace SomerenUI
             showPanel("Lecturers");
         }
 
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Drinks");
+        }
+
         private void lvlecturer_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -222,5 +267,7 @@ namespace SomerenUI
         {
 
         }
+
+
     }
 }

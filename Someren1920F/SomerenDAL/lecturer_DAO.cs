@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.ObjectModel;
 using SomerenModel;
+
 namespace SomerenDAL
 {
     public class lecturer_DAO : Base

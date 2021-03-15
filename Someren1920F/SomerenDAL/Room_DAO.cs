@@ -34,7 +34,7 @@ namespace SomerenDAL
 
 
         }
-        Room ReadRoom(SqlDataReader reader)
+        private Room ReadRoom(SqlDataReader reader)
         {
             Room Rooms = new Room()
             {
@@ -44,21 +44,21 @@ namespace SomerenDAL
             };
             return Rooms;
         }
-        private List<Room> ReadTables(DataTable data)
-        {
-            List<Room> rooms = new List<Room>();
-            foreach(DataRow dr in data.Rows)
-            {
-                Room room = new Room()
-                {
-                    Number = (int)dr["RoomID"],
-                    Capacity = (int)dr["capacity"],
-                    Type = (bool)dr["Type"]
-                };
-                rooms.Add(room);
+        //private List<Room> ReadTables(DataTable data)
+        //{
+        //    List<Room> rooms = new List<Room>();
+        //    foreach(DataRow dr in data.Rows)
+        //    {
+        //        Room room = new Room()
+        //        {
+        //            Number = (int)dr["RoomID"],
+        //            Capacity = (int)dr["capacity"],
+        //            Type = (bool)dr["Type"]
+        //        };
+        //        rooms.Add(room);
 
-            }
-            return rooms;
-        }
+        //    }
+        //    return rooms;
+        //}
     }
 }
