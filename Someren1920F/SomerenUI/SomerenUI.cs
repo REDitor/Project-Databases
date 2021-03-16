@@ -246,7 +246,7 @@ namespace SomerenUI
 
                 foreach (Student student in students)
                 {
-                    cmbCustomers.Items.Add(student);
+                    cmbCustomers.Items.Add(student.FullName);
                 }
             }
         }
