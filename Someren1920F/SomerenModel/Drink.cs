@@ -10,5 +10,10 @@ namespace SomerenModel
         public int VATID { get; set; }
         public int StockAmount { get; set; }
         public int SalesCount { get; set; }
+        public override string ToString()
+        {
+            return $"{ this.DrinkName} ({ this.DrinkPrice})";
+        }
+       
     }
 }

@@ -240,6 +240,10 @@ namespace SomerenUI
                 //show drinks
                 pnlRegister.Show();
 
+                //clear comboboxes before filling it
+                cmbCustomers.Items.Clear();
+                cmbdrink.Items.Clear();
+
                 //Add Customers/students
                 Student_Service studentService = new Student_Service();
                 List<Student> students = studentService.GetStudents();
@@ -247,6 +251,14 @@ namespace SomerenUI
                 foreach (Student student in students)
                 {
                     cmbCustomers.Items.Add(student.FullName);
+                }
+                //add drinks
+                Drink_Service drinkService = new Drink_Service();
+                List<Drink> drinks = drinkService.GetDrinks();
+
+                foreach (Drink d in drinks)
+                {
+                    cmbdrink.Items.Add(d);
                 }
             }
         }
@@ -320,6 +332,21 @@ namespace SomerenUI
         private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Cash Register");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblselectdrink_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

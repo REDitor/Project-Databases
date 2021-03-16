@@ -10,7 +10,7 @@ namespace SomerenDAL
     { //testtest1212are u
         public List<Drink> Db_Get_All_Drinks()
         {
-            SqlCommand cmd = new SqlCommand("SELECT drinkID, drinkname, vatID, drinkPrice, stockAmount, salesCount FROM dbo.drink WHERE stockAmount > 1 ORDER BY stockAmount, drinkPrice, salesCount;",conn);
+            SqlCommand cmd = new SqlCommand("SELECT drinkID, drinkname, vatID, drinkPrice, stockAmount, salesCount FROM dbo.drink WHERE stockAmount > 1 AND drinkPrice > 1 ORDER BY stockAmount, drinkPrice, salesCount;",conn);
                     OpenConnection();
 
             SqlDataReader reader = cmd.ExecuteReader();
