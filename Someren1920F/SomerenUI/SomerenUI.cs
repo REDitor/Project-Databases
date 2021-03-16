@@ -197,8 +197,25 @@ namespace SomerenUI
                     li.SubItems.Add(d.VATID.ToString());
                     li.SubItems.Add(d.DrinkPrice.ToString());
                     li.SubItems.Add(d.StockAmount.ToString());
+                    //if(d.StockAmount< 10)
+                    //{
+                    //    li.SubItems.Add(d.StockAmount.ToString());
+                    //    li.SubItems.Add("Nearly depleted");
+                       
+                    //}else if (d.StockAmount == 0)
+                    //{
+                    //    li.SubItems.Add(d.StockAmount.ToString());
+                    //    li.SubItems.Add("is empty");
+                       
+                    //}
+                    //else
+                    //{
+                    //    li.SubItems.Add("stock sufficient");
+                       
+                    //}
+                    
                     li.SubItems.Add(d.SalesCount.ToString());
-                    //li.tag = d;
+                    li.Tag = d;
                     listViewDrinks.Items.Add(li);
                 }
 
@@ -268,6 +285,9 @@ namespace SomerenUI
 
         }
 
+        private void Amount_in_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -10,29 +10,34 @@ namespace SomerenDAL
     {
         public List<Drink> Db_Get_All_Drinks()
         {
-            string query = "SELECT drinkID, drinkname, vatID, drinkPrice, stockAmount, salesCount FROM dbo.drink WHERE stockAmount > 1 AND drinkPrice > 1 ORDER BY stockAmount, drinkPrice, salesCount;";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
+            SqlCommand cmd = new SqlCommand("SELECT drinkID, drinkname, vatID, drinkPrice, stockAmount, salesCount FROM dbo.drink WHERE stockAmount > 1 ORDER BY stockAmount, drinkPrice, salesCount;",conn);
+                    OpenConnection();
 
-        private List<Drink> ReadTables(DataTable dataTable)
-        {
-            List<Drink> drinks = new List<Drink>();
-
-            foreach (DataRow dr in dataTable.Rows)
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Drink> Drinks = new List<Drink>();
+            while (reader.Read())
             {
-                Drink drink = new Drink()
-                {
-                    DrinkID = (int)dr["drinkID"],
-                    DrinkName = (string)(dr["drinkname"]),
-                    VATID = (int)dr["vatID"],
-                    DrinkPrice = (float)dr["drinkPrice"],
-                    StockAmount = (int)dr["stockAmount"],
-                    SalesCount = (int)dr["salesCount"]
-                };
-                drinks.Add(drink);
+                Drink Drink1 = ReadDrink(reader);
+                Drinks.Add(Drink1);
             }
-            return drinks;
+            reader.Close();
+
+            CloseConnection();
+            return Drinks;
         }
+        private Drink ReadDrink(SqlDataReader reader)
+        {
+            Drink Drink = new Drink()
+            {
+             DrinkID = (int)reader["drinkID"],
+             DrinkName = (string)reader["drinkname"],
+             DrinkPrice = (decimal)reader["drinkPrice"],
+             VATID = (int)reader["vatID"],
+             SalesCount = (int)reader["salesCount"],
+             StockAmount = (int)reader["stockAmount"]
+            };
+            return Drink;
+        }
+
     }
 }
