@@ -84,6 +84,11 @@
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblDrinks = new System.Windows.Forms.Label();
+            this.cashRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlRegister = new System.Windows.Forms.Panel();
+            this.lblRegister = new System.Windows.Forms.Label();
+            this.cmbCustomers = new System.Windows.Forms.ComboBox();
+            this.lblCustomerName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -94,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnl_Drinks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlRegister.SuspendLayout();
             this.SuspendLayout();
             // 
             // img_Dashboard
@@ -114,7 +120,8 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.drinksToolStripMenuItem});
+            this.drinksToolStripMenuItem,
+            this.cashRegisterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -137,19 +144,19 @@
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -192,7 +199,7 @@
             this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
             this.pnl_Dashboard.Controls.Add(this.img_Dashboard);
             this.pnl_Dashboard.Location = new System.Drawing.Point(9, 22);
-            this.pnl_Dashboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Dashboard.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(704, 379);
             this.pnl_Dashboard.TabIndex = 2;
@@ -214,7 +221,7 @@
             this.pnl_Students.Controls.Add(this.pictureBox1);
             this.pnl_Students.Controls.Add(this.lbl_Students);
             this.pnl_Students.Location = new System.Drawing.Point(9, 20);
-            this.pnl_Students.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Students.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Students.Name = "pnl_Students";
             this.pnl_Students.Size = new System.Drawing.Size(704, 379);
             this.pnl_Students.TabIndex = 4;
@@ -270,7 +277,7 @@
             this.pnl_lecturer.Controls.Add(this.label2);
             this.pnl_lecturer.Controls.Add(this.lvlecturer);
             this.pnl_lecturer.Location = new System.Drawing.Point(11, 26);
-            this.pnl_lecturer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_lecturer.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_lecturer.Name = "pnl_lecturer";
             this.pnl_lecturer.Size = new System.Drawing.Size(935, 399);
             this.pnl_lecturer.TabIndex = 6;
@@ -295,7 +302,7 @@
             this.lvlecturer.GridLines = true;
             this.lvlecturer.HideSelection = false;
             this.lvlecturer.Location = new System.Drawing.Point(3, 55);
-            this.lvlecturer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvlecturer.Margin = new System.Windows.Forms.Padding(2);
             this.lvlecturer.Name = "lvlecturer";
             this.lvlecturer.Size = new System.Drawing.Size(783, 342);
             this.lvlecturer.TabIndex = 0;
@@ -321,6 +328,7 @@
             // 
             // pnl_Room
             // 
+            this.pnl_Room.Controls.Add(this.pnl_Drinks);
             this.pnl_Room.Controls.Add(this.listViewRoom);
             this.pnl_Room.Controls.Add(this.pictureBox2);
             this.pnl_Room.Controls.Add(this.label1);
@@ -362,7 +370,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(796, 42);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(75, 41);
             this.pictureBox2.TabIndex = 6;
@@ -392,7 +400,7 @@
             this.pnl_Drinks.Controls.Add(this.listViewDrinks);
             this.pnl_Drinks.Controls.Add(this.pictureBox3);
             this.pnl_Drinks.Controls.Add(this.lblDrinks);
-            this.pnl_Drinks.Location = new System.Drawing.Point(3, 20);
+            this.pnl_Drinks.Location = new System.Drawing.Point(0, 0);
             this.pnl_Drinks.Name = "pnl_Drinks";
             this.pnl_Drinks.Size = new System.Drawing.Size(940, 418);
             this.pnl_Drinks.TabIndex = 7;
@@ -400,7 +408,7 @@
             // Add
             // 
             this.Add.Location = new System.Drawing.Point(811, 201);
-            this.Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Add.Margin = new System.Windows.Forms.Padding(2);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(81, 19);
             this.Add.TabIndex = 14;
@@ -440,7 +448,7 @@
             // Price_in
             // 
             this.Price_in.Location = new System.Drawing.Point(353, 387);
-            this.Price_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Price_in.Margin = new System.Windows.Forms.Padding(2);
             this.Price_in.Name = "Price_in";
             this.Price_in.Size = new System.Drawing.Size(104, 20);
             this.Price_in.TabIndex = 10;
@@ -448,7 +456,7 @@
             // Amount_in
             // 
             this.Amount_in.Location = new System.Drawing.Point(166, 384);
-            this.Amount_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Amount_in.Margin = new System.Windows.Forms.Padding(2);
             this.Amount_in.Name = "Amount_in";
             this.Amount_in.Size = new System.Drawing.Size(111, 20);
             this.Amount_in.TabIndex = 9;
@@ -457,7 +465,7 @@
             // Drink_name_in
             // 
             this.Drink_name_in.Location = new System.Drawing.Point(18, 387);
-            this.Drink_name_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Drink_name_in.Margin = new System.Windows.Forms.Padding(2);
             this.Drink_name_in.Name = "Drink_name_in";
             this.Drink_name_in.Size = new System.Drawing.Size(121, 20);
             this.Drink_name_in.TabIndex = 8;
@@ -466,7 +474,7 @@
             // Delete
             // 
             this.Delete.Location = new System.Drawing.Point(811, 142);
-            this.Delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Delete.Margin = new System.Windows.Forms.Padding(2);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(81, 19);
             this.Delete.TabIndex = 7;
@@ -519,7 +527,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(796, 42);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(75, 41);
             this.pictureBox3.TabIndex = 6;
@@ -535,12 +543,57 @@
             this.lblDrinks.TabIndex = 3;
             this.lblDrinks.Text = "Drinks";
             // 
+            // cashRegisterToolStripMenuItem
+            // 
+            this.cashRegisterToolStripMenuItem.Name = "cashRegisterToolStripMenuItem";
+            this.cashRegisterToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.cashRegisterToolStripMenuItem.Text = "Cash Register";
+            this.cashRegisterToolStripMenuItem.Click += new System.EventHandler(this.cashRegisterToolStripMenuItem_Click);
+            // 
+            // pnlRegister
+            // 
+            this.pnlRegister.Controls.Add(this.lblCustomerName);
+            this.pnlRegister.Controls.Add(this.cmbCustomers);
+            this.pnlRegister.Controls.Add(this.lblRegister);
+            this.pnlRegister.Location = new System.Drawing.Point(3, 20);
+            this.pnlRegister.Name = "pnlRegister";
+            this.pnlRegister.Size = new System.Drawing.Size(940, 418);
+            this.pnlRegister.TabIndex = 15;
+            // 
+            // lblRegister
+            // 
+            this.lblRegister.AutoSize = true;
+            this.lblRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegister.Location = new System.Drawing.Point(10, 10);
+            this.lblRegister.Name = "lblRegister";
+            this.lblRegister.Size = new System.Drawing.Size(165, 29);
+            this.lblRegister.TabIndex = 3;
+            this.lblRegister.Text = "Cash Register";
+            // 
+            // cmbCustomers
+            // 
+            this.cmbCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCustomers.FormattingEnabled = true;
+            this.cmbCustomers.Location = new System.Drawing.Point(18, 77);
+            this.cmbCustomers.Name = "cmbCustomers";
+            this.cmbCustomers.Size = new System.Drawing.Size(279, 28);
+            this.cmbCustomers.TabIndex = 6;
+            // 
+            // lblCustomerName
+            // 
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Location = new System.Drawing.Point(16, 61);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(95, 13);
+            this.lblCustomerName.TabIndex = 7;
+            this.lblCustomerName.Text = "Select a customer:";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
-            this.Controls.Add(this.pnl_Drinks);
+            this.Controls.Add(this.pnlRegister);
             this.Controls.Add(this.pnl_Room);
             this.Controls.Add(this.pnl_lecturer);
             this.Controls.Add(this.pnl_Students);
@@ -568,6 +621,8 @@
             this.pnl_Drinks.ResumeLayout(false);
             this.pnl_Drinks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnlRegister.ResumeLayout(false);
+            this.pnlRegister.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,6 +687,11 @@
         private System.Windows.Forms.TextBox Amount_in;
         private System.Windows.Forms.TextBox Drink_name_in;
         private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.ToolStripMenuItem cashRegisterToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlRegister;
+        private System.Windows.Forms.Label lblRegister;
+        private System.Windows.Forms.Label lblCustomerName;
+        private System.Windows.Forms.ComboBox cmbCustomers;
     }
 }
 

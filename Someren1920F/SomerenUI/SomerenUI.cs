@@ -35,6 +35,7 @@ namespace SomerenUI
                 pnl_lecturer.Hide();
                 pnl_Room.Hide();
                 pnl_Drinks.Hide();
+                pnlRegister.Hide();
 
                 // show dashboard
                 pnl_Dashboard.Show();
@@ -48,6 +49,7 @@ namespace SomerenUI
                 pnl_lecturer.Hide();
                 pnl_Room.Hide();
                 pnl_Drinks.Hide();
+                pnlRegister.Hide();
 
 
                 // show students
@@ -101,8 +103,7 @@ namespace SomerenUI
                 pnl_Students.Hide();
                 pnl_Room.Hide();
                 pnl_Drinks.Hide();
-
-
+                pnlRegister.Hide();
 
                 // show lecturers
                 pnl_lecturer.Show();
@@ -136,6 +137,7 @@ namespace SomerenUI
                 pnl_Students.Hide();
                 pnl_lecturer.Hide();
                 pnl_Drinks.Hide();
+                pnlRegister.Hide();
 
                 //show rooms
 
@@ -179,6 +181,7 @@ namespace SomerenUI
                 pnl_Students.Hide();
                 pnl_lecturer.Hide();
                 pnl_Room.Hide();
+                pnlRegister.Hide();
 
                 //show drinks
                 pnl_Drinks.Show();
@@ -221,6 +224,30 @@ namespace SomerenUI
 
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+
+            else if (panelName == "Cash Register")
+            {
+                //hide other panels
+
+                pnl_Dashboard.Hide();
+                img_Dashboard.Hide();
+                pnl_Students.Hide();
+                pnl_lecturer.Hide();
+                pnl_Room.Hide();
+                pnl_Drinks.Hide();
+
+                //show drinks
+                pnlRegister.Show();
+
+                //Add Customers/students
+                Student_Service studentService = new Student_Service();
+                List<Student> students = studentService.GetStudents();
+
+                foreach (Student student in students)
+                {
+                    cmbCustomers.Items.Add(student);
+                }
             }
         }
 
@@ -288,6 +315,11 @@ namespace SomerenUI
         private void Amount_in_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cashRegisterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Cash Register");
         }
     }
 }
