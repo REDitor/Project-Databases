@@ -15,6 +15,7 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        Drink_Service service = new Drink_Service();
         public SomerenUI()
         {
             InitializeComponent();
@@ -287,6 +288,64 @@ namespace SomerenUI
 
         private void Amount_in_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            Drink drink = new Drink();
+            drink.DrinkName = Drink_name_in.Text;
+            drink.StockAmount = Convert.ToInt32(Amount_in.Text);
+            drink.DrinkPrice = Convert.ToInt32(Price_in.Text);
+            drink.DrinkID = Convert.ToInt32(ID_in.Text);
+            drink.SalesCount = Convert.ToInt32(Count_in.Text);
+            if (VATID.Checked)
+            {
+                drink.VATID = 1;
+            }
+            else
+            {
+                drink.VATID = 0;
+            }
+            if (Amount_in.Text == "" || Price_in.Text == ""|| Drink_name_in.Text==""|| ID_in.Text==""|| Count_in.Text=="")
+            {
+                MessageBox.Show("fill in all information correctly");
+            }
+            service.Adddrink(drink);
+            MessageBox.Show($"{drink.DrinkName} has been added");
+            //refresh page?
+            this.Refresh();
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (listViewDrinks.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("select a drink");
+            }
+            Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
+            service.Deletedrink(drink);
+            MessageBox.Show("Record removal is sucessful");
+            //page  refresh
+            this.Refresh();
+        }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+            if (listViewDrinks.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("select a drink");
+            }
+            Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
+             if (Amount_in.Text == "" || Price_in.Text == "")
+            {
+                MessageBox.Show("fill in all information correctly, in either drink price or stock amount or both");
+            }
+            drink.StockAmount = Convert.ToInt32(Amount_in.Text);
+            drink.DrinkPrice = Convert.ToInt32(Price_in.Text);
+            service.updateDrink(drink);
+            MessageBox.Show("update successful");
+            this.Refresh();
 
         }
     }

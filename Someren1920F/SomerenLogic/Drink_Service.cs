@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SomerenDAL;
 using SomerenModel;
 
+
 namespace SomerenLogic
 {
     public class Drink_Service
@@ -42,5 +43,30 @@ namespace SomerenLogic
             //    //throw new Exception("Someren couldn't connect to the database");
             //}
         }
+        public bool Adddrink(Drink drink)
+        {
+            try
+            {
+                drinkDao.AddDrink(drink);
+                return true;
+            }catch(Exception e)
+            {
+                //display exception?
+              
+            }
+            return true;
+        }
+
+        public bool Deletedrink(Drink drink)
+        {
+            drinkDao.Deletedrink(drink);
+            return true;
+        }
+        public bool updateDrink(Drink drink)
+        {
+            drinkDao.updateDrink(drink);
+            return true;
+        }
+      
     }
 }
