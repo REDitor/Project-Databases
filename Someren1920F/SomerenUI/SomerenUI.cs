@@ -15,7 +15,8 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
-        Drink_Service service = new Drink_Service();
+        private Drink_Service drinkService = new Drink_Service();
+
         public SomerenUI()
         {
             InitializeComponent();
@@ -28,29 +29,22 @@ namespace SomerenUI
 
         private void showPanel(string panelName)
         {
+            //Hide all panels
+            pnl_Dashboard.Hide();
+            img_Dashboard.Hide();
+            pnl_Students.Hide();
+            pnl_lecturer.Hide();
+            pnl_Room.Hide();
+            pnl_Drinks.Hide();
+
             if (panelName == "Dashboard")
             {
-
-                // hide all other panels
-                pnl_Students.Hide();
-                pnl_lecturer.Hide();
-                pnl_Room.Hide();
-                pnl_Drinks.Hide();
-
                 // show dashboard
                 pnl_Dashboard.Show();
                 img_Dashboard.Show();
             }
             else if (panelName == "Students")
             {
-                // hide all other panels
-                pnl_Dashboard.Hide();
-                img_Dashboard.Hide();
-                pnl_lecturer.Hide();
-                pnl_Room.Hide();
-                pnl_Drinks.Hide();
-
-
                 // show students
                 pnl_Students.Show();
 
@@ -96,15 +90,6 @@ namespace SomerenUI
             }
             else if (panelName == "Lecturers")
             {
-                // hide all other panels
-                pnl_Dashboard.Hide();
-                img_Dashboard.Hide();
-                pnl_Students.Hide();
-                pnl_Room.Hide();
-                pnl_Drinks.Hide();
-
-
-
                 // show lecturers
                 pnl_lecturer.Show();
 
@@ -130,24 +115,15 @@ namespace SomerenUI
 
             else if (panelName == "room_panel")
             {
-                //hide other panels
-
-                pnl_Dashboard.Hide();
-                img_Dashboard.Hide();
-                pnl_Students.Hide();
-                pnl_lecturer.Hide();
-                pnl_Drinks.Hide();
-
                 //show rooms
-
                 pnl_Room.Show();
-
 
                 Room_Service room_Service = new Room_Service();
                 List<Room> RoomList = room_Service.GetRooms();
-                //clear listview before filling it
 
+                //clear listview before filling it
                 listViewRoom.Items.Clear();
+
                 //fill up list view
                 foreach (Room r in RoomList)
                 {
@@ -173,57 +149,55 @@ namespace SomerenUI
 
             else if (panelName == "Drinks")
             {
-                //hide other panels
-
-                pnl_Dashboard.Hide();
-                img_Dashboard.Hide();
-                pnl_Students.Hide();
-                pnl_lecturer.Hide();
-                pnl_Room.Hide();
-
                 //show drinks
                 pnl_Drinks.Show();
 
-                Drink_Service drinkService = new Drink_Service();
-                List<Drink> drinks = drinkService.GetDrinks();
-
-                //clear listview before filling it
-                listViewDrinks.Items.Clear();
-
-                //fill up list view
-                foreach (Drink d in drinks)
-                {
-                    ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
-                    li.SubItems.Add(d.DrinkName);
-                    li.SubItems.Add(d.VATID.ToString());
-                    li.SubItems.Add(d.DrinkPrice.ToString());
-                    li.SubItems.Add(d.StockAmount.ToString());
-                    //if(d.StockAmount< 10)
-                    //{
-                    //    li.SubItems.Add(d.StockAmount.ToString());
-                    //    li.SubItems.Add("Nearly depleted");
-                       
-                    //}else if (d.StockAmount == 0)
-                    //{
-                    //    li.SubItems.Add(d.StockAmount.ToString());
-                    //    li.SubItems.Add("is empty");
-                       
-                    //}
-                    //else
-                    //{
-                    //    li.SubItems.Add("stock sufficient");
-                       
-                    //}
-                    
-                    li.SubItems.Add(d.SalesCount.ToString());
-                    li.Tag = d;
-                    listViewDrinks.Items.Add(li);
-                }
+                RefreshDrinkPanel();
 
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
+
+        private void RefreshDrinkPanel()
+        {
+            Drink_Service drinkService = new Drink_Service();
+            List<Drink> drinks = drinkService.GetDrinks();
+
+            //clear listview before filling it
+            listViewDrinks.Items.Clear();
+
+            //fill up list view
+            foreach (Drink d in drinks)
+            {
+                ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
+                li.SubItems.Add(d.DrinkName);
+                li.SubItems.Add(d.VATID.ToString());
+                li.SubItems.Add(d.DrinkPrice.ToString());
+                li.SubItems.Add(d.StockAmount.ToString());
+
+                //if(d.StockAmount< 10)
+                //{
+                //    li.SubItems.Add(d.StockAmount.ToString());
+                //    li.SubItems.Add("Nearly depleted");
+
+                //}else if (d.StockAmount == 0)
+                //{
+                //    li.SubItems.Add(d.StockAmount.ToString());
+                //    li.SubItems.Add("is empty");
+
+                //}
+                //else
+                //{
+                //    li.SubItems.Add("stock sufficient");
+
+                //}
+
+                li.SubItems.Add(d.SalesCount.ToString());
+                li.Tag = d;
+                listViewDrinks.Items.Add(li);
+            }
+        }//????????????????????????????????????????????????
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -294,27 +268,29 @@ namespace SomerenUI
         private void Add_Click(object sender, EventArgs e)
         {
             Drink drink = new Drink();
-            drink.DrinkName = Drink_name_in.Text;
-            drink.StockAmount = Convert.ToInt32(Amount_in.Text);
-            drink.DrinkPrice = Convert.ToInt32(Price_in.Text);
+
+            drink.VATID = 1;
             drink.DrinkID = Convert.ToInt32(ID_in.Text);
-            drink.SalesCount = Convert.ToInt32(Count_in.Text);
+            drink.DrinkName = Drink_name_in.Text;
+
             if (VATID.Checked)
             {
-                drink.VATID = 1;
+                drink.VATID = 2;
             }
-            else
-            {
-                drink.VATID = 0;
-            }
-            if (Amount_in.Text == "" || Price_in.Text == ""|| Drink_name_in.Text==""|| ID_in.Text==""|| Count_in.Text=="")
+
+            drink.StockAmount = Convert.ToInt32(Amount_in.Text);
+            drink.SalesCount = Convert.ToInt32(Count_in.Text);
+            drink.DrinkPrice = Convert.ToDecimal(Price_in.Text);
+
+            if (Amount_in.Text == "" || Price_in.Text == "" || Drink_name_in.Text == "" || ID_in.Text == "" || Count_in.Text == "")
             {
                 MessageBox.Show("fill in all information correctly");
             }
-            service.Adddrink(drink);
+            drinkService.Adddrink(drink);
             MessageBox.Show($"{drink.DrinkName} has been added");
-            //refresh page?
-            this.Refresh();
+
+            //refresh page
+            Refresh();
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -324,10 +300,11 @@ namespace SomerenUI
                 MessageBox.Show("select a drink");
             }
             Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
-            service.Deletedrink(drink);
+            drinkService.Deletedrink(drink);
             MessageBox.Show("Record removal is sucessful");
+
             //page  refresh
-            this.Refresh();
+            RefreshDrinkPanel();
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -336,21 +313,64 @@ namespace SomerenUI
             {
                 MessageBox.Show("select a drink");
             }
+
             Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
-           
-             if (Amount_in.Text == "" || Price_in.Text == ""||Drink_name_in.Text=="")
+
+            if (Amount_in.Text == "" || Price_in.Text == "" || Drink_name_in.Text == "")
             {
                 MessageBox.Show("fill in all information correctly, in either drink price or stock amount or both");
             }
+
             drink.DrinkName = Drink_name_in.Text;
             drink.StockAmount = Convert.ToInt32(Amount_in.Text);
-            drink.DrinkPrice = Convert.ToInt32(Price_in.Text);
-            service.updateDrink(drink);
-            MessageBox.Show("update successful");
-            this.Refresh();
+            drink.SalesCount = Convert.ToInt32(Count_in.Text);
+            drink.DrinkPrice = Convert.ToDecimal(Price_in.Text);
+            drinkService.updateDrink(drink);
 
+            MessageBox.Show("update successful");
+
+            //page  refresh
+            RefreshDrinkPanel();
         }
 
-         
+        private void listViewDrinks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewDrinks.SelectedItems.Count == 1)
+            {
+                ID_in.Enabled = false;
+                Count_in.Enabled = false;
+                VATID.Enabled = false;
+
+                Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
+
+                //ListViewItem item = listViewDrinks.SelectedItems[0];
+                ID_in.Text = drink.DrinkID.ToString();
+                Drink_name_in.Text = drink.DrinkName;
+                Price_in.Text = drink.DrinkPrice.ToString();
+                Amount_in.Text = drink.StockAmount.ToString();
+                Count_in.Text = drink.SalesCount.ToString();
+
+                if (drink.VATID == 2)
+                {
+                    VATID.CheckState = CheckState.Checked;
+                }
+            }
+
+            else if (listViewDrinks.SelectedItems.Count == 0)
+            {
+                VATID.CheckState = CheckState.Unchecked;
+
+                ID_in.Enabled = true;
+                Count_in.Enabled = true;
+                VATID.Enabled = true;
+
+                ID_in.ResetText();
+                Drink_name_in.ResetText();
+                Amount_in.ResetText();
+                Price_in.ResetText();
+                Amount_in.ResetText();
+                Count_in.ResetText();
+            }
+        }
     }
 }

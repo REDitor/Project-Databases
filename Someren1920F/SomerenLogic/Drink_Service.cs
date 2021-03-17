@@ -45,16 +45,11 @@ namespace SomerenLogic
         }
         public bool Adddrink(Drink drink)
         {
-            try
-            {
+            
                 drinkDao.AddDrink(drink);
+                
                 return true;
-            }catch(Exception e)
-            {
-                //display exception?
-              
-            }
-            return true;
+           
         }
 
         public bool Deletedrink(Drink drink)

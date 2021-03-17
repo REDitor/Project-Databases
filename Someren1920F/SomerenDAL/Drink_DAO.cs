@@ -29,19 +29,20 @@ namespace SomerenDAL
         public bool AddDrink(Drink drink)
         {
 
-            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT dbo.drink ON insert into dbo.drink (drinkname,stockAmount,drinkprice,drinkID,salesCount,vatID) values(@Drinkname,@stockAmount,@drinkPrice,@drinkID,@salescount,@vatid) SET IDENTITY_INSERT dbo.drink OFF", conn);
+            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT dbo.drink ON insert into dbo.drink (drinkID, drinkname, vatID, stockAmount, salesCount, drinkprice) " +
+                "values(@drinkID, @Drinkname, @vatid, @stockAmount, @salescount, @drinkPrice) SET IDENTITY_INSERT dbo.drink OFF", conn);
             OpenConnection();
-            cmd.Parameters.AddWithValue("@Drinkname", drink.DrinkName);
-            cmd.Parameters.AddWithValue("@stockAmount", drink.StockAmount);
-            cmd.Parameters.AddWithValue("@drinkPrice", drink.DrinkPrice);
             cmd.Parameters.AddWithValue("@drinkID", drink.DrinkID);
-            cmd.Parameters.AddWithValue("@salescount", drink.SalesCount);
+            cmd.Parameters.AddWithValue("@Drinkname", drink.DrinkName);
             cmd.Parameters.AddWithValue("@vatid", drink.VATID);
+            cmd.Parameters.AddWithValue("@stockAmount", drink.StockAmount);
+            cmd.Parameters.AddWithValue("@salescount", drink.SalesCount);
+            cmd.Parameters.AddWithValue("@drinkPrice", drink.DrinkPrice);
             cmd.ExecuteNonQuery();
+
             conn.Close();
+
             return true;
-
-
         }
         public bool Deletedrink(Drink drink)
         {
@@ -54,12 +55,12 @@ namespace SomerenDAL
         }
         public bool updateDrink(Drink drink)
         {
-            SqlCommand cmd = new SqlCommand("update dbo.drink set StockAmount=@Stock,DrinkPrice=@price,drinkname=@drinkname where DrinkID=@id", conn);
+            SqlCommand cmd = new SqlCommand("update dbo.drink set drinkname=@drinkname, stockAmount=@Stock, drinkprice=@price where drinkID=@id", conn);
             conn.Open();
             cmd.Parameters.AddWithValue("@id", drink.DrinkID);
             cmd.Parameters.AddWithValue("@drinkname", drink.DrinkName);
-            cmd.Parameters.AddWithValue("@price", drink.DrinkPrice);
             cmd.Parameters.AddWithValue("@stock", drink.StockAmount);
+            cmd.Parameters.AddWithValue("@price", drink.DrinkPrice);
             cmd.ExecuteNonQuery();
             conn.Close();
             return true;
@@ -77,6 +78,5 @@ namespace SomerenDAL
             };
             return Drink;
         }
-
     }
 }
