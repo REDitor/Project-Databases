@@ -521,6 +521,7 @@
             this.listViewDrinks.TabIndex = 5;
             this.listViewDrinks.UseCompatibleStateImageBehavior = false;
             this.listViewDrinks.View = System.Windows.Forms.View.Details;
+            
             // 
             // columnHeader8
             // 

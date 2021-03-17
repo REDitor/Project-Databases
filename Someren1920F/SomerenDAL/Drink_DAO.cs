@@ -29,13 +29,14 @@ namespace SomerenDAL
         public bool AddDrink(Drink drink)
         {
 
-            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT dbo.drink ON insert into dbo.drink (drinkname,stockAmount,drinkprice,drinkID,salesCount) values(@Drinkname,@stockAmount,@drinkPrice,@drinkID,@salescount) SET IDENTITY_INSERT dbo.drink OFF", conn);
+            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT dbo.drink ON insert into dbo.drink (drinkname,stockAmount,drinkprice,drinkID,salesCount,vatID) values(@Drinkname,@stockAmount,@drinkPrice,@drinkID,@salescount,@vatid) SET IDENTITY_INSERT dbo.drink OFF", conn);
             OpenConnection();
             cmd.Parameters.AddWithValue("@Drinkname", drink.DrinkName);
             cmd.Parameters.AddWithValue("@stockAmount", drink.StockAmount);
             cmd.Parameters.AddWithValue("@drinkPrice", drink.DrinkPrice);
             cmd.Parameters.AddWithValue("@drinkID", drink.DrinkID);
             cmd.Parameters.AddWithValue("@salescount", drink.SalesCount);
+            cmd.Parameters.AddWithValue("@vatid", drink.VATID);
             cmd.ExecuteNonQuery();
             conn.Close();
             return true;
@@ -53,9 +54,10 @@ namespace SomerenDAL
         }
         public bool updateDrink(Drink drink)
         {
-            SqlCommand cmd = new SqlCommand("update dbo.drink set StockAmount=@Stock,DrinkPrice=@price where DrinkID=@id", conn);
+            SqlCommand cmd = new SqlCommand("update dbo.drink set StockAmount=@Stock,DrinkPrice=@price,drinkname=@drinkname where DrinkID=@id", conn);
             conn.Open();
             cmd.Parameters.AddWithValue("@id", drink.DrinkID);
+            cmd.Parameters.AddWithValue("@drinkname", drink.DrinkName);
             cmd.Parameters.AddWithValue("@price", drink.DrinkPrice);
             cmd.Parameters.AddWithValue("@stock", drink.StockAmount);
             cmd.ExecuteNonQuery();

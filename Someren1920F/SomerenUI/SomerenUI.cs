@@ -337,10 +337,12 @@ namespace SomerenUI
                 MessageBox.Show("select a drink");
             }
             Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
-             if (Amount_in.Text == "" || Price_in.Text == "")
+           
+             if (Amount_in.Text == "" || Price_in.Text == ""||Drink_name_in.Text=="")
             {
                 MessageBox.Show("fill in all information correctly, in either drink price or stock amount or both");
             }
+            drink.DrinkName = Drink_name_in.Text;
             drink.StockAmount = Convert.ToInt32(Amount_in.Text);
             drink.DrinkPrice = Convert.ToInt32(Price_in.Text);
             service.updateDrink(drink);
@@ -348,5 +350,7 @@ namespace SomerenUI
             this.Refresh();
 
         }
+
+         
     }
 }
