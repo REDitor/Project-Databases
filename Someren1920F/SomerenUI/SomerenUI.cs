@@ -36,6 +36,7 @@ namespace SomerenUI
             pnl_lecturer.Hide();
             pnl_Room.Hide();
             pnl_Drinks.Hide();
+            pnl_CashRegister.Hide();
 
             if (panelName == "Dashboard")
             {
@@ -157,6 +158,39 @@ namespace SomerenUI
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
+
+            else if (panelName == "Cash Register")
+            {
+                //show cash register
+                pnl_CashRegister.Show();
+
+                RefreshCashRegisterPanel();
+            }
+        }
+
+        private void RefreshCashRegisterPanel()
+        {
+            //Add students to combobox
+            Student_Service studentService = new Student_Service();
+            List<Student> students = studentService.GetStudents();
+
+            //Clear comboboxes
+            cmbDrinks.Items.Clear();
+            cmbStudents.Items.Clear();
+
+            foreach (Student student in students)
+            {
+                cmbStudents.Items.Add(student.FullName);
+            }
+
+            //Add drinks to combobox
+            Drink_Service drinkService = new Drink_Service();
+            List<Drink> drinks = drinkService.GetDrinks();
+
+            foreach (Drink drink in drinks)
+            {
+                cmbDrinks.Items.Add($"{drink.DrinkName}, (€ {drink.PriceInclVAT:0.00})");
+            }
         }
 
         private void RefreshDrinkPanel()
@@ -199,6 +233,13 @@ namespace SomerenUI
             }
         }//????????????????????????????????????????????????
 
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            
+            Transaction_Service transactionService = new Transaction_Service();
+            Transaction transaction = new Transaction();
+        }
+
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
@@ -230,11 +271,6 @@ namespace SomerenUI
             showPanel("room_panel");
         }
 
-        private void Label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Lecturers");
@@ -242,7 +278,22 @@ namespace SomerenUI
 
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void addUpdateDeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             showPanel("Drinks");
+        }
+
+        private void cashRegisterToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showPanel("Cash Register");
+        }
+
+        private void Label1_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         private void lvlecturer_SelectedIndexChanged(object sender, EventArgs e)
@@ -288,7 +339,7 @@ namespace SomerenUI
             }
             drinkService.Adddrink(drink);
             MessageBox.Show($"{drink.DrinkName} has been added");
-            
+
             //refresh page
             RefreshDrinkPanel();
         }
@@ -309,26 +360,22 @@ namespace SomerenUI
 
         private void Update_Click(object sender, EventArgs e)
         {
-            if (listViewDrinks.SelectedItems.Count < 1)
+            Drink drink;
+            try
+            {
+                drink = listViewDrinks.SelectedItems[0].Tag as Drink;
+                drink.DrinkName = Drink_name_in.Text;
+                drink.StockAmount = Convert.ToInt32(Amount_in.Text);
+                drink.SalesCount = Convert.ToInt32(Count_in.Text);
+                drink.DrinkPrice = Convert.ToDecimal(Price_in.Text);
+                drinkService.updateDrink(drink);
+
+                MessageBox.Show("update successful");
+            }
+            catch (Exception)
             {
                 MessageBox.Show("select a drink");
             }
-
-            Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
-
-            if (Amount_in.Text == "" || Price_in.Text == "" || Drink_name_in.Text == "")
-            {
-                MessageBox.Show("fill in all information correctly, in either drink price or stock amount or both");
-            }
-
-            drink.DrinkName = Drink_name_in.Text;
-            drink.StockAmount = Convert.ToInt32(Amount_in.Text);
-            drink.SalesCount = Convert.ToInt32(Count_in.Text);
-            drink.DrinkPrice = Convert.ToDecimal(Price_in.Text);
-            drinkService.updateDrink(drink);
-
-            MessageBox.Show("update successful");
-
             //page  refresh
             RefreshDrinkPanel();
         }
@@ -371,6 +418,16 @@ namespace SomerenUI
                 Amount_in.ResetText();
                 Count_in.ResetText();
             }
+        }
+
+        private void cmbStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDrinks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

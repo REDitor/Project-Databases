@@ -17,8 +17,8 @@ namespace SomerenLogic
         {
             try
             {
-                List<Student> student = student_db.Db_Get_All_Students();
-                return student;
+                List<Student> students = student_db.Db_Get_All_Students();
+                return students;
             }
             catch (Exception)
             {
