@@ -288,9 +288,9 @@ namespace SomerenUI
             }
             drinkService.Adddrink(drink);
             MessageBox.Show($"{drink.DrinkName} has been added");
-
+          
             //refresh page
-            Refresh();
+            RefreshDrinkPanel();
         }
 
         private void Delete_Click(object sender, EventArgs e)
