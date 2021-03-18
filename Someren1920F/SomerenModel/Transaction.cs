@@ -10,7 +10,7 @@ namespace SomerenModel
     {
         public int TransactionID { get; set; }
 
-        public DateTime PurchaseDate { get { return PurchaseDate; }  set { value = DateTime.Now; } }
+        public DateTime PurchaseDate { get { return DateTime.Now; }   }
 
         public float TotalPrice { get; set; }
         public int VoucherID { get; set; }

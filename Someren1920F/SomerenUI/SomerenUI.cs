@@ -366,11 +366,11 @@ namespace SomerenUI
            string b = cmbdrink.Text;
            string [] custmrlist = a.Split(' ');
            string [] drinklist = b.Split(' ');
-            float m = float.Parse(drinklist[3]);
+                float m = float.Parse(drinklist.Last());
                 Transaction tr = new Transaction(m, int.Parse(drinklist[0]), int.Parse(custmrlist[0]));
                 Transaction_service ts = new Transaction_service();
                 ts.GETTransaction(tr);
-                MessageBox.Show(tr.TotalPrice + " " + tr.DrinkID + " " + tr.StudentID);
+                MessageBox.Show( " Drink purchased " );
             }
 
             catch (Exception ex) 
