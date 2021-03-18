@@ -14,5 +14,14 @@ namespace SomerenModel
         public int drinkId { get; set; }
         public int studentId { get; set; }
         public decimal totalPrice { get; set; }
+
+        protected Student Student;
+        protected Drink Drink;
+
+        public Transaction(Student student, Drink drink)
+        {
+            Student = student;
+            Drink = drink;
+        }
     }
 }

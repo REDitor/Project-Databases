@@ -235,7 +235,7 @@ namespace SomerenUI
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            
+           
             Transaction_Service transactionService = new Transaction_Service();
             Transaction transaction = new Transaction();
         }
@@ -422,7 +422,7 @@ namespace SomerenUI
 
         private void cmbStudents_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            cmbStudents.SelectedItem;
         }
 
         private void cmbDrinks_SelectedIndexChanged(object sender, EventArgs e)

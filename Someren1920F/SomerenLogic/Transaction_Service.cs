@@ -30,10 +30,6 @@ namespace SomerenLogic
                 throw new Exception("Please select a drink");
             }
 
-            Drink_Service drinkService = new Drink_Service();
-
-            
-
             transactionDao.AddTransaction(transaction);
             return true;
         }
