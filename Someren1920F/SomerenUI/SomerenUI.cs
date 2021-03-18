@@ -250,7 +250,7 @@ namespace SomerenUI
 
                 foreach (Student student in students)
                 {
-                    cmbCustomers.Items.Add(student.FullName);
+                    cmbCustomers.Items.AddRange(new string[] {student.StudentId.ToString() +" "+  student.FullName } );
                 }
                 //add drinks
                 Drink_Service drinkService = new Drink_Service();
@@ -258,8 +258,17 @@ namespace SomerenUI
 
                 foreach (Drink d in drinks)
                 {
-                    cmbdrink.Items.Add(d);
+                    cmbdrink.Items.AddRange(new string[] {d.DrinkID.ToString()+ " "+ d.DrinkName + " "+ d.DrinkPrice });
                 }
+                //add transaction 
+                //Transaction_service trService = new Transaction_service();
+                 //List<Transaction> tr = trService.Get();
+
+                //foreach (Transaction tr in drinks)
+                //{
+                //    cmbdrink.Items.Add(d);
+                //}
+
             }
         }
 
@@ -336,7 +345,7 @@ namespace SomerenUI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void lblselectdrink_Click(object sender, EventArgs e)
@@ -345,6 +354,32 @@ namespace SomerenUI
         }
 
         private void cmbCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCheckout_Click(object sender, EventArgs e)
+        {
+        
+            try
+            {  string a = cmbCustomers.Text;
+           string b = cmbdrink.Text;
+           string [] custmrlist = a.Split(' ');
+           string [] drinklist = b.Split(' ');
+            float m = float.Parse(drinklist[3]);
+                Transaction tr = new Transaction(m, int.Parse(drinklist[0]), int.Parse(custmrlist[0]));
+                Transaction_service ts = new Transaction_service();
+                ts.GETTransaction(tr);
+                MessageBox.Show(tr.TotalPrice + " " + tr.DrinkID + " " + tr.StudentID);
+            }
+
+            catch (Exception ex) 
+            {
+            
+            }
+        }
+
+        private void pnlRegister_Paint(object sender, PaintEventArgs e)
         {
 
         }

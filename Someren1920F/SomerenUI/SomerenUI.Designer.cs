@@ -86,11 +86,12 @@
             this.lastname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.specialisation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlRegister = new System.Windows.Forms.Panel();
+            this.BtnCheckout = new System.Windows.Forms.Button();
+            this.lblselectdrink = new System.Windows.Forms.Label();
+            this.cmbdrink = new System.Windows.Forms.ComboBox();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.cmbCustomers = new System.Windows.Forms.ComboBox();
             this.lblRegister = new System.Windows.Forms.Label();
-            this.cmbdrink = new System.Windows.Forms.ComboBox();
-            this.lblselectdrink = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
@@ -107,7 +108,7 @@
             // img_Dashboard
             // 
             this.img_Dashboard.Location = new System.Drawing.Point(836, 0);
-            this.img_Dashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.img_Dashboard.Margin = new System.Windows.Forms.Padding(4);
             this.img_Dashboard.Name = "img_Dashboard";
             this.img_Dashboard.Size = new System.Drawing.Size(415, 332);
             this.img_Dashboard.TabIndex = 0;
@@ -128,7 +129,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -243,7 +244,7 @@
             this.studentDOB});
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(767, 307);
             this.listViewStudents.TabIndex = 5;
@@ -267,7 +268,7 @@
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(805, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(131, 123);
             this.pictureBox1.TabIndex = 0;
@@ -346,7 +347,7 @@
             this.pnl_Room.Controls.Add(this.pictureBox2);
             this.pnl_Room.Controls.Add(this.label1);
             this.pnl_Room.Location = new System.Drawing.Point(4, 25);
-            this.pnl_Room.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_Room.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_Room.Name = "pnl_Room";
             this.pnl_Room.Size = new System.Drawing.Size(1253, 514);
             this.pnl_Room.TabIndex = 6;
@@ -365,7 +366,7 @@
             this.pnl_Drinks.Controls.Add(this.pictureBox3);
             this.pnl_Drinks.Controls.Add(this.lblDrinks);
             this.pnl_Drinks.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Drinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_Drinks.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_Drinks.Name = "pnl_Drinks";
             this.pnl_Drinks.Size = new System.Drawing.Size(1253, 514);
             this.pnl_Drinks.TabIndex = 7;
@@ -455,7 +456,7 @@
             this.listViewDrinks.GridLines = true;
             this.listViewDrinks.HideSelection = false;
             this.listViewDrinks.Location = new System.Drawing.Point(21, 52);
-            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.listViewDrinks.Name = "listViewDrinks";
             this.listViewDrinks.Size = new System.Drawing.Size(1020, 377);
             this.listViewDrinks.TabIndex = 5;
@@ -516,7 +517,7 @@
             this.listViewRoom.GridLines = true;
             this.listViewRoom.HideSelection = false;
             this.listViewRoom.Location = new System.Drawing.Point(21, 52);
-            this.listViewRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewRoom.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRoom.Name = "listViewRoom";
             this.listViewRoom.Size = new System.Drawing.Size(1020, 377);
             this.listViewRoom.TabIndex = 5;
@@ -561,16 +562,50 @@
             // 
             // pnlRegister
             // 
+            this.pnlRegister.Controls.Add(this.BtnCheckout);
             this.pnlRegister.Controls.Add(this.lblselectdrink);
             this.pnlRegister.Controls.Add(this.cmbdrink);
             this.pnlRegister.Controls.Add(this.lblCustomerName);
             this.pnlRegister.Controls.Add(this.cmbCustomers);
             this.pnlRegister.Controls.Add(this.lblRegister);
             this.pnlRegister.Location = new System.Drawing.Point(4, 25);
-            this.pnlRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlRegister.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRegister.Name = "pnlRegister";
             this.pnlRegister.Size = new System.Drawing.Size(1253, 514);
             this.pnlRegister.TabIndex = 15;
+            this.pnlRegister.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRegister_Paint);
+            // 
+            // BtnCheckout
+            // 
+            this.BtnCheckout.Location = new System.Drawing.Point(849, 227);
+            this.BtnCheckout.Name = "BtnCheckout";
+            this.BtnCheckout.Size = new System.Drawing.Size(133, 42);
+            this.BtnCheckout.TabIndex = 10;
+            this.BtnCheckout.Text = "Checkout";
+            this.BtnCheckout.UseVisualStyleBackColor = true;
+            this.BtnCheckout.Click += new System.EventHandler(this.BtnCheckout_Click);
+            // 
+            // lblselectdrink
+            // 
+            this.lblselectdrink.AutoSize = true;
+            this.lblselectdrink.Location = new System.Drawing.Point(512, 74);
+            this.lblselectdrink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblselectdrink.Name = "lblselectdrink";
+            this.lblselectdrink.Size = new System.Drawing.Size(98, 17);
+            this.lblselectdrink.TabIndex = 9;
+            this.lblselectdrink.Text = "Select a drink:";
+            this.lblselectdrink.Click += new System.EventHandler(this.lblselectdrink_Click);
+            // 
+            // cmbdrink
+            // 
+            this.cmbdrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbdrink.FormattingEnabled = true;
+            this.cmbdrink.Location = new System.Drawing.Point(515, 95);
+            this.cmbdrink.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbdrink.Name = "cmbdrink";
+            this.cmbdrink.Size = new System.Drawing.Size(371, 33);
+            this.cmbdrink.TabIndex = 8;
+            this.cmbdrink.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblCustomerName
             // 
@@ -587,7 +622,7 @@
             this.cmbCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.Location = new System.Drawing.Point(24, 95);
-            this.cmbCustomers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCustomers.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(371, 33);
             this.cmbCustomers.TabIndex = 6;
@@ -604,28 +639,6 @@
             this.lblRegister.TabIndex = 3;
             this.lblRegister.Text = "Cash Register";
             // 
-            // cmbdrink
-            // 
-            this.cmbdrink.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbdrink.FormattingEnabled = true;
-            this.cmbdrink.Location = new System.Drawing.Point(515, 95);
-            this.cmbdrink.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbdrink.Name = "cmbdrink";
-            this.cmbdrink.Size = new System.Drawing.Size(371, 33);
-            this.cmbdrink.TabIndex = 8;
-            this.cmbdrink.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lblselectdrink
-            // 
-            this.lblselectdrink.AutoSize = true;
-            this.lblselectdrink.Location = new System.Drawing.Point(512, 74);
-            this.lblselectdrink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblselectdrink.Name = "lblselectdrink";
-            this.lblselectdrink.Size = new System.Drawing.Size(98, 17);
-            this.lblselectdrink.TabIndex = 9;
-            this.lblselectdrink.Text = "Select a drink:";
-            this.lblselectdrink.Click += new System.EventHandler(this.lblselectdrink_Click);
-            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -639,7 +652,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SomerenUI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "SomerenApp";
@@ -733,6 +746,7 @@
         private System.Windows.Forms.ComboBox cmbCustomers;
         private System.Windows.Forms.Label lblselectdrink;
         private System.Windows.Forms.ComboBox cmbdrink;
+        private System.Windows.Forms.Button BtnCheckout;
     }
 }
 

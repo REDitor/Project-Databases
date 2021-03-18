@@ -1,0 +1,49 @@
+
+(18/03/2021 12:56:48) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 12:56:52) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 12:56:53) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 12:56:58) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:03:40) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:03:42) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:03:42) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:03:45) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:03:52) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:03:59) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:04:02) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:04:02) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:04:02) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:04:03) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:04:03) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:04:03) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:44) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:45) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:48) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:48) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:48) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:48) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:49) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:49) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:05:50) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:07:47) [Must declare the scalar variable "@totalPrice".] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:44:29) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:44:30) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:44:31) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:44:31) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:44:32) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 13:44:32) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 14:31:07) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 14:31:10) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 14:38:46) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 14:38:48) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
+(18/03/2021 14:38:51) [Cannot insert the value NULL into column 'purchaseDate', table 'prjdb23.dbo.transaction'; column does not allow nulls. INSERT fails.
+The statement has been terminated.] Transaction - Something went wrong when connecting to the database.
