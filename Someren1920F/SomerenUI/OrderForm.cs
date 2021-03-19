@@ -23,9 +23,12 @@ namespace SomerenUI
             InitializeComponent();
         }
 
-        private void OrderForm_Load(object sender, EventArgs e)
+        private void ReloadForm()
         {
             List<Student> students = studentService.GetStudents();
+            cmbDrinks.Items.Clear();
+            cmbStudents.Items.Clear();
+            
 
             foreach (Student student in students)
             {
@@ -37,6 +40,11 @@ namespace SomerenUI
             {
                 cmbDrinks.Items.Add(drink.DrinkName);
             }
+        }
+
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+            ReloadForm();
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
@@ -107,6 +115,7 @@ namespace SomerenUI
             {
                 MessageBox.Show(exc.Message);
             }
+            ReloadForm();
         }
     }
 }
