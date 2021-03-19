@@ -15,9 +15,7 @@ namespace SomerenLogic
 
         public List<Drink> GetDrinks()
         {
-
-            List<Drink> drinks = drinkDao.Db_Get_All_Drinks();
-            return drinks;
+            return drinkDao.Db_Get_All_Drinks();
             //try
             //{
             //    List<Drink> drinks = drinkDao.Db_Get_All_Drinks();
@@ -43,13 +41,20 @@ namespace SomerenLogic
             //    //throw new Exception("Someren couldn't connect to the database");
             //}
         }
+
+        public Drink GetByName(string name)
+        {
+            if (name == "")
+            {
+                throw new Exception("Please select a drink");
+            }
+            return drinkDao.GetByName(name);
+        }
+
         public bool Adddrink(Drink drink)
         {
-            
-                drinkDao.AddDrink(drink);
-                
+                drinkDao.AddDrink(drink);    
                 return true;
-           
         }
 
         public bool Deletedrink(Drink drink)
@@ -62,6 +67,5 @@ namespace SomerenLogic
             drinkDao.updateDrink(drink);
             return true;
         }
-      
     }
 }

@@ -10,28 +10,22 @@ namespace SomerenLogic
 {
     public class Transaction_Service
     {
-        Transaction_DAO transactionDao = new Transaction_DAO();
+        private Transaction_DAO transactionDao = new Transaction_DAO();
 
-        public List<Transaction> GetTransactions()
+        public List<Transaction> GetOrderByDate(DateTime startDate, DateTime endDate)
         {
-            List<Transaction> transactions = transactionDao.db_GetAllTransactions();
-            return transactions;
+            return transactionDao.GetByDate(startDate, endDate);
         }
 
-        public bool CreateTransaction(Transaction transaction)
+        public List<Transaction> GetAllTransactions()
         {
-            if (transaction.studentId == null)
-            {
-                throw new Exception("Please select a student");
-            }
+            return transactionDao.db_GetAllTransactions();
+        }
 
-            if (transaction.drinkId == null)
-            {
-                throw new Exception("Please select a drink");
-            }
-
+        public void AddTransaction(Transaction transaction)
+        {
             transactionDao.AddTransaction(transaction);
-            return true;
         }
+        
     }
 }

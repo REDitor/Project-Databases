@@ -32,6 +32,51 @@ namespace SomerenDAL
             CloseConnection();
             return Drinks;
         }
+
+        public Drink GetById(int id)
+        {
+
+            SqlCommand cmd = new SqlCommand("SELECT drinkID, drinkname, vatID, drinkPrice, stockAmount, salesCount " +
+                                            "FROM drink " +
+                                            "WHERE drinkID = @drId", conn);
+
+            OpenConnection();
+            cmd.Parameters.AddWithValue("@drId", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            Drink drink = null;
+
+            if (reader.Read())
+            {
+                drink = ReadDrink(reader);
+            }
+            reader.Close();
+            conn.Close();
+
+            return drink;
+        }
+
+        public Drink GetByName(string name)
+        {
+
+            SqlCommand cmd = new SqlCommand("SELECT drinkID , drinkname, vatID, drinkPrice, stockAmount, salesCount " +
+                                            "FROM drink " +
+                                            "WHERE drinkname = @drName", conn);
+
+            OpenConnection();
+            cmd.Parameters.AddWithValue("@drName", name);
+            SqlDataReader reader = cmd.ExecuteReader();
+            Drink drink = null;
+
+            if (reader.Read())
+            {
+                drink = ReadDrink(reader);
+            }
+            reader.Close();
+            conn.Close();
+
+            return drink;
+        }
+
         public bool AddDrink(Drink drink)
         {
 

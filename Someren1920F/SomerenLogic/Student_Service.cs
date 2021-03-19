@@ -41,5 +41,14 @@ namespace SomerenLogic
             }
 
         }
+
+        public Student GetByName(string fullName)
+        {
+            if (fullName == "")
+            {
+                throw new Exception("Please select a student");
+            }
+            return student_db.GetByName(fullName);
+        }
     }
 }

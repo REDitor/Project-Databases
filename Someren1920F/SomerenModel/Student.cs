@@ -14,6 +14,5 @@ namespace SomerenModel
         public string Origin { get; set; }
         public int StudentId { get; set; } // StudentNumber, e.g. 474791
         public DateTime BirthDate { get; set; }
-
     }
 }

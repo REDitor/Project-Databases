@@ -11,10 +11,17 @@ namespace SomerenDAL
 {
     public class Transaction_DAO : Base
     {
+        private Student_DAO studentDao = new Student_DAO();
+        private Drink_DAO drinkDao = new Drink_DAO();
+
         public List<Transaction> db_GetAllTransactions()
         {
-            string query = "SELECT transactionID, purchaseDate, voucherID, drinkID, studentID, totalPrice" +
-                           "FROM [transaction];";
+            string query = "SELECT transactionID, student.studentID, student.firstname, student.lastname, drink.drinkID, drink.drinkname, drink.drinkprice, " +
+                            "drink.stockAmount, [transaction].totalPrice, [transaction].purchaseDate " +
+                            "FROM [transaction] " +
+                            "INNER JOIN drink on [transaction].drinkID=drink.drinkID " +
+                            "INNER JOIN student on [transaction].studentID=student.studentID";
+
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -25,17 +32,37 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Transaction t = new Transaction()
+                int studentId = (int)dr["studentID"];
+                int drinkId = (int)dr["drinkID"];
+
+                Drink drink = drinkDao.GetById(drinkId);
+
+                Transaction transaction = new Transaction()
                 {
                     transactionId = (int)dr["transactionID"],
                     transactionDate = (DateTime)dr["purchaseDate"],
-                    voucherId = (int)dr["voucherID"],
-                    drinkId = (int)dr["drinkID"],
-                    studentId = (int)dr["studentID"],
-                    totalPrice = (int)dr["totalPrice"]
+                    student = studentDao.GetById(studentId),
+                    drink = drink,
+                    totalPrice = Convert.ToDecimal(dr["totalPrice"])
                 };
-                transactions.Add(t);
+                transactions.Add(transaction);
             }
+            return transactions;
+        }
+
+        public List<Transaction> GetByDate(DateTime startDate, DateTime endDate)
+        {
+            List<Transaction> tempTransactions = db_GetAllTransactions();
+            List<Transaction> transactions = new List<Transaction>();
+
+            foreach (Transaction t in tempTransactions)
+            {
+                if (t.transactionDate.Day >= startDate.Day && t.transactionDate.Day <= endDate.Day)
+                { 
+                    transactions.Add(t);
+                }
+            }
+
             return transactions;
         }
 
@@ -44,24 +71,22 @@ namespace SomerenDAL
         {
             SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT [transaction] ON " +
                                             "INSERT INTO [transaction] (transactionID, purchaseDate, voucherID, drinkID, studentID, totalPrice) " +
-                                            "values(@transactionId, @purchaseDate, @voucherId, @drinkId, @studentId, @totalPrice) " +
+                                            "values(@purchaseDate, @voucherId, @drinkId, @studentId, @totalPrice) " +
                                             "SET IDENTITY_INSERT [transaction] OFF", conn);
 
             OpenConnection();
 
-            cmd.Parameters.AddWithValue("@transactionId", transaction.transactionId);
             cmd.Parameters.AddWithValue("@purchaseDate", transaction.transactionDate);
             cmd.Parameters.AddWithValue("@voucherId", transaction.voucherId);
-            cmd.Parameters.AddWithValue("@drinkId", transaction.drinkId);
-            cmd.Parameters.AddWithValue("@studentId", transaction.studentId);
-            cmd.Parameters.AddWithValue("@totalPrice", transaction.totalPrice);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("@drinkId", transaction.drink.DrinkID);
+            cmd.Parameters.AddWithValue("@studentId", transaction.student.StudentId);
+            cmd.Parameters.AddWithValue("@totalPrice", transaction.totalPrice.ToString());
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Close();
 
             CloseConnection();
             return true;
         }
-
-        
     }
 }
 

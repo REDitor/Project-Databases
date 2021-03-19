@@ -15,9 +15,62 @@ namespace SomerenDAL
       
         public List<Student> Db_Get_All_Students()
         {
-            string query = "SELECT studentID, firstname, lastname, origin, dateOfBirth FROM dbo.Student";
+            string query = "SELECT studentID, firstname, lastname, origin, dateOfBirth FROM dbo.student";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public Student GetById(int id)
+        {
+            
+            SqlCommand cmd = new SqlCommand("SELECT studentID, firstname, lastname, dateOfBirth FROM student WHERE studentID = @stId", conn);
+
+            OpenConnection();
+            cmd.Parameters.AddWithValue("@stId", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            Student student = null;
+            if (reader.Read())
+            {
+                student = ReadStudent(reader);
+            }
+            reader.Close();
+            conn.Close();
+
+            return student;
+        }
+
+        public Student GetByName(string fullName)
+        {
+            
+            SqlCommand cmd = new SqlCommand("SELECT studentID, firstname +', '+ lastname as fullname, dateOfBirth FROM student WHERE fullname = @fullName", conn);
+
+            OpenConnection();
+            cmd.Parameters.AddWithValue("@fullName", fullName);
+            SqlDataReader reader = cmd.ExecuteReader();
+            Student student = null;
+
+            if (reader.Read())
+            {
+                student = ReadStudent(reader);
+            }
+            reader.Close();
+            conn.Close();
+
+            return student;
+        }
+
+        private Student ReadStudent(SqlDataReader reader)
+        {
+            Student student = new Student()
+            {
+                StudentId = (int)reader["studentID"],
+                FirstName = (string)reader["firstname"],
+                LastName = (string)reader["lastname"],
+                Origin = (string)reader["origin"],
+                BirthDate = (DateTime)reader["dateOfBirth"]
+            };
+            return student;
+
         }
 
         private List<Student> ReadTables(DataTable dataTable)

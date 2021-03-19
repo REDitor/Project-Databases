@@ -36,7 +36,7 @@ namespace SomerenUI
             pnl_lecturer.Hide();
             pnl_Room.Hide();
             pnl_Drinks.Hide();
-            pnl_CashRegister.Hide();
+            pnl_OrderHistory.Hide();
 
             if (panelName == "Dashboard")
             {
@@ -53,7 +53,7 @@ namespace SomerenUI
                 listViewStudents.Clear();
 
                 // fill the students listview within the students panel with a list of students
-                SomerenLogic.Student_Service studService = new SomerenLogic.Student_Service();
+                Student_Service studService = new Student_Service();
                 List<Student> studentList = studService.GetStudents();
 
                 ColumnHeader id = new ColumnHeader();
@@ -159,39 +159,15 @@ namespace SomerenUI
                 listViewDrinks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
 
-            else if (panelName == "Cash Register")
+            else if (panelName == "Order History")
             {
                 //show cash register
-                pnl_CashRegister.Show();
+                pnl_OrderHistory.Show();
 
-                RefreshCashRegisterPanel();
             }
         }
 
-        private void RefreshCashRegisterPanel()
-        {
-            //Add students to combobox
-            Student_Service studentService = new Student_Service();
-            List<Student> students = studentService.GetStudents();
-
-            //Clear comboboxes
-            cmbDrinks.Items.Clear();
-            cmbStudents.Items.Clear();
-
-            foreach (Student student in students)
-            {
-                cmbStudents.Items.Add(student.FullName);
-            }
-
-            //Add drinks to combobox
-            Drink_Service drinkService = new Drink_Service();
-            List<Drink> drinks = drinkService.GetDrinks();
-
-            foreach (Drink drink in drinks)
-            {
-                cmbDrinks.Items.Add($"{drink.DrinkName}, (€ {drink.PriceInclVAT:0.00})");
-            }
-        }
+        
 
         private void RefreshDrinkPanel()
         {
@@ -235,11 +211,20 @@ namespace SomerenUI
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-           
-            Transaction_Service transactionService = new Transaction_Service();
-            Transaction transaction = new Transaction();
+            try
+            {
+                //Student student = null;
+                //if (cmbStudents.SelectedIndex >= 0)
+                //{
+                //    student = Student_Service
+                //}
+                
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
-
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
@@ -278,17 +263,12 @@ namespace SomerenUI
 
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            showPanel("Order History");
         }
 
         private void addUpdateDeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Drinks");
-        }
-
-        private void cashRegisterToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            showPanel("Cash Register");
         }
 
         private void Label1_Click_1(object sender, EventArgs e)
@@ -420,14 +400,10 @@ namespace SomerenUI
             }
         }
 
-        private void cmbStudents_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnOpenOrderWindow_Click(object sender, EventArgs e)
         {
-            cmbStudents.SelectedItem;
-        }
-
-        private void cmbDrinks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            OrderForm form = new OrderForm();
+            form.ShowDialog();
         }
     }
 }
