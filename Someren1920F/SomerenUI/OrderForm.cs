@@ -28,7 +28,9 @@ namespace SomerenUI
             List<Student> students = studentService.GetStudents();
             cmbDrinks.Items.Clear();
             cmbStudents.Items.Clear();
-            
+
+            cmbDrinks.SelectedIndex = -1;
+            cmbStudents.SelectedIndex = -1;
 
             foreach (Student student in students)
             {
@@ -69,9 +71,6 @@ namespace SomerenUI
                 //check for stock
                 if (drink.StockAmount >= 0)
                 {
-                    drink.StockAmount -= 1;
-                    drinkService.updateDrink(drink);
-
                     //create new order
                     Transaction transaction = new Transaction()
                     {
@@ -101,6 +100,7 @@ namespace SomerenUI
                             transactionService.AddTransaction(transaction);
                             drink.StockAmount--;
                             drink.SalesCount++;
+                            drinkService.updateDrink(drink);
                         }
                     }
                 }

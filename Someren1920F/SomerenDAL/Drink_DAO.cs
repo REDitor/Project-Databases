@@ -106,11 +106,12 @@ namespace SomerenDAL
         }
         public bool updateDrink(Drink drink)
         {
-            SqlCommand cmd = new SqlCommand("update dbo.drink set drinkname=@drinkname, stockAmount=@Stock, drinkprice=@price where drinkID=@id", conn);
+            SqlCommand cmd = new SqlCommand("update dbo.drink set drinkname=@drinkname, stockAmount=@Stock, salesCount=@salescount, drinkprice=@price where drinkID=@id", conn);
             conn.Open();
             cmd.Parameters.AddWithValue("@id", drink.DrinkID);
             cmd.Parameters.AddWithValue("@drinkname", drink.DrinkName);
             cmd.Parameters.AddWithValue("@stock", drink.StockAmount);
+            cmd.Parameters.AddWithValue("@salescount", drink.SalesCount);
             cmd.Parameters.AddWithValue("@price", drink.DrinkPrice);
             cmd.ExecuteNonQuery();
             conn.Close();
