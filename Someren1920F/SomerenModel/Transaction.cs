@@ -13,7 +13,5 @@ namespace SomerenModel
         public Student student { get; set; } 
         public Drink drink { get; set; } 
         public decimal totalPrice { get; set; } 
-
-        public int voucherId { get; set; }
     }
 }

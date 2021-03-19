@@ -86,11 +86,13 @@ namespace SomerenUI
 
                     else
                     {
-                        DialogResult print = MessageBox.Show($"Price (incl. VAT): {drink.PriceInclVAT} vouchers\nProceed?", "", MessageBoxButtons.YesNo);
+                        DialogResult print = MessageBox.Show($"Price (incl. VAT): {drink.PriceInclVAT} \nProceed?", "", MessageBoxButtons.YesNo);
 
                         if (print == DialogResult.Yes)
                         {
                             transactionService.AddTransaction(transaction);
+                            drink.StockAmount--;
+                            drink.SalesCount++;
                         }
                     }
                 }

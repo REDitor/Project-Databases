@@ -42,7 +42,7 @@ namespace SomerenDAL
         public Student GetByName(string fullName)
         {
             
-            SqlCommand cmd = new SqlCommand("SELECT studentID, firstname +', '+ lastname as fullname, dateOfBirth FROM student WHERE fullname = @fullName", conn);
+            SqlCommand cmd = new SqlCommand("SELECT studentID, firstname, lastname, origin, dateOfBirth, fullname FROM student WHERE fullname = @fullName", conn);
 
             OpenConnection();
             cmd.Parameters.AddWithValue("@fullName", fullName);

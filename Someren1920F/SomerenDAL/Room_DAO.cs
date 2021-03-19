@@ -17,7 +17,7 @@ namespace SomerenDAL
             //SqlParameter[] sqlParameters = new SqlParameter[0];
             //return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
-            SqlCommand cmd = new SqlCommand("SELECT roomID, capacity, roomtype FROM room",conn);
+            SqlCommand cmd = new SqlCommand("SELECT roomID, capacity, roomtype FROM room", conn);
             OpenConnection();
 
             SqlDataReader reader = cmd.ExecuteReader();

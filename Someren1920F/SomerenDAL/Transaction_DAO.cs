@@ -69,18 +69,16 @@ namespace SomerenDAL
 
         public bool AddTransaction(Transaction transaction)
         {
-            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT [transaction] ON " +
-                                            "INSERT INTO [transaction] (transactionID, purchaseDate, voucherID, drinkID, studentID, totalPrice) " +
-                                            "values(@purchaseDate, @voucherId, @drinkId, @studentId, @totalPrice) " +
-                                            "SET IDENTITY_INSERT [transaction] OFF", conn);
+            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT [transaction] OFF " +
+                                            "INSERT INTO [transaction] (purchaseDate, drinkID, studentID, totalPrice) " +
+                                            "values(@purchaseDate, @drinkId, @studentId, @totalPrice)", conn);
 
             OpenConnection();
 
             cmd.Parameters.AddWithValue("@purchaseDate", transaction.transactionDate);
-            cmd.Parameters.AddWithValue("@voucherId", transaction.voucherId);
             cmd.Parameters.AddWithValue("@drinkId", transaction.drink.DrinkID);
             cmd.Parameters.AddWithValue("@studentId", transaction.student.StudentId);
-            cmd.Parameters.AddWithValue("@totalPrice", transaction.totalPrice.ToString());
+            cmd.Parameters.AddWithValue("@totalPrice", transaction.drink.PriceInclVAT);
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Close();
 
