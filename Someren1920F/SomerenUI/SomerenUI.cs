@@ -15,7 +15,10 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
-        private Drink_Service drinkService = new Drink_Service();
+        private Drink_Service drinkService = new Drink_Service();   //used by add/update/delete
+
+        private DateTime startDate;                                 //startDate for revenue report
+        private DateTime endDate;                                   //endDate for revenue report
 
         public SomerenUI()
         {
@@ -25,6 +28,8 @@ namespace SomerenUI
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
+            mcalStartDate.MaxSelectionCount = 1;
+            mcalEndDate.MaxSelectionCount = 1;
         }
 
         private void showPanel(string panelName)
@@ -37,6 +42,7 @@ namespace SomerenUI
             pnl_Room.Hide();
             pnl_Drinks.Hide();
             pnl_OrderHistory.Hide();
+            pnl_RevenueReport.Hide();
 
             if (panelName == "Dashboard")
             {
@@ -164,10 +170,24 @@ namespace SomerenUI
                 //show cash register
                 pnl_OrderHistory.Show();
 
+                Transaction_Service transactionService = new Transaction_Service();
+                List<Transaction> transactions = transactionService.GetAllTransactions();
+
+                //NOT MANDATORY + STILL NEEDS FIXING (showing a history log of past orders)
+                foreach (Transaction t in transactions)
+                {
+                    listViewOrderHistory.Items.Add($"{t.student.FullName} ordered {t.drink.DrinkID} - {t.drink.DrinkName} for {t.drink.PriceInclVAT} (incl. VAT) on date: {t.transactionDate.Day:dd/MM/yyyy}");
+                }
+
+            }
+
+            else if (panelName == "Revenue Report")
+            {
+                pnl_RevenueReport.Show();
             }
         }
 
-        
+
 
         private void RefreshDrinkPanel()
         {
@@ -218,7 +238,7 @@ namespace SomerenUI
                 //{
                 //    student = Student_Service
                 //}
-                
+
             }
             catch (Exception exc)
             {
@@ -271,6 +291,11 @@ namespace SomerenUI
             showPanel("Drinks");
         }
 
+        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Revenue Report");
+        }
+
         private void Label1_Click_1(object sender, EventArgs e)
         {
 
@@ -301,7 +326,6 @@ namespace SomerenUI
             Drink drink = new Drink();
 
             drink.VATID = 1;
-            drink.DrinkID = Convert.ToInt32(ID_in.Text);
             drink.DrinkName = Drink_name_in.Text;
 
             if (VATID.Checked)
@@ -313,7 +337,7 @@ namespace SomerenUI
             drink.SalesCount = Convert.ToInt32(Count_in.Text);
             drink.DrinkPrice = Convert.ToDecimal(Price_in.Text);
 
-            if (Amount_in.Text == "" || Price_in.Text == "" || Drink_name_in.Text == "" || ID_in.Text == "" || Count_in.Text == "")
+            if (Amount_in.Text == "" || Price_in.Text == "" || Drink_name_in.Text == "" || Count_in.Text == "")
             {
                 MessageBox.Show("fill in all information correctly");
             }
@@ -330,6 +354,7 @@ namespace SomerenUI
             {
                 MessageBox.Show("select a drink");
             }
+
             Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
             drinkService.Deletedrink(drink);
             MessageBox.Show("Record removal is sucessful");
@@ -362,11 +387,13 @@ namespace SomerenUI
 
         private void listViewDrinks_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ID_in.Enabled = false;
+
             if (listViewDrinks.SelectedItems.Count == 1)
             {
-                ID_in.Enabled = false;
                 Count_in.Enabled = false;
                 VATID.Enabled = false;
+                Add.Enabled = false;
 
                 Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
 
@@ -386,10 +413,9 @@ namespace SomerenUI
             else if (listViewDrinks.SelectedItems.Count == 0)
             {
                 VATID.CheckState = CheckState.Unchecked;
-
-                ID_in.Enabled = true;
                 Count_in.Enabled = true;
                 VATID.Enabled = true;
+                Add.Enabled = true;
 
                 ID_in.ResetText();
                 Drink_name_in.ResetText();
@@ -404,6 +430,78 @@ namespace SomerenUI
         {
             OrderForm form = new OrderForm();
             form.ShowDialog();
+        }
+
+        private void pnl_RevenueReport_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void mcalStartDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            lblSelectedStartDate.Text = mcalStartDate.SelectionStart.ToString("dd/MM/yyyy");
+        }
+
+        private void mcalEndDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            lblSelectedEndDate.Text = mcalEndDate.SelectionStart.ToString("dd/MM/yyyy");
+        }
+
+        private void btnCalcRevenue_Click(object sender, EventArgs e)
+        {
+            //store dates
+            DateTime startDate = mcalStartDate.SelectionStart;
+            DateTime endDate = mcalEndDate.SelectionStart;
+
+            try
+            {
+                //get transactions
+                Transaction_Service transactionService = new Transaction_Service();
+                List<Transaction> transactions = transactionService.GetOrderByDate(startDate, endDate);
+
+                ////-----For myself:-----ADD OPTION FOR MULTIPLE DRINKS-----------
+                //int totalT = 0;
+
+                //foreach (Transaction t in transactions)
+                //{
+                //    if (t.transactionDate.Day >= startDate.Day && t.transactionDate.Day <= endDate.Day)
+                //    {
+                //        totalT += t.purchaseAmount;
+                //    }
+                //}
+
+                //get all customers
+                List<int> studIDs = new List<int>();
+                int totalStudents = 0;
+
+                foreach  (Transaction t in transactions)
+                {
+                    if (!studIDs.Contains(t.student.StudentId))
+                    {
+                        studIDs.Add(t.student.StudentId);
+                        totalStudents++;
+                    }
+                }
+                lblNrOfStudentsResult.Text = totalStudents.ToString();
+
+                ////get revenue/turnover
+                //Drink_Service drinkService = new Drink_Service();
+                //List<Drink> drinks = drinkService.GetDrinks();
+
+                //Drink drink = new Drink();
+                //int nrOfTransactions = 0;
+
+                //Dictionary<Drink, int> transactionPerDrink = new Dictionary<Drink, int>();
+
+                //foreach (Transaction t in transactions)
+                //{
+                //    transactionPerDrink.Add(t.drink, t.purchaseAmount);
+                //}
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

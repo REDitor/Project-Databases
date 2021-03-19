@@ -9,9 +9,10 @@ namespace SomerenModel
     public class Transaction
     {
         public int transactionId { get; set; }
-        public DateTime transactionDate { get; set; } 
-        public Student student { get; set; } 
-        public Drink drink { get; set; } 
-        public decimal totalPrice { get; set; } 
+        public DateTime transactionDate { get; set; }
+        public Student student { get; set; }
+        public Drink drink { get; set; }
+        public decimal totalPrice { get; set; }
+        public int purchaseAmount { get; set; }
     }
 }

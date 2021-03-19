@@ -15,7 +15,7 @@ namespace SomerenDAL
       
         public List<Student> Db_Get_All_Students()
         {
-            string query = "SELECT studentID, firstname, lastname, origin, dateOfBirth FROM dbo.student";
+            string query = "SELECT studentID, firstname, lastname, dateOfBirth FROM dbo.student";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -42,7 +42,7 @@ namespace SomerenDAL
         public Student GetByName(string fullName)
         {
             
-            SqlCommand cmd = new SqlCommand("SELECT studentID, firstname, lastname, origin, dateOfBirth, fullname FROM student WHERE fullname = @fullName", conn);
+            SqlCommand cmd = new SqlCommand("SELECT studentID, firstname, lastname, dateOfBirth, fullname FROM student WHERE fullname = @fullName", conn);
 
             OpenConnection();
             cmd.Parameters.AddWithValue("@fullName", fullName);
@@ -66,7 +66,6 @@ namespace SomerenDAL
                 StudentId = (int)reader["studentID"],
                 FirstName = (string)reader["firstname"],
                 LastName = (string)reader["lastname"],
-                Origin = (string)reader["origin"],
                 BirthDate = (DateTime)reader["dateOfBirth"]
             };
             return student;
@@ -84,7 +83,6 @@ namespace SomerenDAL
                     StudentId = (int)dr["studentID"],
                     FirstName = (string)dr["firstname"],
                     LastName = (string)dr["lastname"],
-                    Origin = (string)dr["origin"],
                     BirthDate = (DateTime)dr["dateOfBirth"]
                 };
                 students.Add(student);

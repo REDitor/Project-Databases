@@ -115,7 +115,7 @@ namespace SomerenUI
             {
                 MessageBox.Show(exc.Message);
             }
-            ReloadForm();
+            Close();
         }
     }
 }

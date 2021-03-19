@@ -80,10 +80,10 @@ namespace SomerenDAL
         public bool AddDrink(Drink drink)
         {
 
-            SqlCommand cmd = new SqlCommand("SET IDENTITY_INSERT dbo.drink ON insert into dbo.drink (drinkID, drinkname, vatID, stockAmount, salesCount, drinkprice) " +
-                "values(@drinkID, @Drinkname, @vatid, @stockAmount, @salescount, @drinkPrice) SET IDENTITY_INSERT dbo.drink OFF", conn);
+            SqlCommand cmd = new SqlCommand("insert into dbo.drink (drinkname, vatID, stockAmount, salesCount, drinkprice) " +
+                                            "values(@Drinkname, @vatid, @stockAmount, @salescount, @drinkPrice)", conn);
+
             OpenConnection();
-            cmd.Parameters.AddWithValue("@drinkID", drink.DrinkID);
             cmd.Parameters.AddWithValue("@Drinkname", drink.DrinkName);
             cmd.Parameters.AddWithValue("@vatid", drink.VATID);
             cmd.Parameters.AddWithValue("@stockAmount", drink.StockAmount);
