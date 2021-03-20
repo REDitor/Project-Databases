@@ -172,13 +172,29 @@ namespace SomerenUI
 
                 Transaction_Service transactionService = new Transaction_Service();
                 List<Transaction> transactions = transactionService.GetAllTransactions();
+                List<int> transactionIDs = new List<int>();
 
+                listViewOrderHistory.Items.Clear();
+                
                 //NOT MANDATORY + STILL NEEDS FIXING (showing a history log of past orders)
                 foreach (Transaction t in transactions)
                 {
-                    listViewOrderHistory.Items.Add($"{t.student.FullName} ordered {t.drink.DrinkID} - {t.drink.DrinkName} for {t.drink.PriceInclVAT} (incl. VAT) on date: {t.transactionDate.Day:dd/MM/yyyy}");
-                }
+                    ListViewItem li;
+                    if (!transactionIDs.Contains(t.transactionId))
+                    {
+                        transactionIDs.Add(t.transactionId);
 
+                        li = new ListViewItem(t.transactionId.ToString(), 0);
+                        li.SubItems.Add(t.transactionDate.ToString("dd/MM/yyyy HH:mm"));
+                        li.SubItems.Add(t.drink.DrinkID.ToString());
+                        li.SubItems.Add(t.student.StudentId.ToString());
+                        li.SubItems.Add(t.totalPrice.ToString("€ 0.00"));
+
+                        listViewOrderHistory.Items.Add(li);
+                    }
+                }
+                listViewOrderHistory.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                
             }
 
             else if (panelName == "Revenue Report")
@@ -187,7 +203,10 @@ namespace SomerenUI
             }
         }
 
+        private void RefreshOrderHistory()
+        {
 
+        }
 
         private void RefreshDrinkPanel()
         {
@@ -434,7 +453,7 @@ namespace SomerenUI
 
         private void pnl_RevenueReport_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void mcalStartDate_DateChanged(object sender, DateRangeEventArgs e)
@@ -453,11 +472,14 @@ namespace SomerenUI
             DateTime startDate = mcalStartDate.SelectionStart;
             DateTime endDate = mcalEndDate.SelectionStart;
 
+            
             try
             {
                 //get transactions
                 Transaction_Service transactionService = new Transaction_Service();
                 List<Transaction> transactions = transactionService.GetOrderByDate(startDate, endDate);
+
+                listViewRevenueReport.Items.Clear();
 
                 ////-----For myself:-----ADD OPTION FOR MULTIPLE DRINKS-----------
                 //int totalT = 0;
@@ -474,16 +496,27 @@ namespace SomerenUI
                 List<int> studIDs = new List<int>();
                 int totalStudents = 0;
 
-                foreach  (Transaction t in transactions)
+                foreach (Transaction t in transactions)
                 {
+                    ListViewItem li = new ListViewItem(t.transactionId.ToString(), 0);
+                    li.SubItems.Add(t.transactionDate.ToString("dd/MM/yyyy HH:mm"));
+                    li.SubItems.Add(t.drink.DrinkName);
+                    li.SubItems.Add(t.student.FullName);
+                    li.SubItems.Add(t.totalPrice.ToString("€ 0.00"));
+
+                    listViewRevenueReport.Items.Add(li);
+
+
+
                     if (!studIDs.Contains(t.student.StudentId))
                     {
                         studIDs.Add(t.student.StudentId);
                         totalStudents++;
                     }
                 }
-                lblNrOfStudentsResult.Text = totalStudents.ToString();
+                listViewRevenueReport.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
+                lblNrOfStudentsResult.Text = totalStudents.ToString();
                 ////get revenue/turnover
                 //Drink_Service drinkService = new Drink_Service();
                 //List<Drink> drinks = drinkService.GetDrinks();

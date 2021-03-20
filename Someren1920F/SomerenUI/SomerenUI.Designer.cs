@@ -97,6 +97,8 @@
             this.listViewOrderHistory = new System.Windows.Forms.ListView();
             this.lblOrderHistory = new System.Windows.Forms.Label();
             this.pnl_RevenueReport = new System.Windows.Forms.Panel();
+            this.lblNrOfStudentsResult = new System.Windows.Forms.Label();
+            this.lblNrOfStudents = new System.Windows.Forms.Label();
             this.btnCalcRevenue = new System.Windows.Forms.Button();
             this.lblSelectedEndDate = new System.Windows.Forms.Label();
             this.lblSelectedStartDate = new System.Windows.Forms.Label();
@@ -108,8 +110,16 @@
             this.mcalEndDate = new System.Windows.Forms.MonthCalendar();
             this.listViewRevenueReport = new System.Windows.Forms.ListView();
             this.lblRevenueReport = new System.Windows.Forms.Label();
-            this.lblNrOfStudents = new System.Windows.Forms.Label();
-            this.lblNrOfStudentsResult = new System.Windows.Forms.Label();
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -678,6 +688,12 @@
             // listViewOrderHistory
             // 
             this.listViewOrderHistory.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listViewOrderHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader19,
+            this.columnHeader20,
+            this.columnHeader21,
+            this.columnHeader22,
+            this.columnHeader23});
             this.listViewOrderHistory.FullRowSelect = true;
             this.listViewOrderHistory.GridLines = true;
             this.listViewOrderHistory.HideSelection = false;
@@ -720,6 +736,25 @@
             this.pnl_RevenueReport.Size = new System.Drawing.Size(947, 459);
             this.pnl_RevenueReport.TabIndex = 21;
             this.pnl_RevenueReport.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_RevenueReport_Paint);
+            // 
+            // lblNrOfStudentsResult
+            // 
+            this.lblNrOfStudentsResult.AutoSize = true;
+            this.lblNrOfStudentsResult.Location = new System.Drawing.Point(19, 402);
+            this.lblNrOfStudentsResult.Name = "lblNrOfStudentsResult";
+            this.lblNrOfStudentsResult.Size = new System.Drawing.Size(19, 13);
+            this.lblNrOfStudentsResult.TabIndex = 15;
+            this.lblNrOfStudentsResult.Text = "...";
+            // 
+            // lblNrOfStudents
+            // 
+            this.lblNrOfStudents.AutoSize = true;
+            this.lblNrOfStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNrOfStudents.Location = new System.Drawing.Point(16, 385);
+            this.lblNrOfStudents.Name = "lblNrOfStudents";
+            this.lblNrOfStudents.Size = new System.Drawing.Size(133, 13);
+            this.lblNrOfStudents.TabIndex = 14;
+            this.lblNrOfStudents.Text = "Total Students/Customers:";
             // 
             // btnCalcRevenue
             // 
@@ -809,6 +844,13 @@
             // listViewRevenueReport
             // 
             this.listViewRevenueReport.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listViewRevenueReport.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16,
+            this.columnHeader17,
+            this.columnHeader18});
+            this.listViewRevenueReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewRevenueReport.FullRowSelect = true;
             this.listViewRevenueReport.GridLines = true;
             this.listViewRevenueReport.HideSelection = false;
@@ -830,24 +872,49 @@
             this.lblRevenueReport.TabIndex = 2;
             this.lblRevenueReport.Text = "Revenue Report";
             // 
-            // lblNrOfStudents
+            // columnHeader14
             // 
-            this.lblNrOfStudents.AutoSize = true;
-            this.lblNrOfStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNrOfStudents.Location = new System.Drawing.Point(16, 385);
-            this.lblNrOfStudents.Name = "lblNrOfStudents";
-            this.lblNrOfStudents.Size = new System.Drawing.Size(133, 13);
-            this.lblNrOfStudents.TabIndex = 14;
-            this.lblNrOfStudents.Text = "Total Students/Customers:";
+            this.columnHeader14.Text = "Transaction ID";
             // 
-            // lblNrOfStudentsResult
+            // columnHeader15
             // 
-            this.lblNrOfStudentsResult.AutoSize = true;
-            this.lblNrOfStudentsResult.Location = new System.Drawing.Point(19, 402);
-            this.lblNrOfStudentsResult.Name = "lblNrOfStudentsResult";
-            this.lblNrOfStudentsResult.Size = new System.Drawing.Size(19, 13);
-            this.lblNrOfStudentsResult.TabIndex = 15;
-            this.lblNrOfStudentsResult.Text = "...";
+            this.columnHeader15.Text = "Date";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Drink";
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Student";
+            this.columnHeader17.Width = 66;
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Price (incl. VAT)";
+            this.columnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader18.Width = 91;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Transaction ID";
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Date";
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Drink ID";
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "Student ID";
+            // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "Price (incl. VAT)";
+            this.columnHeader23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // SomerenUI
             // 
@@ -978,6 +1045,16 @@
         private System.Windows.Forms.Button btnCalcRevenue;
         private System.Windows.Forms.Label lblNrOfStudentsResult;
         private System.Windows.Forms.Label lblNrOfStudents;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
+        private System.Windows.Forms.ColumnHeader columnHeader23;
     }
 }
 
