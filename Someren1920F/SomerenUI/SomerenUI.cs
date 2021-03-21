@@ -203,11 +203,6 @@ namespace SomerenUI
             }
         }
 
-        private void RefreshOrderHistory()
-        {
-
-        }
-
         private void RefreshDrinkPanel()
         {
             Drink_Service drinkService = new Drink_Service();
@@ -246,7 +241,7 @@ namespace SomerenUI
                 li.Tag = d;
                 listViewDrinks.Items.Add(li);
             }
-        }//????????????????????????????????????????????????
+        }
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
@@ -264,6 +259,7 @@ namespace SomerenUI
                 MessageBox.Show(exc.Message);
             }
         }
+
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
@@ -273,7 +269,6 @@ namespace SomerenUI
         {
             Application.Exit();
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
