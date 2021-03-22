@@ -258,7 +258,7 @@ namespace SomerenUI
             {
                 MessageBox.Show(exc.Message);
             }
-        }
+        }//?????????????????????????Don't know why this is here, but scared to delete it XD
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {

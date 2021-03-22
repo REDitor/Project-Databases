@@ -95,6 +95,11 @@
             this.pnl_OrderHistory = new System.Windows.Forms.Panel();
             this.btnOpenOrderWindow = new System.Windows.Forms.Button();
             this.listViewOrderHistory = new System.Windows.Forms.ListView();
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOrderHistory = new System.Windows.Forms.Label();
             this.pnl_RevenueReport = new System.Windows.Forms.Panel();
             this.lblNrOfStudentsResult = new System.Windows.Forms.Label();
@@ -109,17 +114,12 @@
             this.mcalStartDate = new System.Windows.Forms.MonthCalendar();
             this.mcalEndDate = new System.Windows.Forms.MonthCalendar();
             this.listViewRevenueReport = new System.Windows.Forms.ListView();
-            this.lblRevenueReport = new System.Windows.Forms.Label();
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblRevenueReport = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -705,6 +705,27 @@
             this.listViewOrderHistory.UseCompatibleStateImageBehavior = false;
             this.listViewOrderHistory.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Transaction ID";
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Date";
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Drink ID";
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "Student ID";
+            // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "Price (incl. VAT)";
+            this.columnHeader23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // lblOrderHistory
             // 
             this.lblOrderHistory.AutoSize = true;
@@ -862,16 +883,6 @@
             this.listViewRevenueReport.UseCompatibleStateImageBehavior = false;
             this.listViewRevenueReport.View = System.Windows.Forms.View.Details;
             // 
-            // lblRevenueReport
-            // 
-            this.lblRevenueReport.AutoSize = true;
-            this.lblRevenueReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRevenueReport.Location = new System.Drawing.Point(10, 10);
-            this.lblRevenueReport.Name = "lblRevenueReport";
-            this.lblRevenueReport.Size = new System.Drawing.Size(188, 29);
-            this.lblRevenueReport.TabIndex = 2;
-            this.lblRevenueReport.Text = "Revenue Report";
-            // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Transaction ID";
@@ -895,26 +906,15 @@
             this.columnHeader18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader18.Width = 91;
             // 
-            // columnHeader19
+            // lblRevenueReport
             // 
-            this.columnHeader19.Text = "Transaction ID";
-            // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "Date";
-            // 
-            // columnHeader21
-            // 
-            this.columnHeader21.Text = "Drink ID";
-            // 
-            // columnHeader22
-            // 
-            this.columnHeader22.Text = "Student ID";
-            // 
-            // columnHeader23
-            // 
-            this.columnHeader23.Text = "Price (incl. VAT)";
-            this.columnHeader23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.lblRevenueReport.AutoSize = true;
+            this.lblRevenueReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRevenueReport.Location = new System.Drawing.Point(10, 10);
+            this.lblRevenueReport.Name = "lblRevenueReport";
+            this.lblRevenueReport.Size = new System.Drawing.Size(188, 29);
+            this.lblRevenueReport.TabIndex = 2;
+            this.lblRevenueReport.Text = "Revenue Report";
             // 
             // SomerenUI
             // 
