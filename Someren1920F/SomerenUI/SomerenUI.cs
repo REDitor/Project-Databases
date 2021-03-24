@@ -252,6 +252,45 @@ namespace SomerenUI
         #endregion
 
         #region Drinks
+        private void RefreshDrinkPanel()
+        {
+            Drink_Service drinkService = new Drink_Service();
+            List<Drink> drinks = drinkService.GetDrinks();
+
+            //clear listview before filling it
+            listViewDrinks.Items.Clear();
+
+            //fill up list view
+            foreach (Drink d in drinks)
+            {
+                ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
+                li.SubItems.Add(d.DrinkName);
+                li.SubItems.Add(d.VATID.ToString());
+                li.SubItems.Add(d.DrinkPrice.ToString());
+                li.SubItems.Add(d.StockAmount.ToString());
+
+                //if(d.StockAmount< 10)
+                //{
+                //    li.SubItems.Add(d.StockAmount.ToString());
+                //    li.SubItems.Add("Nearly depleted");
+
+                //}else if (d.StockAmount == 0)
+                //{
+                //    li.SubItems.Add(d.StockAmount.ToString());
+                //    li.SubItems.Add("is empty");
+
+                //}
+                //else
+                //{
+                //    li.SubItems.Add("stock sufficient");
+
+                //}
+
+                li.SubItems.Add(d.SalesCount.ToString());
+                li.Tag = d;
+                listViewDrinks.Items.Add(li);
+            }
+        }
         private void drinksToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             ToolStripDropDownItem dropDownItem = sender as ToolStripDropDownItem;
@@ -643,45 +682,7 @@ namespace SomerenUI
             //page  refresh
             RefreshActivityPanel();
         }
-        private void RefreshDrinkPanel()
-        {
-            Drink_Service drinkService = new Drink_Service();
-            List<Drink> drinks = drinkService.GetDrinks();
-
-            //clear listview before filling it
-            listViewDrinks.Items.Clear();
-
-            //fill up list view
-            foreach (Drink d in drinks)
-            {
-                ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
-                li.SubItems.Add(d.DrinkName);
-                li.SubItems.Add(d.VATID.ToString());
-                li.SubItems.Add(d.DrinkPrice.ToString());
-                li.SubItems.Add(d.StockAmount.ToString());
-
-                //if(d.StockAmount< 10)
-                //{
-                //    li.SubItems.Add(d.StockAmount.ToString());
-                //    li.SubItems.Add("Nearly depleted");
-
-                //}else if (d.StockAmount == 0)
-                //{
-                //    li.SubItems.Add(d.StockAmount.ToString());
-                //    li.SubItems.Add("is empty");
-
-                //}
-                //else
-                //{
-                //    li.SubItems.Add("stock sufficient");
-
-                //}
-
-                li.SubItems.Add(d.SalesCount.ToString());
-                li.Tag = d;
-                listViewDrinks.Items.Add(li);
-            }
-        }
+        
         #endregion
     }
 }
