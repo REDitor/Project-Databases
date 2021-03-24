@@ -170,7 +170,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(962, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // dashboardToolStripMenuItem
             // 
@@ -238,18 +237,19 @@
             this.drinksToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.drinksToolStripMenuItem.Text = "Drinks";
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
+            this.drinksToolStripMenuItem.MouseHover += new System.EventHandler(this.drinksToolStripMenuItem_MouseHover);
             // 
             // addUpdateDeleteToolStripMenuItem
             // 
             this.addUpdateDeleteToolStripMenuItem.Name = "addUpdateDeleteToolStripMenuItem";
-            this.addUpdateDeleteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.addUpdateDeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addUpdateDeleteToolStripMenuItem.Text = "Add/Update/Delete";
             this.addUpdateDeleteToolStripMenuItem.Click += new System.EventHandler(this.addUpdateDeleteToolStripMenuItem_Click);
             // 
             // revenueReportToolStripMenuItem
             // 
             this.revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.revenueReportToolStripMenuItem.Text = "Revenue Report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
             // 
@@ -279,7 +279,6 @@
             this.lbl_Dashboard.Size = new System.Drawing.Size(185, 13);
             this.lbl_Dashboard.TabIndex = 1;
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
-            this.lbl_Dashboard.Click += new System.EventHandler(this.label1_Click);
             // 
             // img_Dashboard
             // 
@@ -383,7 +382,6 @@
             this.lvlecturer.TabIndex = 0;
             this.lvlecturer.UseCompatibleStateImageBehavior = false;
             this.lvlecturer.View = System.Windows.Forms.View.Details;
-            this.lvlecturer.SelectedIndexChanged += new System.EventHandler(this.lvlecturer_SelectedIndexChanged_1);
             // 
             // columnHeader4
             // 
@@ -459,7 +457,6 @@
             this.label1.Size = new System.Drawing.Size(90, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Rooms";
-            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // pnl_Drinks
             // 
@@ -600,7 +597,6 @@
             this.Amount_in.Name = "Amount_in";
             this.Amount_in.Size = new System.Drawing.Size(119, 20);
             this.Amount_in.TabIndex = 10;
-            this.Amount_in.TextChanged += new System.EventHandler(this.Amount_in_TextChanged);
             // 
             // Drink_name_in
             // 
@@ -609,7 +605,6 @@
             this.Drink_name_in.Name = "Drink_name_in";
             this.Drink_name_in.Size = new System.Drawing.Size(121, 20);
             this.Drink_name_in.TabIndex = 8;
-            this.Drink_name_in.TextChanged += new System.EventHandler(this.Amount_in_TextChanged);
             // 
             // Delete
             // 
@@ -783,7 +778,6 @@
             this.pnl_RevenueReport.Name = "pnl_RevenueReport";
             this.pnl_RevenueReport.Size = new System.Drawing.Size(947, 459);
             this.pnl_RevenueReport.TabIndex = 21;
-            this.pnl_RevenueReport.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_RevenueReport_Paint);
             // 
             // lblNrOfStudentsResult
             // 

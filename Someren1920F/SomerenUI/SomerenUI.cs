@@ -23,25 +23,23 @@ namespace SomerenUI
             InitializeComponent();
         }
 
+        //Regions
+
+        #region Global
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
             mcalStartDate.MaxSelectionCount = 1;
             mcalEndDate.MaxSelectionCount = 1;
         }
-
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
         private void showPanel(string panelName)
         {
             //Hide all panels
-            pnl_Dashboard.Hide();
-            img_Dashboard.Hide();
-            pnl_Students.Hide();
-            pnl_lecturer.Hide();
-            pnl_Room.Hide();
-            pnl_Drinks.Hide();
-            pnl_OrderHistory.Hide();
-            pnl_RevenueReport.Hide();
-            pnl_Activities.Hide();
+            HideAllPanels();
 
             if (panelName == "Dashboard")
             {
@@ -49,6 +47,7 @@ namespace SomerenUI
                 pnl_Dashboard.Show();
                 img_Dashboard.Show();
             }
+
             else if (panelName == "Students")
             {
                 // show students
@@ -94,6 +93,7 @@ namespace SomerenUI
                 listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
+
             else if (panelName == "Lecturers")
             {
                 // show lecturers
@@ -116,8 +116,6 @@ namespace SomerenUI
                 lvlecturer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 lvlecturer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
-
-
 
             else if (panelName == "room_panel")
             {
@@ -207,190 +205,71 @@ namespace SomerenUI
                 RefreshActivityPanel();
             }
         }
-
-        private void RefreshActivityPanel()
+        private void HideAllPanels()
         {
-            txtActivityID.Enabled = false;
-            btnRemoveActivity.Enabled = false;
-            btnUpdateActivity.Enabled = false;
-            //LEFT OF HERE
-            txt
-
-            //fill activity list with all activities retrieved from the database
-            Activity_Service activityService = new Activity_Service();
-            List<Activity> activities = activityService.GetAllActivities();
-
-            //Clear listview before filling again
-            listViewActivities.Clear();
-
-            //fill listview with list from database
-            foreach (Activity a in activities)
-            {
-                ListViewItem lvi = new ListViewItem(a.activityID.ToString(), 0);
-                lvi.SubItems.Add(a.description);
-                lvi.SubItems.Add(a.startDate.ToString("dd-MM-yyyy HH:mm"));
-                lvi.SubItems.Add(a.endDate.ToString("dd-MM-yyyy HH:mm"));
-                lvi.Tag = a;
-
-                listViewActivities.Items.Add(lvi);
-            }
-
-            //Add Columns
-            ColumnHeader actId = new ColumnHeader();
-            actId.Text = "Activity ID";
-
-            ColumnHeader desc = new ColumnHeader();
-            desc.Text = "Description";
-
-            ColumnHeader start = new ColumnHeader();
-            start.Text = "StartDate/Time";
-
-            ColumnHeader end = new ColumnHeader();
-            end.Text = "EndDate/Time";
-
-            listViewActivities.Columns.AddRange(new ColumnHeader[] { actId, desc, start, end });
-
-            listViewActivities.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            listViewActivities.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            pnl_Dashboard.Hide();
+            img_Dashboard.Hide();
+            pnl_Students.Hide();
+            pnl_lecturer.Hide();
+            pnl_Room.Hide();
+            pnl_Drinks.Hide();
+            pnl_OrderHistory.Hide();
+            pnl_RevenueReport.Hide();
+            pnl_Activities.Hide();
         }
+        #endregion
 
-        private void RefreshDrinkPanel()
-        {
-            Drink_Service drinkService = new Drink_Service();
-            List<Drink> drinks = drinkService.GetDrinks();
-
-            //clear listview before filling it
-            listViewDrinks.Items.Clear();
-
-            //fill up list view
-            foreach (Drink d in drinks)
-            {
-                ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
-                li.SubItems.Add(d.DrinkName);
-                li.SubItems.Add(d.VATID.ToString());
-                li.SubItems.Add(d.DrinkPrice.ToString());
-                li.SubItems.Add(d.StockAmount.ToString());
-
-                //if(d.StockAmount< 10)
-                //{
-                //    li.SubItems.Add(d.StockAmount.ToString());
-                //    li.SubItems.Add("Nearly depleted");
-
-                //}else if (d.StockAmount == 0)
-                //{
-                //    li.SubItems.Add(d.StockAmount.ToString());
-                //    li.SubItems.Add("is empty");
-
-                //}
-                //else
-                //{
-                //    li.SubItems.Add("stock sufficient");
-
-                //}
-
-                li.SubItems.Add(d.SalesCount.ToString());
-                li.Tag = d;
-                listViewDrinks.Items.Add(li);
-            }
-        }
-
-        private void btnCheckout_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Student student = null;
-                //if (cmbStudents.SelectedIndex >= 0)
-                //{
-                //    student = Student_Service
-                //}
-
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }//?????????????????????????Don't know why this is here, but scared to delete it XD
-
+        #region Dashboard
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
         }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void img_Dashboard_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
         }
+        #endregion
 
+        #region Students
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
         }
+        #endregion
 
-        private void RoomsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("room_panel");
-        }
-
+        #region Lecturers
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Lecturers");
         }
+        #endregion
 
-        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        #region Rooms
+        private void RoomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            showPanel("Order History");
+            showPanel("room_panel");
         }
+        #endregion
 
+        #region Drinks
+        private void drinksToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            ToolStripDropDownItem dropDownItem = sender as ToolStripDropDownItem;
+            if (dropDownItem.HasDropDownItems && !dropDownItem.DropDown.Visible)
+            {
+                dropDownItem.ShowDropDown();
+            }
+
+            else
+            {
+                dropDownItem.HideDropDown();
+            }
+        }
+        #region Add/Update/Delete
         private void addUpdateDeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Drinks");
         }
-
-        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Revenue Report");
-        }
-
-        private void activitiesToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            showPanel("Activities");
-        }
-
-        private void Label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lvlecturer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void lvlecturer_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Amount_in_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Add_Click(object sender, EventArgs e)
         {
             Drink drink = new Drink();
@@ -417,7 +296,6 @@ namespace SomerenUI
             //refresh page
             RefreshDrinkPanel();
         }
-
         private void Delete_Click(object sender, EventArgs e)
         {
             if (listViewDrinks.SelectedItems.Count < 1)
@@ -432,7 +310,6 @@ namespace SomerenUI
             //page  refresh
             RefreshDrinkPanel();
         }
-
         private void Update_Click(object sender, EventArgs e)
         {
             Drink drink;
@@ -454,7 +331,6 @@ namespace SomerenUI
             //page  refresh
             RefreshDrinkPanel();
         }
-
         private void listViewDrinks_SelectedIndexChanged(object sender, EventArgs e)
         {
             ID_in.Enabled = false;
@@ -495,28 +371,33 @@ namespace SomerenUI
                 Count_in.ResetText();
             }
         }
-
+        #endregion
+        #region Order_History
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Order History");
+        }
+        #endregion
+        #region Cash Register
         private void btnOpenOrderWindow_Click(object sender, EventArgs e)
         {
             OrderForm form = new OrderForm();
             form.ShowDialog();
         }
-
-        private void pnl_RevenueReport_Paint(object sender, PaintEventArgs e)
+        #endregion
+        #region Revenue Report
+        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            showPanel("Revenue Report");
         }
-
         private void mcalStartDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             lblSelectedStartDate.Text = mcalStartDate.SelectionStart.ToString("dd/MM/yyyy");
         }
-
         private void mcalEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             lblSelectedEndDate.Text = mcalEndDate.SelectionStart.ToString("dd/MM/yyyy");
         }
-
         private void btnCalcRevenue_Click(object sender, EventArgs e)
         {
             //store dates
@@ -586,7 +467,63 @@ namespace SomerenUI
                 MessageBox.Show(exc.Message);
             }
         }
+        #endregion
+        #endregion
 
+        #region Activities
+        private void activitiesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
+        }
+        private void RefreshActivityPanel()
+        {
+            txtActivityID.Enabled = false;
+            btnRemoveActivity.Enabled = false;
+            btnUpdateActivity.Enabled = false;
+
+            txtActivityID.ResetText();
+            txtActivityDescription.ResetText();
+            txtActivityDate.ResetText();
+            txtStartTime.ResetText();
+            txtEndTime.ResetText();
+
+            //fill activity list with all activities retrieved from the database
+            Activity_Service activityService = new Activity_Service();
+            List<Activity> activities = activityService.GetAllActivities();
+
+            //Clear listview before filling again
+            listViewActivities.Clear();
+
+            //fill listview with list from database
+            foreach (Activity a in activities)
+            {
+                ListViewItem lvi = new ListViewItem(a.activityID.ToString(), 0);
+                lvi.SubItems.Add(a.description);
+                lvi.SubItems.Add(a.startDate.ToString("dd-MM-yyyy HH:mm"));
+                lvi.SubItems.Add(a.endDate.ToString("dd-MM-yyyy HH:mm"));
+                lvi.Tag = a;
+
+                listViewActivities.Items.Add(lvi);
+            }
+
+            //Add Columns
+            ColumnHeader actId = new ColumnHeader();
+            actId.Text = "Activity ID";
+
+            ColumnHeader desc = new ColumnHeader();
+            desc.Text = "Description";
+
+            ColumnHeader start = new ColumnHeader();
+            start.Text = "StartDate/Time";
+
+            ColumnHeader end = new ColumnHeader();
+            end.Text = "EndDate/Time";
+
+            listViewActivities.Columns.AddRange(new ColumnHeader[] { actId, desc, start, end });
+
+            listViewActivities.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewActivities.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
             try
@@ -639,7 +576,6 @@ namespace SomerenUI
                 MessageBox.Show(exc.Message);
             }
         }
-
         private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtActivityID.Enabled = false;
@@ -672,7 +608,6 @@ namespace SomerenUI
                 txtEndTime.ResetText();
             }
         }
-
         private void btnRemoveActivity_Click(object sender, EventArgs e)
         {
             if (listViewActivities.SelectedItems.Count < 1)
@@ -687,7 +622,6 @@ namespace SomerenUI
             //page  refresh
             RefreshActivityPanel();
         }
-
         private void btnUpdateActivity_Click(object sender, EventArgs e)
         {
             try
@@ -709,5 +643,47 @@ namespace SomerenUI
             //page  refresh
             RefreshActivityPanel();
         }
+        private void RefreshDrinkPanel()
+        {
+            Drink_Service drinkService = new Drink_Service();
+            List<Drink> drinks = drinkService.GetDrinks();
+
+            //clear listview before filling it
+            listViewDrinks.Items.Clear();
+
+            //fill up list view
+            foreach (Drink d in drinks)
+            {
+                ListViewItem li = new ListViewItem(d.DrinkID.ToString(), 0);
+                li.SubItems.Add(d.DrinkName);
+                li.SubItems.Add(d.VATID.ToString());
+                li.SubItems.Add(d.DrinkPrice.ToString());
+                li.SubItems.Add(d.StockAmount.ToString());
+
+                //if(d.StockAmount< 10)
+                //{
+                //    li.SubItems.Add(d.StockAmount.ToString());
+                //    li.SubItems.Add("Nearly depleted");
+
+                //}else if (d.StockAmount == 0)
+                //{
+                //    li.SubItems.Add(d.StockAmount.ToString());
+                //    li.SubItems.Add("is empty");
+
+                //}
+                //else
+                //{
+                //    li.SubItems.Add("stock sufficient");
+
+                //}
+
+                li.SubItems.Add(d.SalesCount.ToString());
+                li.Tag = d;
+                listViewDrinks.Items.Add(li);
+            }
+        }
+
+
+        #endregion
     }
 }
