@@ -682,8 +682,6 @@ namespace SomerenUI
                 listViewDrinks.Items.Add(li);
             }
         }
-
-
         #endregion
     }
 }
