@@ -41,6 +41,7 @@
             this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUpdateDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activitiesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.img_Dashboard = new System.Windows.Forms.PictureBox();
@@ -120,6 +121,23 @@
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblRevenueReport = new System.Windows.Forms.Label();
+            this.pnl_Activities = new System.Windows.Forms.Panel();
+            this.txtActivityDescription = new System.Windows.Forms.TextBox();
+            this.txtActivityDate = new System.Windows.Forms.TextBox();
+            this.txtStartTime = new System.Windows.Forms.TextBox();
+            this.txtEndTime = new System.Windows.Forms.TextBox();
+            this.txtActivityID = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnRemoveActivity = new System.Windows.Forms.Button();
+            this.btnUpdateActivity = new System.Windows.Forms.Button();
+            this.btnAddActivity = new System.Windows.Forms.Button();
+            this.listViewActivities = new System.Windows.Forms.ListView();
+            this.label19 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -132,6 +150,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnl_OrderHistory.SuspendLayout();
             this.pnl_RevenueReport.SuspendLayout();
+            this.pnl_Activities.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -143,7 +162,8 @@
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
-            this.drinksToolStripMenuItem});
+            this.drinksToolStripMenuItem,
+            this.activitiesToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -232,6 +252,13 @@
             this.revenueReportToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.revenueReportToolStripMenuItem.Text = "Revenue Report";
             this.revenueReportToolStripMenuItem.Click += new System.EventHandler(this.revenueReportToolStripMenuItem_Click);
+            // 
+            // activitiesToolStripMenuItem1
+            // 
+            this.activitiesToolStripMenuItem1.Name = "activitiesToolStripMenuItem1";
+            this.activitiesToolStripMenuItem1.Size = new System.Drawing.Size(67, 20);
+            this.activitiesToolStripMenuItem1.Text = "Activities";
+            this.activitiesToolStripMenuItem1.Click += new System.EventHandler(this.activitiesToolStripMenuItem1_Click);
             // 
             // pnl_Dashboard
             // 
@@ -916,11 +943,201 @@
             this.lblRevenueReport.TabIndex = 2;
             this.lblRevenueReport.Text = "Revenue Report";
             // 
+            // pnl_Activities
+            // 
+            this.pnl_Activities.Controls.Add(this.txtActivityDescription);
+            this.pnl_Activities.Controls.Add(this.txtActivityDate);
+            this.pnl_Activities.Controls.Add(this.txtStartTime);
+            this.pnl_Activities.Controls.Add(this.txtEndTime);
+            this.pnl_Activities.Controls.Add(this.txtActivityID);
+            this.pnl_Activities.Controls.Add(this.label22);
+            this.pnl_Activities.Controls.Add(this.label20);
+            this.pnl_Activities.Controls.Add(this.label18);
+            this.pnl_Activities.Controls.Add(this.label17);
+            this.pnl_Activities.Controls.Add(this.label16);
+            this.pnl_Activities.Controls.Add(this.label15);
+            this.pnl_Activities.Controls.Add(this.btnRemoveActivity);
+            this.pnl_Activities.Controls.Add(this.btnUpdateActivity);
+            this.pnl_Activities.Controls.Add(this.btnAddActivity);
+            this.pnl_Activities.Controls.Add(this.listViewActivities);
+            this.pnl_Activities.Controls.Add(this.label19);
+            this.pnl_Activities.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnl_Activities.Location = new System.Drawing.Point(3, 22);
+            this.pnl_Activities.Name = "pnl_Activities";
+            this.pnl_Activities.Size = new System.Drawing.Size(947, 459);
+            this.pnl_Activities.TabIndex = 22;
+            // 
+            // txtActivityDescription
+            // 
+            this.txtActivityDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActivityDescription.Location = new System.Drawing.Point(675, 123);
+            this.txtActivityDescription.Name = "txtActivityDescription";
+            this.txtActivityDescription.Size = new System.Drawing.Size(156, 20);
+            this.txtActivityDescription.TabIndex = 27;
+            // 
+            // txtActivityDate
+            // 
+            this.txtActivityDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActivityDate.Location = new System.Drawing.Point(675, 162);
+            this.txtActivityDate.Name = "txtActivityDate";
+            this.txtActivityDate.Size = new System.Drawing.Size(83, 20);
+            this.txtActivityDate.TabIndex = 26;
+            // 
+            // txtStartTime
+            // 
+            this.txtStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStartTime.Location = new System.Drawing.Point(675, 203);
+            this.txtStartTime.Name = "txtStartTime";
+            this.txtStartTime.Size = new System.Drawing.Size(67, 20);
+            this.txtStartTime.TabIndex = 25;
+            // 
+            // txtEndTime
+            // 
+            this.txtEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndTime.Location = new System.Drawing.Point(764, 203);
+            this.txtEndTime.Name = "txtEndTime";
+            this.txtEndTime.Size = new System.Drawing.Size(67, 20);
+            this.txtEndTime.TabIndex = 24;
+            // 
+            // txtActivityID
+            // 
+            this.txtActivityID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtActivityID.Location = new System.Drawing.Point(675, 81);
+            this.txtActivityID.Name = "txtActivityID";
+            this.txtActivityID.Size = new System.Drawing.Size(51, 20);
+            this.txtActivityID.TabIndex = 23;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Playbill", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(746, 203);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(12, 19);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "-";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(580, 163);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 16);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "Date:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(580, 204);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(75, 16);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "From/Untill:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(580, 124);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(79, 16);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Description:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(580, 82);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(24, 16);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "ID:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(579, 45);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(267, 16);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "View/Enter/Adjust activity information:";
+            // 
+            // btnRemoveActivity
+            // 
+            this.btnRemoveActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnRemoveActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRemoveActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveActivity.Location = new System.Drawing.Point(582, 375);
+            this.btnRemoveActivity.Name = "btnRemoveActivity";
+            this.btnRemoveActivity.Size = new System.Drawing.Size(100, 63);
+            this.btnRemoveActivity.TabIndex = 7;
+            this.btnRemoveActivity.Text = "Remove";
+            this.btnRemoveActivity.UseVisualStyleBackColor = false;
+            this.btnRemoveActivity.Click += new System.EventHandler(this.btnRemoveActivity_Click);
+            // 
+            // btnUpdateActivity
+            // 
+            this.btnUpdateActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnUpdateActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateActivity.Location = new System.Drawing.Point(706, 375);
+            this.btnUpdateActivity.Name = "btnUpdateActivity";
+            this.btnUpdateActivity.Size = new System.Drawing.Size(100, 63);
+            this.btnUpdateActivity.TabIndex = 6;
+            this.btnUpdateActivity.Text = "Update";
+            this.btnUpdateActivity.UseVisualStyleBackColor = false;
+            this.btnUpdateActivity.Click += new System.EventHandler(this.btnUpdateActivity_Click);
+            // 
+            // btnAddActivity
+            // 
+            this.btnAddActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAddActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddActivity.Location = new System.Drawing.Point(831, 375);
+            this.btnAddActivity.Name = "btnAddActivity";
+            this.btnAddActivity.Size = new System.Drawing.Size(100, 63);
+            this.btnAddActivity.TabIndex = 5;
+            this.btnAddActivity.Text = "Add";
+            this.btnAddActivity.UseVisualStyleBackColor = false;
+            this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
+            // 
+            // listViewActivities
+            // 
+            this.listViewActivities.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listViewActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewActivities.FullRowSelect = true;
+            this.listViewActivities.GridLines = true;
+            this.listViewActivities.HideSelection = false;
+            this.listViewActivities.Location = new System.Drawing.Point(31, 46);
+            this.listViewActivities.MultiSelect = false;
+            this.listViewActivities.Name = "listViewActivities";
+            this.listViewActivities.Size = new System.Drawing.Size(528, 392);
+            this.listViewActivities.TabIndex = 4;
+            this.listViewActivities.UseCompatibleStateImageBehavior = false;
+            this.listViewActivities.View = System.Windows.Forms.View.Details;
+            this.listViewActivities.SelectedIndexChanged += new System.EventHandler(this.listViewActivities_SelectedIndexChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(26, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(107, 29);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Activities";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.pnl_Activities);
             this.Controls.Add(this.pnl_RevenueReport);
             this.Controls.Add(this.pnl_OrderHistory);
             this.Controls.Add(this.pnl_Drinks);
@@ -955,6 +1172,8 @@
             this.pnl_OrderHistory.PerformLayout();
             this.pnl_RevenueReport.ResumeLayout(false);
             this.pnl_RevenueReport.PerformLayout();
+            this.pnl_Activities.ResumeLayout(false);
+            this.pnl_Activities.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1055,6 +1274,24 @@
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.ColumnHeader columnHeader23;
+        private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem1;
+        private System.Windows.Forms.Panel pnl_Activities;
+        private System.Windows.Forms.ListView listViewActivities;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnRemoveActivity;
+        private System.Windows.Forms.Button btnUpdateActivity;
+        private System.Windows.Forms.Button btnAddActivity;
+        private System.Windows.Forms.TextBox txtActivityDescription;
+        private System.Windows.Forms.TextBox txtActivityDate;
+        private System.Windows.Forms.TextBox txtStartTime;
+        private System.Windows.Forms.TextBox txtEndTime;
+        private System.Windows.Forms.TextBox txtActivityID;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }
 

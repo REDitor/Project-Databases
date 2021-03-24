@@ -15,10 +15,8 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
-        private Drink_Service drinkService = new Drink_Service();   //used by add/update/delete
-
-        private DateTime startDate;                                 //startDate for revenue report
-        private DateTime endDate;                                   //endDate for revenue report
+        private Drink_Service drinkService = new Drink_Service();           //used by add/update/delete
+        private Activity_Service activityService = new Activity_Service();  //used by add/update/delete
 
         public SomerenUI()
         {
@@ -43,6 +41,7 @@ namespace SomerenUI
             pnl_Drinks.Hide();
             pnl_OrderHistory.Hide();
             pnl_RevenueReport.Hide();
+            pnl_Activities.Hide();
 
             if (panelName == "Dashboard")
             {
@@ -151,7 +150,6 @@ namespace SomerenUI
                 }
 
                 listViewStudents.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
             }
 
             else if (panelName == "Drinks")
@@ -175,7 +173,7 @@ namespace SomerenUI
                 List<int> transactionIDs = new List<int>();
 
                 listViewOrderHistory.Items.Clear();
-                
+
                 //NOT MANDATORY + STILL NEEDS FIXING (showing a history log of past orders)
                 foreach (Transaction t in transactions)
                 {
@@ -194,13 +192,66 @@ namespace SomerenUI
                     }
                 }
                 listViewOrderHistory.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                
             }
 
             else if (panelName == "Revenue Report")
             {
                 pnl_RevenueReport.Show();
             }
+
+            else if (panelName == "Activities")
+            {
+                //Show panel for activities
+                pnl_Activities.Show();
+
+                RefreshActivityPanel();
+            }
+        }
+
+        private void RefreshActivityPanel()
+        {
+            txtActivityID.Enabled = false;
+            btnRemoveActivity.Enabled = false;
+            btnUpdateActivity.Enabled = false;
+            //LEFT OF HERE
+            txt
+
+            //fill activity list with all activities retrieved from the database
+            Activity_Service activityService = new Activity_Service();
+            List<Activity> activities = activityService.GetAllActivities();
+
+            //Clear listview before filling again
+            listViewActivities.Clear();
+
+            //fill listview with list from database
+            foreach (Activity a in activities)
+            {
+                ListViewItem lvi = new ListViewItem(a.activityID.ToString(), 0);
+                lvi.SubItems.Add(a.description);
+                lvi.SubItems.Add(a.startDate.ToString("dd-MM-yyyy HH:mm"));
+                lvi.SubItems.Add(a.endDate.ToString("dd-MM-yyyy HH:mm"));
+                lvi.Tag = a;
+
+                listViewActivities.Items.Add(lvi);
+            }
+
+            //Add Columns
+            ColumnHeader actId = new ColumnHeader();
+            actId.Text = "Activity ID";
+
+            ColumnHeader desc = new ColumnHeader();
+            desc.Text = "Description";
+
+            ColumnHeader start = new ColumnHeader();
+            start.Text = "StartDate/Time";
+
+            ColumnHeader end = new ColumnHeader();
+            end.Text = "EndDate/Time";
+
+            listViewActivities.Columns.AddRange(new ColumnHeader[] { actId, desc, start, end });
+
+            listViewActivities.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listViewActivities.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void RefreshDrinkPanel()
@@ -308,6 +359,11 @@ namespace SomerenUI
         private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Revenue Report");
+        }
+
+        private void activitiesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
         }
 
         private void Label1_Click_1(object sender, EventArgs e)
@@ -467,7 +523,6 @@ namespace SomerenUI
             DateTime startDate = mcalStartDate.SelectionStart;
             DateTime endDate = mcalEndDate.SelectionStart;
 
-            
             try
             {
                 //get transactions
@@ -530,6 +585,129 @@ namespace SomerenUI
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void btnAddActivity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Activity activity = new Activity();
+
+                if (txtActivityDescription.Text == "")
+                {
+                    throw new Exception("Please enter a description!");
+                }
+
+                else
+                {
+                    activity.description = txtActivityDescription.Text;
+                }
+
+                if (txtActivityDate.Text == "")
+                {
+                    throw new Exception("Please enter an activity date! (format: MM/dd/yyyy)");
+                }
+
+                if (txtStartTime.Text == "")
+                {
+                    throw new Exception("Please enter a start time for the activity correctly (format: HH:mm)");
+                }
+
+                else
+                {
+                    activity.startDate = Convert.ToDateTime(txtActivityDate.Text + " " + txtStartTime.Text);
+                }
+
+                if (txtEndTime.Text == "")
+                {
+                    throw new Exception("Please enter an end time for the activity correctly (format: HH:mm)");
+                }
+
+                else
+                {
+                    activity.endDate = Convert.ToDateTime(txtActivityDate.Text + " " + txtEndTime.Text);
+                }
+
+                activityService.AddActivity(activity);
+                MessageBox.Show($"Activity '{activity.description}' has been added");
+
+                //refresh page
+                RefreshActivityPanel();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtActivityID.Enabled = false;
+
+            if (listViewActivities.SelectedItems.Count == 1)
+            {
+                btnAddActivity.Enabled = false;
+                btnRemoveActivity.Enabled = true;
+                btnUpdateActivity.Enabled = true;
+
+                Activity activity = listViewActivities.SelectedItems[0].Tag as Activity;
+
+                txtActivityID.Text = activity.activityID.ToString();
+                txtActivityDescription.Text = activity.description;
+                txtActivityDate.Text = activity.startDate.ToShortDateString();
+                txtStartTime.Text = activity.startDate.ToShortTimeString();
+                txtEndTime.Text = activity.endDate.ToShortTimeString();
+            }
+
+            else if (listViewActivities.SelectedItems.Count == 0)
+            {
+                btnAddActivity.Enabled = true;
+                btnRemoveActivity.Enabled = false;
+                btnUpdateActivity.Enabled = false;
+
+                txtActivityID.ResetText();
+                txtActivityDescription.ResetText();
+                txtActivityDate.ResetText();
+                txtStartTime.ResetText();
+                txtEndTime.ResetText();
+            }
+        }
+
+        private void btnRemoveActivity_Click(object sender, EventArgs e)
+        {
+            if (listViewActivities.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("select an activity");
+            }
+
+            Activity activity = listViewActivities.SelectedItems[0].Tag as Activity;
+            activityService.DeleteActivity(activity);
+            MessageBox.Show("Record removal is sucessful");
+
+            //page  refresh
+            RefreshActivityPanel();
+        }
+
+        private void btnUpdateActivity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Activity activity;
+                activity = listViewActivities.SelectedItems[0].Tag as Activity;
+                activity.description = txtActivityDescription.Text;
+                activity.startDate = Convert.ToDateTime(txtStartTime.Text);
+                activity.endDate = Convert.ToDateTime(txtEndTime.Text);
+                activityService.UpdateActivity(activity);
+
+                MessageBox.Show("update successful");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("select an activity");
+            }
+
+            //page  refresh
+            RefreshActivityPanel();
         }
     }
 }
