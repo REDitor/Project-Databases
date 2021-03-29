@@ -668,8 +668,8 @@ namespace SomerenUI
                 Activity activity;
                 activity = listViewActivities.SelectedItems[0].Tag as Activity;
                 activity.description = txtActivityDescription.Text;
-                activity.startDate = Convert.ToDateTime(txtStartTime.Text);
-                activity.endDate = Convert.ToDateTime(txtEndTime.Text);
+                activity.startDate = Convert.ToDateTime(txtActivityDate.Text + " " + txtStartTime.Text);
+                activity.endDate = Convert.ToDateTime(txtActivityDate.Text + " " + txtEndTime.Text);
                 activityService.UpdateActivity(activity);
 
                 MessageBox.Show("update successful");
