@@ -204,6 +204,43 @@ namespace SomerenUI
 
                 RefreshActivityPanel();
             }
+            else if (panelName == "Supervisor_list")
+            {
+                Supervisor_list.Show();
+
+                Supervisor_Service supervisor_service = new Supervisor_Service();
+
+                // supervisor_service = listViewActivities.SelectedItems[0].Tag;
+                Activity activityID = (Activity)listViewActivities.SelectedItems[0].Tag;
+
+                List<Supervision> supervisors = supervisor_service.GetSupervisorsbyid(activityID.activityID);
+                Supervisor_listview.Items.Clear();
+                lecturer_list.Items.Clear();
+                foreach (Supervision s in supervisors)
+                {
+                    ListViewItem item = new ListViewItem(s.ActivityId.ToString());
+                    item.SubItems.Add(s.lecturer.number.ToString());
+                    item.SubItems.Add(s.StartTime.ToString());
+                    item.SubItems.Add(s.EndTime.ToString());
+                    item.SubItems.Add(s.TeacherFullName);
+                    item.SubItems.Add(s.lecturer.firstName);
+                   
+                    item.Tag = s;
+                    Supervisor_listview.Items.Add(item);
+
+                }
+                lecturer_Service Service_lecturer = new lecturer_Service();
+                List<Lecturer> lecturers = Service_lecturer.Getlecturers();
+                foreach(Lecturer l in lecturers)
+                {
+                    ListViewItem lecturer_item = new ListViewItem(l.number.ToString());
+                    lecturer_item.SubItems.Add(l.firstName);
+                    lecturer_item.SubItems.Add(l.lastName);
+                    lecturer_item.Tag = l;
+                    lecturer_list.Items.Add(lecturer_item);
+                }
+
+            }
         }
         private void HideAllPanels()
         {
@@ -216,6 +253,7 @@ namespace SomerenUI
             pnl_OrderHistory.Hide();
             pnl_RevenueReport.Hide();
             pnl_Activities.Hide();
+            Supervisor_list.Hide();
         }
         #endregion
 
@@ -682,7 +720,64 @@ namespace SomerenUI
             //page  refresh
             RefreshActivityPanel();
         }
-        
+
         #endregion
+
+        private void Supervisor_Click(object sender, EventArgs e)
+        {
+            if (listViewActivities.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("select an activity");
+            }
+            else
+            {
+                showPanel("Supervisor_list");
+            }
+            
+        }
+
+        private void Add_super_Click(object sender, EventArgs e)
+        {
+
+            Supervisor_Service supervision_service_pipe = new Supervisor_Service();
+            if (lecturer_list.SelectedItems.Count < 1 ||Supervisor_listview.SelectedItems.Count<1)
+            {
+                MessageBox.Show("select a lecturer and activity to add to activity");
+            }
+            else
+            {
+               Supervision Supervision = (Supervision)Supervisor_listview.SelectedItems[0].Tag;
+                Lecturer lecturerid = (Lecturer)lecturer_list.SelectedItems[0].Tag;
+                supervision_service_pipe.AddSupervisor(Supervision.ActivityId, lecturerid.number);
+                MessageBox.Show("supervisor added");
+            }
+        }
+
+        private void Remove_super_Click(object sender, EventArgs e)
+        {
+            Supervisor_Service supervision_service_pipe = new Supervisor_Service();
+            
+            if (lecturer_list.SelectedItems.Count < 1 || Supervisor_listview.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("select a lecturer and activity to delete lecturer");
+                   // programmer blindness
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("confirmation","are you sure you want to delete that?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(result == DialogResult.Yes)
+                {
+                    Supervision Supervision = (Supervision)Supervisor_listview.SelectedItems[0].Tag;
+                    Lecturer lecturerid = (Lecturer)lecturer_list.SelectedItems[0].Tag;
+                    supervision_service_pipe.DeleteSupervisor(Supervision.ActivityId, lecturerid.number);
+                }
+                else
+                {
+                    return;
+                }
+                
+
+            }
+        }
     }
 }
