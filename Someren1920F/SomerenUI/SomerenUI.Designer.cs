@@ -36,7 +36,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUpdateDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,6 +149,7 @@
             this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label24 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -173,14 +173,13 @@
             this.dashboardToolStripMenuItem,
             this.studentsToolStripMenuItem,
             this.lecturersToolStripMenuItem,
-            this.activitiesToolStripMenuItem,
             this.roomsToolStripMenuItem,
             this.drinksToolStripMenuItem,
             this.activitiesToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(722, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(952, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -228,12 +227,6 @@
             this.lecturersToolStripMenuItem.Text = "Lecturers";
             this.lecturersToolStripMenuItem.Click += new System.EventHandler(this.lecturersToolStripMenuItem_Click);
             // 
-            // activitiesToolStripMenuItem
-            // 
-            this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.activitiesToolStripMenuItem.Text = "Activities";
-            // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
@@ -278,7 +271,7 @@
             this.pnl_Dashboard.Controls.Add(this.lbl_Dashboard);
             this.pnl_Dashboard.Controls.Add(this.img_Dashboard);
             this.pnl_Dashboard.Location = new System.Drawing.Point(9, 22);
-            this.pnl_Dashboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Dashboard.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Dashboard.Name = "pnl_Dashboard";
             this.pnl_Dashboard.Size = new System.Drawing.Size(704, 379);
             this.pnl_Dashboard.TabIndex = 2;
@@ -308,7 +301,7 @@
             this.pnl_Students.Controls.Add(this.pictureBox1);
             this.pnl_Students.Controls.Add(this.lbl_Students);
             this.pnl_Students.Location = new System.Drawing.Point(9, 20);
-            this.pnl_Students.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Students.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Students.Name = "pnl_Students";
             this.pnl_Students.Size = new System.Drawing.Size(704, 379);
             this.pnl_Students.TabIndex = 4;
@@ -364,7 +357,7 @@
             this.pnl_lecturer.Controls.Add(this.label2);
             this.pnl_lecturer.Controls.Add(this.lvlecturer);
             this.pnl_lecturer.Location = new System.Drawing.Point(11, 26);
-            this.pnl_lecturer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_lecturer.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_lecturer.Name = "pnl_lecturer";
             this.pnl_lecturer.Size = new System.Drawing.Size(935, 399);
             this.pnl_lecturer.TabIndex = 6;
@@ -389,7 +382,7 @@
             this.lvlecturer.GridLines = true;
             this.lvlecturer.HideSelection = false;
             this.lvlecturer.Location = new System.Drawing.Point(3, 55);
-            this.lvlecturer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvlecturer.Margin = new System.Windows.Forms.Padding(2);
             this.lvlecturer.Name = "lvlecturer";
             this.lvlecturer.Size = new System.Drawing.Size(783, 342);
             this.lvlecturer.TabIndex = 0;
@@ -455,7 +448,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(796, 42);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(75, 41);
             this.pictureBox2.TabIndex = 6;
@@ -499,7 +492,7 @@
             // 
             this.VATID.AutoSize = true;
             this.VATID.Location = new System.Drawing.Point(19, 423);
-            this.VATID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VATID.Margin = new System.Windows.Forms.Padding(2);
             this.VATID.Name = "VATID";
             this.VATID.Size = new System.Drawing.Size(75, 17);
             this.VATID.TabIndex = 12;
@@ -519,7 +512,7 @@
             // Count_in
             // 
             this.Count_in.Location = new System.Drawing.Point(666, 387);
-            this.Count_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Count_in.Margin = new System.Windows.Forms.Padding(2);
             this.Count_in.Name = "Count_in";
             this.Count_in.Size = new System.Drawing.Size(116, 20);
             this.Count_in.TabIndex = 11;
@@ -537,7 +530,7 @@
             // update
             // 
             this.update.Location = new System.Drawing.Point(811, 173);
-            this.update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.update.Margin = new System.Windows.Forms.Padding(2);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(81, 28);
             this.update.TabIndex = 6;
@@ -548,7 +541,7 @@
             // Add
             // 
             this.Add.Location = new System.Drawing.Point(811, 256);
-            this.Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Add.Margin = new System.Windows.Forms.Padding(2);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(81, 28);
             this.Add.TabIndex = 5;
@@ -560,7 +553,7 @@
             // 
             this.ID_in.Enabled = false;
             this.ID_in.Location = new System.Drawing.Point(16, 387);
-            this.ID_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ID_in.Margin = new System.Windows.Forms.Padding(2);
             this.ID_in.Name = "ID_in";
             this.ID_in.Size = new System.Drawing.Size(93, 20);
             this.ID_in.TabIndex = 7;
@@ -598,7 +591,7 @@
             // Price_in
             // 
             this.Price_in.Location = new System.Drawing.Point(406, 387);
-            this.Price_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Price_in.Margin = new System.Windows.Forms.Padding(2);
             this.Price_in.Name = "Price_in";
             this.Price_in.Size = new System.Drawing.Size(104, 20);
             this.Price_in.TabIndex = 9;
@@ -606,7 +599,7 @@
             // Amount_in
             // 
             this.Amount_in.Location = new System.Drawing.Point(529, 387);
-            this.Amount_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Amount_in.Margin = new System.Windows.Forms.Padding(2);
             this.Amount_in.Name = "Amount_in";
             this.Amount_in.Size = new System.Drawing.Size(119, 20);
             this.Amount_in.TabIndex = 10;
@@ -614,7 +607,7 @@
             // Drink_name_in
             // 
             this.Drink_name_in.Location = new System.Drawing.Point(140, 387);
-            this.Drink_name_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Drink_name_in.Margin = new System.Windows.Forms.Padding(2);
             this.Drink_name_in.Name = "Drink_name_in";
             this.Drink_name_in.Size = new System.Drawing.Size(121, 20);
             this.Drink_name_in.TabIndex = 8;
@@ -622,7 +615,7 @@
             // Delete
             // 
             this.Delete.Location = new System.Drawing.Point(811, 96);
-            this.Delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Delete.Margin = new System.Windows.Forms.Padding(2);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(81, 28);
             this.Delete.TabIndex = 4;
@@ -680,7 +673,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(796, 42);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(75, 41);
             this.pictureBox3.TabIndex = 6;
@@ -971,16 +964,16 @@
             this.pnl_Activities.Controls.Add(this.supervisor);
             this.pnl_Activities.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_Activities.Location = new System.Drawing.Point(2, 18);
-            this.pnl_Activities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_Activities.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_Activities.Name = "pnl_Activities";
-            this.pnl_Activities.Size = new System.Drawing.Size(710, 373);
+            this.pnl_Activities.Size = new System.Drawing.Size(945, 463);
             this.pnl_Activities.TabIndex = 22;
             // 
             // txtActivityDescription
             // 
             this.txtActivityDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActivityDescription.Location = new System.Drawing.Point(506, 100);
-            this.txtActivityDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtActivityDescription.Location = new System.Drawing.Point(710, 103);
+            this.txtActivityDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtActivityDescription.Name = "txtActivityDescription";
             this.txtActivityDescription.Size = new System.Drawing.Size(118, 20);
             this.txtActivityDescription.TabIndex = 27;
@@ -988,8 +981,8 @@
             // txtActivityDate
             // 
             this.txtActivityDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActivityDate.Location = new System.Drawing.Point(506, 132);
-            this.txtActivityDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtActivityDate.Location = new System.Drawing.Point(710, 135);
+            this.txtActivityDate.Margin = new System.Windows.Forms.Padding(2);
             this.txtActivityDate.Name = "txtActivityDate";
             this.txtActivityDate.Size = new System.Drawing.Size(63, 20);
             this.txtActivityDate.TabIndex = 26;
@@ -997,8 +990,8 @@
             // txtStartTime
             // 
             this.txtStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStartTime.Location = new System.Drawing.Point(506, 165);
-            this.txtStartTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStartTime.Location = new System.Drawing.Point(710, 168);
+            this.txtStartTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtStartTime.Name = "txtStartTime";
             this.txtStartTime.Size = new System.Drawing.Size(51, 20);
             this.txtStartTime.TabIndex = 25;
@@ -1006,8 +999,8 @@
             // txtEndTime
             // 
             this.txtEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndTime.Location = new System.Drawing.Point(573, 165);
-            this.txtEndTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEndTime.Location = new System.Drawing.Point(777, 168);
+            this.txtEndTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtEndTime.Name = "txtEndTime";
             this.txtEndTime.Size = new System.Drawing.Size(51, 20);
             this.txtEndTime.TabIndex = 24;
@@ -1015,8 +1008,8 @@
             // txtActivityID
             // 
             this.txtActivityID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtActivityID.Location = new System.Drawing.Point(506, 66);
-            this.txtActivityID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtActivityID.Location = new System.Drawing.Point(710, 69);
+            this.txtActivityID.Margin = new System.Windows.Forms.Padding(2);
             this.txtActivityID.Name = "txtActivityID";
             this.txtActivityID.Size = new System.Drawing.Size(39, 20);
             this.txtActivityID.TabIndex = 23;
@@ -1025,7 +1018,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Playbill", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(560, 165);
+            this.label22.Location = new System.Drawing.Point(764, 168);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(12, 19);
@@ -1036,7 +1029,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(435, 132);
+            this.label20.Location = new System.Drawing.Point(627, 138);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(40, 16);
@@ -1047,7 +1040,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(435, 166);
+            this.label18.Location = new System.Drawing.Point(627, 172);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 16);
@@ -1058,7 +1051,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(435, 101);
+            this.label17.Location = new System.Drawing.Point(627, 107);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(79, 16);
@@ -1069,7 +1062,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(435, 67);
+            this.label16.Location = new System.Drawing.Point(627, 73);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(24, 16);
@@ -1080,7 +1073,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(434, 37);
+            this.label15.Location = new System.Drawing.Point(626, 43);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(267, 16);
@@ -1092,10 +1085,10 @@
             this.btnRemoveActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRemoveActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemoveActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveActivity.Location = new System.Drawing.Point(424, 326);
-            this.btnRemoveActivity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveActivity.Location = new System.Drawing.Point(622, 324);
+            this.btnRemoveActivity.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveActivity.Name = "btnRemoveActivity";
-            this.btnRemoveActivity.Size = new System.Drawing.Size(75, 30);
+            this.btnRemoveActivity.Size = new System.Drawing.Size(95, 44);
             this.btnRemoveActivity.TabIndex = 7;
             this.btnRemoveActivity.Text = "Remove";
             this.btnRemoveActivity.UseVisualStyleBackColor = false;
@@ -1106,10 +1099,10 @@
             this.btnUpdateActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnUpdateActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateActivity.Location = new System.Drawing.Point(503, 326);
-            this.btnUpdateActivity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateActivity.Location = new System.Drawing.Point(721, 324);
+            this.btnUpdateActivity.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateActivity.Name = "btnUpdateActivity";
-            this.btnUpdateActivity.Size = new System.Drawing.Size(75, 30);
+            this.btnUpdateActivity.Size = new System.Drawing.Size(84, 44);
             this.btnUpdateActivity.TabIndex = 6;
             this.btnUpdateActivity.Text = "Update";
             this.btnUpdateActivity.UseVisualStyleBackColor = false;
@@ -1120,10 +1113,10 @@
             this.btnAddActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnAddActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddActivity.Location = new System.Drawing.Point(581, 326);
-            this.btnAddActivity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddActivity.Location = new System.Drawing.Point(809, 324);
+            this.btnAddActivity.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddActivity.Name = "btnAddActivity";
-            this.btnAddActivity.Size = new System.Drawing.Size(75, 30);
+            this.btnAddActivity.Size = new System.Drawing.Size(90, 44);
             this.btnAddActivity.TabIndex = 5;
             this.btnAddActivity.Text = "Add";
             this.btnAddActivity.UseVisualStyleBackColor = false;
@@ -1137,10 +1130,10 @@
             this.listViewActivities.GridLines = true;
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.Location = new System.Drawing.Point(9, 43);
-            this.listViewActivities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewActivities.Margin = new System.Windows.Forms.Padding(2);
             this.listViewActivities.MultiSelect = false;
             this.listViewActivities.Name = "listViewActivities";
-            this.listViewActivities.Size = new System.Drawing.Size(397, 319);
+            this.listViewActivities.Size = new System.Drawing.Size(579, 399);
             this.listViewActivities.TabIndex = 4;
             this.listViewActivities.UseCompatibleStateImageBehavior = false;
             this.listViewActivities.View = System.Windows.Forms.View.Details;
@@ -1159,17 +1152,19 @@
             // 
             // supervisor
             // 
-            this.supervisor.Location = new System.Drawing.Point(437, 292);
-            this.supervisor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.supervisor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supervisor.Location = new System.Drawing.Point(622, 403);
+            this.supervisor.Margin = new System.Windows.Forms.Padding(2);
             this.supervisor.Name = "supervisor";
-            this.supervisor.Size = new System.Drawing.Size(82, 19);
+            this.supervisor.Size = new System.Drawing.Size(277, 35);
             this.supervisor.TabIndex = 29;
-            this.supervisor.Text = "Supervisors";
+            this.supervisor.Text = "Show Supervisors for activity";
             this.supervisor.UseVisualStyleBackColor = true;
             this.supervisor.Click += new System.EventHandler(this.Supervisor_Click);
             // 
             // Supervisor_list
             // 
+            this.Supervisor_list.Controls.Add(this.label11);
             this.Supervisor_list.Controls.Add(this.lecturer_list);
             this.Supervisor_list.Controls.Add(this.remove_super);
             this.Supervisor_list.Controls.Add(this.Add_super);
@@ -1177,9 +1172,9 @@
             this.Supervisor_list.Controls.Add(this.label24);
             this.Supervisor_list.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Supervisor_list.Location = new System.Drawing.Point(2, 24);
-            this.Supervisor_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Supervisor_list.Margin = new System.Windows.Forms.Padding(2);
             this.Supervisor_list.Name = "Supervisor_list";
-            this.Supervisor_list.Size = new System.Drawing.Size(717, 380);
+            this.Supervisor_list.Size = new System.Drawing.Size(945, 455);
             this.Supervisor_list.TabIndex = 28;
             // 
             // lecturer_list
@@ -1193,11 +1188,11 @@
             this.lecturer_list.FullRowSelect = true;
             this.lecturer_list.GridLines = true;
             this.lecturer_list.HideSelection = false;
-            this.lecturer_list.Location = new System.Drawing.Point(470, 21);
-            this.lecturer_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lecturer_list.Location = new System.Drawing.Point(483, 45);
+            this.lecturer_list.Margin = new System.Windows.Forms.Padding(2);
             this.lecturer_list.MultiSelect = false;
             this.lecturer_list.Name = "lecturer_list";
-            this.lecturer_list.Size = new System.Drawing.Size(213, 292);
+            this.lecturer_list.Size = new System.Drawing.Size(418, 391);
             this.lecturer_list.TabIndex = 8;
             this.lecturer_list.UseCompatibleStateImageBehavior = false;
             this.lecturer_list.View = System.Windows.Forms.View.Details;
@@ -1222,10 +1217,10 @@
             this.remove_super.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.remove_super.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.remove_super.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remove_super.Location = new System.Drawing.Point(499, 325);
-            this.remove_super.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.remove_super.Location = new System.Drawing.Point(371, 405);
+            this.remove_super.Margin = new System.Windows.Forms.Padding(2);
             this.remove_super.Name = "remove_super";
-            this.remove_super.Size = new System.Drawing.Size(62, 30);
+            this.remove_super.Size = new System.Drawing.Size(108, 30);
             this.remove_super.TabIndex = 7;
             this.remove_super.Text = "Remove";
             this.remove_super.UseVisualStyleBackColor = false;
@@ -1236,10 +1231,10 @@
             this.Add_super.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Add_super.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Add_super.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_super.Location = new System.Drawing.Point(581, 326);
-            this.Add_super.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Add_super.Location = new System.Drawing.Point(371, 371);
+            this.Add_super.Margin = new System.Windows.Forms.Padding(2);
             this.Add_super.Name = "Add_super";
-            this.Add_super.Size = new System.Drawing.Size(75, 30);
+            this.Add_super.Size = new System.Drawing.Size(108, 30);
             this.Add_super.TabIndex = 5;
             this.Add_super.Text = "Add";
             this.Add_super.UseVisualStyleBackColor = false;
@@ -1256,10 +1251,10 @@
             this.Supervisor_listview.GridLines = true;
             this.Supervisor_listview.HideSelection = false;
             this.Supervisor_listview.Location = new System.Drawing.Point(9, 43);
-            this.Supervisor_listview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Supervisor_listview.Margin = new System.Windows.Forms.Padding(2);
             this.Supervisor_listview.MultiSelect = false;
             this.Supervisor_listview.Name = "Supervisor_listview";
-            this.Supervisor_listview.Size = new System.Drawing.Size(358, 319);
+            this.Supervisor_listview.Size = new System.Drawing.Size(358, 393);
             this.Supervisor_listview.TabIndex = 4;
             this.Supervisor_listview.UseCompatibleStateImageBehavior = false;
             this.Supervisor_listview.View = System.Windows.Forms.View.Details;
@@ -1278,12 +1273,23 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(20, 13);
+            this.label24.Location = new System.Drawing.Point(11, 12);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(129, 29);
+            this.label24.Size = new System.Drawing.Size(141, 29);
             this.label24.TabIndex = 2;
-            this.label24.Text = "Supervisor";
+            this.label24.Text = "Supervisors";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(478, 14);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(200, 29);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Select a Lecturer:";
             // 
             // SomerenUI
             // 
@@ -1291,7 +1297,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(722, 410);
+            this.ClientSize = new System.Drawing.Size(952, 491);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Supervisor_list);
             this.Controls.Add(this.pnl_Activities);
             this.Controls.Add(this.pnl_RevenueReport);
@@ -1301,7 +1308,6 @@
             this.Controls.Add(this.pnl_lecturer);
             this.Controls.Add(this.pnl_Students);
             this.Controls.Add(this.pnl_Dashboard);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SomerenUI";
@@ -1349,7 +1355,6 @@
         private System.Windows.Forms.Label lbl_Dashboard;
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
         private System.Windows.Forms.Panel pnl_Students;
         private System.Windows.Forms.Label lbl_Students;
@@ -1462,6 +1467,7 @@
         private System.Windows.Forms.ColumnHeader Lecturers;
         private System.Windows.Forms.ColumnHeader columnHeader26;
         private System.Windows.Forms.ColumnHeader columnHeader27;
+        private System.Windows.Forms.Label label11;
     }
 }
 
