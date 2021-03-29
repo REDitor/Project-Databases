@@ -138,6 +138,18 @@
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.label19 = new System.Windows.Forms.Label();
+            this.supervisor = new System.Windows.Forms.Button();
+            this.Supervisor_list = new System.Windows.Forms.Panel();
+            this.remove_super = new System.Windows.Forms.Button();
+            this.Add_super = new System.Windows.Forms.Button();
+            this.Supervisor_listview = new System.Windows.Forms.ListView();
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label24 = new System.Windows.Forms.Label();
+            this.lecturer_list = new System.Windows.Forms.ListView();
+            this.Lecturers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img_Dashboard)).BeginInit();
@@ -151,6 +163,7 @@
             this.pnl_OrderHistory.SuspendLayout();
             this.pnl_RevenueReport.SuspendLayout();
             this.pnl_Activities.SuspendLayout();
+            this.Supervisor_list.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -167,7 +180,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(962, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -256,7 +269,7 @@
             // activitiesToolStripMenuItem1
             // 
             this.activitiesToolStripMenuItem1.Name = "activitiesToolStripMenuItem1";
-            this.activitiesToolStripMenuItem1.Size = new System.Drawing.Size(67, 20);
+            this.activitiesToolStripMenuItem1.Size = new System.Drawing.Size(83, 24);
             this.activitiesToolStripMenuItem1.Text = "Activities";
             this.activitiesToolStripMenuItem1.Click += new System.EventHandler(this.activitiesToolStripMenuItem1_Click);
             // 
@@ -282,7 +295,7 @@
             // img_Dashboard
             // 
             this.img_Dashboard.Location = new System.Drawing.Point(836, 0);
-            this.img_Dashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.img_Dashboard.Margin = new System.Windows.Forms.Padding(4);
             this.img_Dashboard.Name = "img_Dashboard";
             this.img_Dashboard.Size = new System.Drawing.Size(415, 332);
             this.img_Dashboard.TabIndex = 0;
@@ -308,7 +321,7 @@
             this.studentDOB});
             this.listViewStudents.HideSelection = false;
             this.listViewStudents.Location = new System.Drawing.Point(16, 42);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewStudents.Margin = new System.Windows.Forms.Padding(4);
             this.listViewStudents.Name = "listViewStudents";
             this.listViewStudents.Size = new System.Drawing.Size(767, 307);
             this.listViewStudents.TabIndex = 5;
@@ -332,7 +345,7 @@
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(805, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(131, 123);
             this.pictureBox1.TabIndex = 0;
@@ -409,7 +422,7 @@
             this.pnl_Room.Controls.Add(this.pictureBox2);
             this.pnl_Room.Controls.Add(this.label1);
             this.pnl_Room.Location = new System.Drawing.Point(4, 25);
-            this.pnl_Room.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_Room.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_Room.Name = "pnl_Room";
             this.pnl_Room.Size = new System.Drawing.Size(1253, 514);
             this.pnl_Room.TabIndex = 6;
@@ -423,7 +436,7 @@
             this.listViewRoom.GridLines = true;
             this.listViewRoom.HideSelection = false;
             this.listViewRoom.Location = new System.Drawing.Point(21, 52);
-            this.listViewRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewRoom.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRoom.Name = "listViewRoom";
             this.listViewRoom.Size = new System.Drawing.Size(1020, 377);
             this.listViewRoom.TabIndex = 5;
@@ -485,7 +498,7 @@
             this.pnl_Drinks.Controls.Add(this.pictureBox3);
             this.pnl_Drinks.Controls.Add(this.lblDrinks);
             this.pnl_Drinks.Location = new System.Drawing.Point(4, 25);
-            this.pnl_Drinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_Drinks.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_Drinks.Name = "pnl_Drinks";
             this.pnl_Drinks.Size = new System.Drawing.Size(1253, 565);
             this.pnl_Drinks.TabIndex = 1;
@@ -634,7 +647,7 @@
             this.listViewDrinks.GridLines = true;
             this.listViewDrinks.HideSelection = false;
             this.listViewDrinks.Location = new System.Drawing.Point(21, 52);
-            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.listViewDrinks.MultiSelect = false;
             this.listViewDrinks.Name = "listViewDrinks";
             this.listViewDrinks.Size = new System.Drawing.Size(1020, 377);
@@ -695,7 +708,7 @@
             this.pnl_OrderHistory.Controls.Add(this.lblOrderHistory);
             this.pnl_OrderHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_OrderHistory.Location = new System.Drawing.Point(4, 25);
-            this.pnl_OrderHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_OrderHistory.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_OrderHistory.Name = "pnl_OrderHistory";
             this.pnl_OrderHistory.Size = new System.Drawing.Size(1263, 565);
             this.pnl_OrderHistory.TabIndex = 20;
@@ -706,7 +719,7 @@
             this.btnOpenOrderWindow.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOpenOrderWindow.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenOrderWindow.Location = new System.Drawing.Point(881, 316);
-            this.btnOpenOrderWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOpenOrderWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpenOrderWindow.Name = "btnOpenOrderWindow";
             this.btnOpenOrderWindow.Size = new System.Drawing.Size(368, 137);
             this.btnOpenOrderWindow.TabIndex = 5;
@@ -727,7 +740,7 @@
             this.listViewOrderHistory.GridLines = true;
             this.listViewOrderHistory.HideSelection = false;
             this.listViewOrderHistory.Location = new System.Drawing.Point(21, 75);
-            this.listViewOrderHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewOrderHistory.Margin = new System.Windows.Forms.Padding(4);
             this.listViewOrderHistory.MultiSelect = false;
             this.listViewOrderHistory.Name = "listViewOrderHistory";
             this.listViewOrderHistory.Size = new System.Drawing.Size(813, 377);
@@ -784,7 +797,7 @@
             this.pnl_RevenueReport.Controls.Add(this.lblRevenueReport);
             this.pnl_RevenueReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_RevenueReport.Location = new System.Drawing.Point(4, 27);
-            this.pnl_RevenueReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_RevenueReport.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_RevenueReport.Name = "pnl_RevenueReport";
             this.pnl_RevenueReport.Size = new System.Drawing.Size(1263, 565);
             this.pnl_RevenueReport.TabIndex = 21;
@@ -816,7 +829,7 @@
             this.btnCalcRevenue.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCalcRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcRevenue.Location = new System.Drawing.Point(761, 414);
-            this.btnCalcRevenue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalcRevenue.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcRevenue.Name = "btnCalcRevenue";
             this.btnCalcRevenue.Size = new System.Drawing.Size(480, 50);
             this.btnCalcRevenue.TabIndex = 13;
@@ -918,10 +931,10 @@
             this.listViewRevenueReport.GridLines = true;
             this.listViewRevenueReport.HideSelection = false;
             this.listViewRevenueReport.Location = new System.Drawing.Point(21, 53);
-            this.listViewRevenueReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewRevenueReport.Margin = new System.Windows.Forms.Padding(4);
             this.listViewRevenueReport.MultiSelect = false;
             this.listViewRevenueReport.Name = "listViewRevenueReport";
-            this.listViewRevenueReport.Size = new System.Drawing.Size(703, 410);
+            this.listViewRevenueReport.Size = new System.Drawing.Size(703, 409);
             this.listViewRevenueReport.TabIndex = 4;
             this.listViewRevenueReport.UseCompatibleStateImageBehavior = false;
             this.listViewRevenueReport.View = System.Windows.Forms.View.Details;
@@ -978,6 +991,7 @@
             this.pnl_Activities.Controls.Add(this.btnAddActivity);
             this.pnl_Activities.Controls.Add(this.listViewActivities);
             this.pnl_Activities.Controls.Add(this.label19);
+            this.pnl_Activities.Controls.Add(this.supervisor);
             this.pnl_Activities.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_Activities.Location = new System.Drawing.Point(3, 22);
             this.pnl_Activities.Name = "pnl_Activities";
@@ -989,7 +1003,7 @@
             this.txtActivityDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtActivityDescription.Location = new System.Drawing.Point(675, 123);
             this.txtActivityDescription.Name = "txtActivityDescription";
-            this.txtActivityDescription.Size = new System.Drawing.Size(156, 20);
+            this.txtActivityDescription.Size = new System.Drawing.Size(156, 23);
             this.txtActivityDescription.TabIndex = 27;
             // 
             // txtActivityDate
@@ -997,7 +1011,7 @@
             this.txtActivityDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtActivityDate.Location = new System.Drawing.Point(675, 162);
             this.txtActivityDate.Name = "txtActivityDate";
-            this.txtActivityDate.Size = new System.Drawing.Size(83, 20);
+            this.txtActivityDate.Size = new System.Drawing.Size(83, 23);
             this.txtActivityDate.TabIndex = 26;
             // 
             // txtStartTime
@@ -1005,7 +1019,7 @@
             this.txtStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStartTime.Location = new System.Drawing.Point(675, 203);
             this.txtStartTime.Name = "txtStartTime";
-            this.txtStartTime.Size = new System.Drawing.Size(67, 20);
+            this.txtStartTime.Size = new System.Drawing.Size(67, 23);
             this.txtStartTime.TabIndex = 25;
             // 
             // txtEndTime
@@ -1013,7 +1027,7 @@
             this.txtEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEndTime.Location = new System.Drawing.Point(764, 203);
             this.txtEndTime.Name = "txtEndTime";
-            this.txtEndTime.Size = new System.Drawing.Size(67, 20);
+            this.txtEndTime.Size = new System.Drawing.Size(67, 23);
             this.txtEndTime.TabIndex = 24;
             // 
             // txtActivityID
@@ -1021,7 +1035,7 @@
             this.txtActivityID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtActivityID.Location = new System.Drawing.Point(675, 81);
             this.txtActivityID.Name = "txtActivityID";
-            this.txtActivityID.Size = new System.Drawing.Size(51, 20);
+            this.txtActivityID.Size = new System.Drawing.Size(51, 23);
             this.txtActivityID.TabIndex = 23;
             // 
             // label22
@@ -1030,7 +1044,7 @@
             this.label22.Font = new System.Drawing.Font("Playbill", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(746, 203);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(12, 19);
+            this.label22.Size = new System.Drawing.Size(14, 24);
             this.label22.TabIndex = 22;
             this.label22.Text = "-";
             // 
@@ -1040,7 +1054,7 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(580, 163);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(40, 16);
+            this.label20.Size = new System.Drawing.Size(50, 20);
             this.label20.TabIndex = 20;
             this.label20.Text = "Date:";
             // 
@@ -1050,7 +1064,7 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(580, 204);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 16);
+            this.label18.Size = new System.Drawing.Size(96, 20);
             this.label18.TabIndex = 19;
             this.label18.Text = "From/Untill:";
             // 
@@ -1060,7 +1074,7 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(580, 124);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 16);
+            this.label17.Size = new System.Drawing.Size(100, 20);
             this.label17.TabIndex = 18;
             this.label17.Text = "Description:";
             // 
@@ -1070,7 +1084,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(580, 82);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(24, 16);
+            this.label16.Size = new System.Drawing.Size(31, 20);
             this.label16.TabIndex = 17;
             this.label16.Text = "ID:";
             // 
@@ -1080,7 +1094,7 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(579, 45);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(267, 16);
+            this.label15.Size = new System.Drawing.Size(331, 20);
             this.label15.TabIndex = 16;
             this.label15.Text = "View/Enter/Adjust activity information:";
             // 
@@ -1089,9 +1103,9 @@
             this.btnRemoveActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRemoveActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemoveActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveActivity.Location = new System.Drawing.Point(582, 375);
+            this.btnRemoveActivity.Location = new System.Drawing.Point(565, 401);
             this.btnRemoveActivity.Name = "btnRemoveActivity";
-            this.btnRemoveActivity.Size = new System.Drawing.Size(100, 63);
+            this.btnRemoveActivity.Size = new System.Drawing.Size(100, 37);
             this.btnRemoveActivity.TabIndex = 7;
             this.btnRemoveActivity.Text = "Remove";
             this.btnRemoveActivity.UseVisualStyleBackColor = false;
@@ -1102,9 +1116,9 @@
             this.btnUpdateActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnUpdateActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdateActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateActivity.Location = new System.Drawing.Point(706, 375);
+            this.btnUpdateActivity.Location = new System.Drawing.Point(671, 401);
             this.btnUpdateActivity.Name = "btnUpdateActivity";
-            this.btnUpdateActivity.Size = new System.Drawing.Size(100, 63);
+            this.btnUpdateActivity.Size = new System.Drawing.Size(100, 37);
             this.btnUpdateActivity.TabIndex = 6;
             this.btnUpdateActivity.Text = "Update";
             this.btnUpdateActivity.UseVisualStyleBackColor = false;
@@ -1115,9 +1129,9 @@
             this.btnAddActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnAddActivity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddActivity.Location = new System.Drawing.Point(831, 375);
+            this.btnAddActivity.Location = new System.Drawing.Point(775, 401);
             this.btnAddActivity.Name = "btnAddActivity";
-            this.btnAddActivity.Size = new System.Drawing.Size(100, 63);
+            this.btnAddActivity.Size = new System.Drawing.Size(100, 37);
             this.btnAddActivity.TabIndex = 5;
             this.btnAddActivity.Text = "Add";
             this.btnAddActivity.UseVisualStyleBackColor = false;
@@ -1130,7 +1144,7 @@
             this.listViewActivities.FullRowSelect = true;
             this.listViewActivities.GridLines = true;
             this.listViewActivities.HideSelection = false;
-            this.listViewActivities.Location = new System.Drawing.Point(31, 46);
+            this.listViewActivities.Location = new System.Drawing.Point(12, 53);
             this.listViewActivities.MultiSelect = false;
             this.listViewActivities.Name = "listViewActivities";
             this.listViewActivities.Size = new System.Drawing.Size(528, 392);
@@ -1145,15 +1159,137 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(26, 16);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(107, 29);
+            this.label19.Size = new System.Drawing.Size(132, 33);
             this.label19.TabIndex = 2;
             this.label19.Text = "Activities";
+            // 
+            // supervisor
+            // 
+            this.supervisor.Location = new System.Drawing.Point(583, 359);
+            this.supervisor.Name = "supervisor";
+            this.supervisor.Size = new System.Drawing.Size(110, 23);
+            this.supervisor.TabIndex = 29;
+            this.supervisor.Text = "Supervisors";
+            this.supervisor.UseVisualStyleBackColor = true;
+            this.supervisor.Click += new System.EventHandler(this.Supervisor_Click);
+            // 
+            // Supervisor_list
+            // 
+            this.Supervisor_list.Controls.Add(this.lecturer_list);
+            this.Supervisor_list.Controls.Add(this.remove_super);
+            this.Supervisor_list.Controls.Add(this.Add_super);
+            this.Supervisor_list.Controls.Add(this.Supervisor_listview);
+            this.Supervisor_list.Controls.Add(this.label24);
+            this.Supervisor_list.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Supervisor_list.Location = new System.Drawing.Point(3, 20);
+            this.Supervisor_list.Name = "Supervisor_list";
+            this.Supervisor_list.Size = new System.Drawing.Size(956, 478);
+            this.Supervisor_list.TabIndex = 28;
+            // 
+            // remove_super
+            // 
+            this.remove_super.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.remove_super.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.remove_super.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remove_super.Location = new System.Drawing.Point(665, 400);
+            this.remove_super.Name = "remove_super";
+            this.remove_super.Size = new System.Drawing.Size(82, 37);
+            this.remove_super.TabIndex = 7;
+            this.remove_super.Text = "Remove";
+            this.remove_super.UseVisualStyleBackColor = false;
+            this.remove_super.Click += new System.EventHandler(this.Remove_super_Click);
+            // 
+            // Add_super
+            // 
+            this.Add_super.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Add_super.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Add_super.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_super.Location = new System.Drawing.Point(775, 401);
+            this.Add_super.Name = "Add_super";
+            this.Add_super.Size = new System.Drawing.Size(100, 37);
+            this.Add_super.TabIndex = 5;
+            this.Add_super.Text = "Add";
+            this.Add_super.UseVisualStyleBackColor = false;
+            this.Add_super.Click += new System.EventHandler(this.Add_super_Click);
+            // 
+            // Supervisor_listview
+            // 
+            this.Supervisor_listview.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.Supervisor_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader24,
+            this.columnHeader25});
+            this.Supervisor_listview.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Supervisor_listview.FullRowSelect = true;
+            this.Supervisor_listview.GridLines = true;
+            this.Supervisor_listview.HideSelection = false;
+            this.Supervisor_listview.Location = new System.Drawing.Point(12, 53);
+            this.Supervisor_listview.MultiSelect = false;
+            this.Supervisor_listview.Name = "Supervisor_listview";
+            this.Supervisor_listview.Size = new System.Drawing.Size(476, 392);
+            this.Supervisor_listview.TabIndex = 4;
+            this.Supervisor_listview.UseCompatibleStateImageBehavior = false;
+            this.Supervisor_listview.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "ActivityID";
+            this.columnHeader24.Width = 90;
+            // 
+            // columnHeader25
+            // 
+            this.columnHeader25.Text = "LecturerID";
+            this.columnHeader25.Width = 90;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(26, 16);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(155, 33);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Supervisor";
+            // 
+            // lecturer_list
+            // 
+            this.lecturer_list.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lecturer_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Lecturers,
+            this.columnHeader26,
+            this.columnHeader27});
+            this.lecturer_list.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lecturer_list.FullRowSelect = true;
+            this.lecturer_list.GridLines = true;
+            this.lecturer_list.HideSelection = false;
+            this.lecturer_list.Location = new System.Drawing.Point(627, 26);
+            this.lecturer_list.MultiSelect = false;
+            this.lecturer_list.Name = "lecturer_list";
+            this.lecturer_list.Size = new System.Drawing.Size(283, 358);
+            this.lecturer_list.TabIndex = 8;
+            this.lecturer_list.UseCompatibleStateImageBehavior = false;
+            this.lecturer_list.View = System.Windows.Forms.View.Details;
+            // 
+            // Lecturers
+            // 
+            this.Lecturers.Text = "LecturerID";
+            this.Lecturers.Width = 100;
+            // 
+            // columnHeader26
+            // 
+            this.columnHeader26.Text = "Firstname";
+            this.columnHeader26.Width = 90;
+            // 
+            // columnHeader27
+            // 
+            this.columnHeader27.Text = "lastname";
+            this.columnHeader27.Width = 90;
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 505);
+            this.Controls.Add(this.Supervisor_list);
             this.Controls.Add(this.pnl_Activities);
             this.Controls.Add(this.pnl_RevenueReport);
             this.Controls.Add(this.pnl_OrderHistory);
@@ -1165,7 +1301,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SomerenUI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "SomerenApp";
@@ -1192,6 +1328,8 @@
             this.pnl_RevenueReport.PerformLayout();
             this.pnl_Activities.ResumeLayout(false);
             this.pnl_Activities.PerformLayout();
+            this.Supervisor_list.ResumeLayout(false);
+            this.Supervisor_list.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1310,6 +1448,18 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel Supervisor_list;
+        private System.Windows.Forms.Button remove_super;
+        private System.Windows.Forms.Button Add_super;
+        private System.Windows.Forms.ListView Supervisor_listview;
+        private System.Windows.Forms.ColumnHeader columnHeader24;
+        private System.Windows.Forms.ColumnHeader columnHeader25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button supervisor;
+        private System.Windows.Forms.ListView lecturer_list;
+        private System.Windows.Forms.ColumnHeader Lecturers;
+        private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ColumnHeader columnHeader27;
     }
 }
 
