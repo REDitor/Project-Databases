@@ -72,6 +72,7 @@
     <Compile Include="Student_DAO.cs" />
     <Compile Include="Supervisor_DAO.cs" />
     <Compile Include="Transaction_DAO.cs" />
+    <Compile Include="User_DAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SomerenModel\SomerenModel.csproj">

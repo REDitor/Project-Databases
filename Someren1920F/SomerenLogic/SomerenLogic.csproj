@@ -50,6 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Supervisor_Service.cs" />
     <Compile Include="Transaction_Service.cs" />
+    <Compile Include="User_Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SomerenDAL\SomerenDAL.csproj">

@@ -15,6 +15,7 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        private LoginForm loginForm;
         private Drink_Service drinkService = new Drink_Service();           //used by add/update/delete
         private Activity_Service activityService = new Activity_Service();  //used by add/update/delete
 
@@ -38,7 +39,7 @@ namespace SomerenUI
         }
         private void showPanel(string panelName)
         {
-            //Hide all panels
+            //Hide all elements
             HideAllPanels();
 
             if (panelName == "Dashboard")
@@ -204,6 +205,7 @@ namespace SomerenUI
 
                 RefreshActivityPanel();
             }
+
             else if (panelName == "Supervisor_list")
             {
                 Supervisor_list.Show();
@@ -224,14 +226,14 @@ namespace SomerenUI
                     item.SubItems.Add(s.EndTime.ToString());
                     item.SubItems.Add(s.TeacherFullName);
                     item.SubItems.Add(s.lecturer.firstName);
-                   
+
                     item.Tag = s;
                     Supervisor_listview.Items.Add(item);
 
                 }
                 lecturer_Service Service_lecturer = new lecturer_Service();
                 List<Lecturer> lecturers = Service_lecturer.Getlecturers();
-                foreach(Lecturer l in lecturers)
+                foreach (Lecturer l in lecturers)
                 {
                     ListViewItem lecturer_item = new ListViewItem(l.number.ToString());
                     lecturer_item.SubItems.Add(l.firstName);
@@ -265,6 +267,13 @@ namespace SomerenUI
         private void img_Dashboard_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
+        } 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginForm = new LoginForm();
+            loginForm.Closed += (s, args) => this.Close();
+            loginForm.Show();
         }
         #endregion
 
@@ -723,6 +732,7 @@ namespace SomerenUI
 
         #endregion
 
+        #region Supervisors
         private void Supervisor_Click(object sender, EventArgs e)
         {
             if (listViewActivities.SelectedItems.Count < 1)
@@ -733,20 +743,20 @@ namespace SomerenUI
             {
                 showPanel("Supervisor_list");
             }
-            
+
         }
 
         private void Add_super_Click(object sender, EventArgs e)
         {
 
             Supervisor_Service supervision_service_pipe = new Supervisor_Service();
-            if (lecturer_list.SelectedItems.Count < 1 ||Supervisor_listview.SelectedItems.Count<1)
+            if (lecturer_list.SelectedItems.Count < 1 || Supervisor_listview.SelectedItems.Count < 1)
             {
                 MessageBox.Show("select a lecturer and activity to add to activity");
             }
             else
             {
-               Supervision Supervision = (Supervision)Supervisor_listview.SelectedItems[0].Tag;
+                Supervision Supervision = (Supervision)Supervisor_listview.SelectedItems[0].Tag;
                 Lecturer lecturerid = (Lecturer)lecturer_list.SelectedItems[0].Tag;
                 supervision_service_pipe.AddSupervisor(Supervision.ActivityId, lecturerid.number);
                 MessageBox.Show("supervisor added");
@@ -756,16 +766,16 @@ namespace SomerenUI
         private void Remove_super_Click(object sender, EventArgs e)
         {
             Supervisor_Service supervision_service_pipe = new Supervisor_Service();
-            
+
             if (lecturer_list.SelectedItems.Count < 1 || Supervisor_listview.SelectedItems.Count < 1)
             {
                 MessageBox.Show("select a lecturer and activity to delete lecturer");
-                   // programmer blindness
+                // programmer blindness
             }
             else
             {
-                DialogResult result = MessageBox.Show("confirmation","are you sure you want to delete that?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("confirmation", "are you sure you want to delete that?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
                     Supervision Supervision = (Supervision)Supervisor_listview.SelectedItems[0].Tag;
                     Lecturer lecturerid = (Lecturer)lecturer_list.SelectedItems[0].Tag;
@@ -775,9 +785,13 @@ namespace SomerenUI
                 {
                     return;
                 }
-                
+
 
             }
         }
+
+        #endregion
+
+       
     }
 }

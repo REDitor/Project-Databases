@@ -54,6 +54,7 @@
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Transaction.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">
