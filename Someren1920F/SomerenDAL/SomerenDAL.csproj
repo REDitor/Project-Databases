@@ -75,6 +75,10 @@
     <Compile Include="User_DAO.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PasswordEncryption\PasswordEncryption.csproj">
+      <Project>{bb7df7bd-6ec3-417a-88b8-8e07cdfb16e4}</Project>
+      <Name>PasswordEncryption</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SomerenModel\SomerenModel.csproj">
       <Project>{90a9ed02-35d3-4d84-80e4-458bc835c722}</Project>
       <Name>SomerenModel</Name>

@@ -15,6 +15,7 @@ namespace SomerenUI
 {
     public partial class LoginForm : Form
     {
+        private Registration_form registration_Form;
         private SomerenUI form;
 
         public LoginForm()
@@ -24,7 +25,7 @@ namespace SomerenUI
 
         private void DisableButtons()
         {
-            
+
         }
 
         private void DeterminePermissions(User user)
@@ -37,7 +38,7 @@ namespace SomerenUI
 
         public void LoginForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void lnkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -47,6 +48,13 @@ namespace SomerenUI
             //if yes -->    LoginForm loginForm = new LoginForm();
             //              loginForm.ShowDialog();
             //if no -->     close loginform(if open after signing up)
+            
+            registration_Form = new Registration_form();
+           
+            registration_Form.ShowDialog();
+            
+
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PasswordEncryption;
 
 namespace SomerenDAL
 {
@@ -13,8 +14,8 @@ namespace SomerenDAL
     {
         public List<User> GetAllUsers()
         {
-            SqlCommand cmd = new SqlCommand("SELECT userId, username, password, roleId " +
-                                            "FROM dbo.Users", conn);
+            SqlCommand cmd = new SqlCommand("SELECT userId, username, password, roleId, salt " +
+                                            "FROM [Users]", conn);
 
             OpenConnection();
 
@@ -33,7 +34,7 @@ namespace SomerenDAL
 
         public User GetUserByLoginInfo(string username, string password)
         {
-            SqlCommand cmd = new SqlCommand("SELECT userId, username, password, roleId " +
+            SqlCommand cmd = new SqlCommand("SELECT userId, username, password, roleId, salt " +
                                             "FROM [Users] " +
                                             "WHERE username=@username " +
                                             "AND password=@password", conn);
@@ -69,6 +70,27 @@ namespace SomerenDAL
             return false;
         }
 
+        public User GetUserByUsername(string username)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT username, password, roleId " +
+                                            "FROM [Users] " +
+                                            "Where username = @username", conn);
+
+            OpenConnection();
+            cmd.Parameters.AddWithValue("@username", username);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            User user = null;
+            if (reader.Read())
+            {
+                user = ReadUser(reader);
+            }
+            reader.Close();
+            CloseConnection();
+
+            return user;
+        }   
+
         private User ReadUser(SqlDataReader reader)
         {
             User user = new User()
@@ -76,48 +98,32 @@ namespace SomerenDAL
                 UserID = (int)reader["userId"],
                 Username = (string)reader["username"],
                 Password = (string)reader["password"],
-                roleId = (int)reader["roleId"]
+                roleId = (int)reader["roleId"],
+                Salt = (string)reader["salt"]
             };
             return user;
         }
 
-        //public List<string> GetAllUsernames()
-        //{
+        public bool RegisterUser(User user)
+        {
+            OpenConnection();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Users(userName, password, roleID, salt)" +
+                "VALUES(@username, @password, @roleID, @salt)", conn);
 
-        //    SqlCommand cmd = new SqlCommand("SELECT username " +
-        //                                    "FROM [Users] ", conn);
+            cmd.Parameters.AddWithValue("@username", user.Username);
+            cmd.Parameters.AddWithValue("@password", user.Password);
+            cmd.Parameters.AddWithValue("@roleID", user.roleId);
+            cmd.Parameters.AddWithValue("@salt", user.Salt);
 
-        //    OpenConnection();
-        //    SqlDataReader reader = cmd.ExecuteReader();
+            int rows = cmd.ExecuteNonQuery();
+            if(rows > 0)
+            {
+                return true;
+            }
+            return false;
 
-        //    List<string> usernames = new List<string>();
-        //    User user = null;
-        //    while (reader.Read())
-        //    {
-        //        user = ReadUser(reader);
-        //        user.Username = (string)reader["username"];
-        //        usernames.Add(user.Username);
-        //    }
-
-        //    return usernames;
-        //}
-
-        //private List<User> ReadTables(DataTable dataTable)
-        //{
-        //    List<User> users = new List<User>();
-
-        //    foreach (DataRow dr in dataTable.Rows)
-        //    {
-        //        User user = new User()
-        //        {
-        //            UserID = (int)dr["userId"],
-        //            Username = (string)dr["username"],
-        //            Password = (string)dr["password"],
-        //        };
-        //        users.Add(user);
-        //    }
-        //    return users;
-        //}
+            CloseConnection();
+        }
 
 
     }
