@@ -55,17 +55,27 @@ namespace SomerenUI
             {
                 Student student = null;
 
-                if (cmbStudents.SelectedIndex >= 0)
+                if (cmbStudents.SelectedIndex > 0)
                 {
                     
                     student = studentService.GetByName(cmbStudents.SelectedItem.ToString());
                 }
 
+                else
+                {
+                    MessageBox.Show("No student selected!");
+                }
+
                 Drink drink = null;
 
-                if (cmbDrinks.SelectedIndex >= 0)
+                if (cmbDrinks.SelectedIndex > 0)
                 {
                     drink = drinkService.GetByName(cmbDrinks.SelectedItem.ToString());
+                }
+
+                else
+                {
+                    MessageBox.Show("No Drink Selected");
                 }
 
                 //check for stock

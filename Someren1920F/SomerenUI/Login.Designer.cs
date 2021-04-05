@@ -36,13 +36,15 @@ namespace SomerenUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUserName
             // 
             this.txtUserName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(32, 53);
+            this.txtUserName.Location = new System.Drawing.Point(25, 173);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(235, 29);
             this.txtUserName.TabIndex = 0;
@@ -51,7 +53,7 @@ namespace SomerenUI
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(32, 129);
+            this.txtPassword.Location = new System.Drawing.Point(25, 249);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(235, 29);
@@ -62,7 +64,7 @@ namespace SomerenUI
             this.lnkSignUp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lnkSignUp.AutoSize = true;
             this.lnkSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkSignUp.Location = new System.Drawing.Point(20, 268);
+            this.lnkSignUp.Location = new System.Drawing.Point(13, 388);
             this.lnkSignUp.Name = "lnkSignUp";
             this.lnkSignUp.Size = new System.Drawing.Size(261, 18);
             this.lnkSignUp.TabIndex = 3;
@@ -74,7 +76,7 @@ namespace SomerenUI
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 37);
+            this.label1.Location = new System.Drawing.Point(22, 157);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 4;
@@ -84,7 +86,7 @@ namespace SomerenUI
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 113);
+            this.label2.Location = new System.Drawing.Point(22, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
@@ -94,7 +96,7 @@ namespace SomerenUI
             // 
             this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(110, 190);
+            this.btnLogin.Location = new System.Drawing.Point(103, 310);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(88, 40);
             this.btnLogin.TabIndex = 6;
@@ -102,12 +104,25 @@ namespace SomerenUI
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox1.Location = new System.Drawing.Point(80, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 118);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // LoginForm
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(307, 317);
+            this.ClientSize = new System.Drawing.Size(291, 425);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -118,18 +133,19 @@ namespace SomerenUI
             this.Name = "LoginForm";
             this.Text = "Someren App | Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.LinkLabel lnkSignUp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
+        public System.Windows.Forms.TextBox txtUserName;
+        public System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

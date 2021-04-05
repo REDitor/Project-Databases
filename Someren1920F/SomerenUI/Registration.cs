@@ -74,10 +74,8 @@ namespace SomerenUI
                 else
                 {
                     Application.Exit();
-                }
-                    
+                }   
             }
-           
         }
 
         private void Registration_form_Load(object sender, EventArgs e)

@@ -17,18 +17,28 @@ namespace SomerenLogic
     {
         User_DAO userDao = new User_DAO();
 
-        public User GetUserByLoginInfo(string username, string password)
+        public bool UserExists(string username, string password)
         {
-            PasswordWithSaltHasher hasher = new PasswordWithSaltHasher();
             User user = userDao.GetUserByUsername(username);
-            HashWithSaltResult input = hasher.SaltedHashInput(password, user.Salt);
+ 
+            PasswordWithSaltHasher hasher = new PasswordWithSaltHasher();
 
-            if (!userDao.ValidateLoginInfo(input.Digest, user.Password))
+            HashWithSaltResult input = null;
+            if (user != null)
+            {
+                input = hasher.SaltedHashInput(password, user.Salt);
+            }
+            else
+            {
+                throw new Exception("User not found!\nPlease check your input...");
+            }
+            
+            if (input.Digest != user.Password)
             {
                 throw new Exception("Username/Password incorrect!");
             }
 
-            return user;
+            return true;
         }
 
         public User GetUserByUserName(string username)
@@ -41,6 +51,8 @@ namespace SomerenLogic
         {
             PasswordWithSaltHasher hasher = new PasswordWithSaltHasher();
             HashWithSaltResult hashedpassword = hasher.HashWithSalt(user.Password, 64);
+            user.Password = hashedpassword.Digest;
+            user.Salt = hashedpassword.Salt;
 
             return userDao.RegisterUser(user);
         }

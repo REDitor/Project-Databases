@@ -17,24 +17,15 @@ namespace SomerenUI
     {
         private Registration_form registration_Form;
         private SomerenUI form;
+        private User_Service userService;
+        public User user;
 
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void DisableButtons()
-        {
-
-        }
-
-        private void DeterminePermissions(User user)
-        {
-            if (user.roleId == 2)
-            {
-
-            }
-        }
+        
 
         public void LoginForm_Load(object sender, EventArgs e)
         {
@@ -48,27 +39,25 @@ namespace SomerenUI
             //if yes -->    LoginForm loginForm = new LoginForm();
             //              loginForm.ShowDialog();
             //if no -->     close loginform(if open after signing up)
-            
+
             registration_Form = new Registration_form();
-           
             registration_Form.ShowDialog();
-            
-
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                User_Service userService = new User_Service();
-                User user = userService.GetUserByLoginInfo(txtUserName.Text, txtPassword.Text);
-
-                this.Hide();
+                userService = new User_Service();
                 form = new SomerenUI();
-                form.lblLoggedAs.Text = $"Logged In as: {user.Username}";
-                form.lblUserID.Text = $"User ID: {user.UserID}";
-                form.Text = $"SomerenApp | {user.Username}";
+
+                if (userService.UserExists(txtUserName.Text, txtPassword.Text))
+                {
+                    user = userService.GetUserByUserName(txtUserName.Text);
+                    this.Hide();
+                }
+                form.formUser = user;
+                form.SetUIDetailsAndPermissions();
                 form.Closed += (s, args) => this.Close();
                 form.Show();
             }
@@ -76,7 +65,6 @@ namespace SomerenUI
             {
                 MessageBox.Show(exc.Message);
             }
-
         }
     }
 }

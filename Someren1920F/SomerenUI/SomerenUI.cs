@@ -15,9 +15,11 @@ namespace SomerenUI
 {
     public partial class SomerenUI : Form
     {
+        public User formUser;
         private LoginForm loginForm;
         private Drink_Service drinkService = new Drink_Service();           //used by add/update/delete
         private Activity_Service activityService = new Activity_Service();  //used by add/update/delete
+        private User_Service userService = new User_Service();
 
         public SomerenUI()
         {
@@ -267,7 +269,7 @@ namespace SomerenUI
         private void img_Dashboard_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What happens in Someren, stays in Someren!");
-        } 
+        }
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -336,7 +338,11 @@ namespace SomerenUI
                 li.SubItems.Add(d.SalesCount.ToString());
                 li.Tag = d;
                 listViewDrinks.Items.Add(li);
+                Add.Enabled = true;
+                Delete.Enabled = false;
+                update.Enabled = false;
             }
+            SetUIDetailsAndPermissions();
         }
         private void drinksToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
@@ -386,12 +392,19 @@ namespace SomerenUI
         {
             if (listViewDrinks.SelectedItems.Count < 1)
             {
-                MessageBox.Show("select a drink");
+                throw new Exception("select a drink");
+            }
+            try
+            {
+                Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
+                drinkService.Deletedrink(drink);
+                MessageBox.Show("Record removal is sucessful");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
 
-            Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
-            drinkService.Deletedrink(drink);
-            MessageBox.Show("Record removal is sucessful");
 
             //page  refresh
             RefreshDrinkPanel();
@@ -426,6 +439,8 @@ namespace SomerenUI
                 Count_in.Enabled = false;
                 VATID.Enabled = false;
                 Add.Enabled = false;
+                update.Enabled = true;
+                Delete.Enabled = true;
 
                 Drink drink = listViewDrinks.SelectedItems[0].Tag as Drink;
 
@@ -448,6 +463,8 @@ namespace SomerenUI
                 Count_in.Enabled = true;
                 VATID.Enabled = true;
                 Add.Enabled = true;
+                Delete.Enabled = false;
+                update.Enabled = false;
 
                 ID_in.ResetText();
                 Drink_name_in.ResetText();
@@ -456,6 +473,8 @@ namespace SomerenUI
                 Amount_in.ResetText();
                 Count_in.ResetText();
             }
+
+            SetUIDetailsAndPermissions();
         }
         #endregion
         #region Order_History
@@ -693,6 +712,8 @@ namespace SomerenUI
                 txtStartTime.ResetText();
                 txtEndTime.ResetText();
             }
+
+            SetUIDetailsAndPermissions();
         }
         private void btnRemoveActivity_Click(object sender, EventArgs e)
         {
@@ -792,6 +813,39 @@ namespace SomerenUI
 
         #endregion
 
-       
+        #region Users
+        private void DisableButtons()
+        {
+            btnOpenOrderWindow.Enabled = false;
+            update.Enabled = false;
+            Delete.Enabled = false;
+            Add.Enabled = false;
+            btnRemoveActivity.Enabled = false;
+            btnUpdateActivity.Enabled = false;
+            btnAddActivity.Enabled = false;
+            Add_super.Enabled = false;
+            remove_super.Enabled = false;
+        }
+
+        private bool DeterminePermissions(User user)
+        {
+            return user.roleId == 2;
+        }
+
+        public void SetUIDetailsAndPermissions()
+        {
+            string role = "Admin";
+
+            if (!DeterminePermissions(formUser))
+            {
+                role = "User";
+                DisableButtons();
+            }
+
+            lblLoggedAs.Text = $"Logged In as: {formUser.Username}";
+            lblUserID.Text = $"User ID: {formUser.UserID}";
+            Text = $"SomerenApp     |  Logged in as:     {formUser.Username} (ID: {formUser.UserID})  |  Permission level:    {role}";
+        }
+        #endregion
     }
 }

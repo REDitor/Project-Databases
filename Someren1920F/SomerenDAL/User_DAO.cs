@@ -72,7 +72,7 @@ namespace SomerenDAL
 
         public User GetUserByUsername(string username)
         {
-            SqlCommand cmd = new SqlCommand("SELECT username, password, roleId " +
+            SqlCommand cmd = new SqlCommand("SELECT userId, username, password, roleId, salt " +
                                             "FROM [Users] " +
                                             "Where username = @username", conn);
 
@@ -89,7 +89,7 @@ namespace SomerenDAL
             CloseConnection();
 
             return user;
-        }   
+        }
 
         private User ReadUser(SqlDataReader reader)
         {
@@ -106,25 +106,24 @@ namespace SomerenDAL
 
         public bool RegisterUser(User user)
         {
-            OpenConnection();
+
             SqlCommand cmd = new SqlCommand("INSERT INTO Users(userName, password, roleID, salt)" +
                 "VALUES(@username, @password, @roleID, @salt)", conn);
 
+            OpenConnection();
             cmd.Parameters.AddWithValue("@username", user.Username);
             cmd.Parameters.AddWithValue("@password", user.Password);
             cmd.Parameters.AddWithValue("@roleID", user.roleId);
             cmd.Parameters.AddWithValue("@salt", user.Salt);
 
             int rows = cmd.ExecuteNonQuery();
-            if(rows > 0)
+            if (rows > 0)
             {
                 return true;
             }
-            return false;
-
             CloseConnection();
+
+            return false;
         }
-
-
     }
 }
